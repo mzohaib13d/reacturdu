@@ -150,10 +150,10 @@ export default App;`,
   return (
     <div className="chapter-container urdu-text">
       <div className="chapter-header">
-        <h1 className="chapter-title">📚 چيپٹر نمبر 9 – useEffect Hook (ابتدائی سطح)</h1>
-        <p className="chapter-subtitle">
+        <h1 className="chapter-title text-break">📚 چيپٹر نمبر 9 – useEffect Hook (ابتدائی سطح)</h1>
+        <p className="chapter-subtitle text-break">
           React میں <strong>useEffect()</strong> ایک ایسا Hook ہے جو آپ کو{" "}
-          <strong>nbsp; side effects</strong>
+          <strong>side effects</strong>
           (یعنی وہ کام جو React کے render ہونے کے بعد ہونا چاہیے) کرنے دیتا ہے۔
         </p>
       </div>
@@ -161,12 +161,12 @@ export default App;`,
       <div className="content-wrapper">
         {/* 🔹 sidebar: تمام مثالوں کے buttons */}
         <div className="sidebar">
-          <h3>مثالیں</h3>
+          <h3 className="text-break">مثالیں</h3>
           <ul className="example-list">
             {examples.map((example) => (
               <li key={example.id}>
                 <button
-                  className={`sidebar-btn ${
+                  className={`sidebar-btn text-break ${
                     activeTab === example.id ? "active" : ""
                   }`}
                   onClick={() => setActiveTab(example.id)}
@@ -181,14 +181,14 @@ export default App;`,
         {/* 🔹 main content: منتخب مثال دکھانا */}
         <div className="main-content">
           <div className="section-card">
-            <h2 className="section-title">{examples[activeTab - 1].title}</h2>
-            <p className="section-text">
+            <h2 className="section-title text-break">{examples[activeTab - 1].title}</h2>
+            <p className="section-text text-break">
               {examples[activeTab - 1].description}
             </p>
 
             <div className="code-section">
               <div className="code-header">
-                <span>کوڈ:</span>
+                <span className="text-break">کوڈ:</span>
                 <button
                   className="copy-btn"
                   onClick={() =>
@@ -198,9 +198,11 @@ export default App;`,
                   📋 کوڈ کوپي کریں
                 </button>
               </div>
-              <pre className="english-code">
-                <code>{examples[activeTab - 1].code}</code>
-              </pre>
+              <div className="code-block-container">
+                <pre className="english-code mobile-code-scroll">
+                  <code>{examples[activeTab - 1].code}</code>
+                </pre>
+              </div>
             </div>
 
             {copyStatus && <div className="copy-msg">{copyStatus}</div>}
@@ -208,40 +210,42 @@ export default App;`,
 
           {/* 🔹 useEffect syntax کا الگ سیکشن */}
           <div className="section-card">
-            <h3 className="section-title">📖 useEffect کا بنیادی syntax</h3>
-            <div className="english-code">
-              <code>useEffect(() =&gt; {"{"}</code>
-              <code>  // یہاں آپ کا کوڈ ہوگا جو render کے بعد چلے گا</code>
-              <code>{"}"}, []);</code>
+            <h3 className="section-title text-break">📖 useEffect کا بنیادی syntax</h3>
+            <div className="code-block-container">
+              <pre className="english-code mobile-code-scroll">
+                <code>useEffect(() =&gt; {"{"}</code>
+                <code>  // یہاں آپ کا کوڈ ہوگا جو render کے بعد چلے گا</code>
+                <code>{"}"}, []);</code>
+              </pre>
             </div>
 
             <div className="explanation-box">
-              <h4>🔹 وضاحت:</h4>
+              <h4 className="text-break">🔹 وضاحت:</h4>
               <ul>
-                <li><strong>پہلا argument:</strong> ایک فنکشن ہے (یعنی code کا بلاک)</li>
-                <li><strong>دوسرا argument:</strong> dependency array ہے (کس پر نظر رکھنی ہے)</li>
-                <li>اگر یہ خالی ہو <code>[]</code> تو یہ صرف ایک بار (component mount پر) چلے گا</li>
-                <li>اگر اس میں کوئی state یا prop دیں تو اس کے بدلنے پر بھی چلے گا</li>
+                <li className="text-break"><strong>پہلا argument:</strong> ایک فنکشن ہے (یعنی code کا بلاک)</li>
+                <li className="text-break"><strong>دوسرا argument:</strong> dependency array ہے (کس پر نظر رکھنی ہے)</li>
+                <li className="text-break">اگر یہ خالی ہو <code>[]</code> تو یہ صرف ایک بار (component mount پر) چلے گا</li>
+                <li className="text-break">اگر اس میں کوئی state یا prop دیں تو اس کے بدلنے پر بھی چلے گا</li>
               </ul>
             </div>
           </div>
 
           {/* 🔹 summary */}
           <div className="summary-card">
-            <h3 className="section-title">📌 خلاصہ</h3>
+            <h3 className="section-title text-break">📌 خلاصہ</h3>
             <div className="summary-content">
-              <p>
+              <p className="text-break">
                 <strong>useEffect</strong> React کا Hook ہے جو render کے بعد
                 کوڈ چلانے دیتا ہے
               </p>
-              <p>
+              <p className="text-break">
                 <strong>[]</strong> دینے سے صرف ایک بار چلے گا
               </p>
-              <p>
+              <p className="text-break">
                 <strong>state یا prop</strong> دینے سے ہر بار ان کے بدلنے پر چلے
                 گا
               </p>
-              <p>
+              <p className="text-break">
                 اس مثال میں طلبہ سیکھیں گے کہ useEffect صرف alert یا console
                 کیلئے نہیں بلکہ real-world scenarios جیسے API fetching کیلئے بھی
                 استعمال ہوتا ہے
