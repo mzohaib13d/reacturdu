@@ -469,6 +469,17 @@
 
 /* SPECIFIC FIX for 390px */
 @media (max-width: 390px) {
+  .card-container {
+    max-width: 100%;
+    overflow-x: hidden; /* prevent horizontal scroll */
+    overflow-y: auto;   /* allow vertical scroll */
+  }
+
+  .card {
+    width: 100%;        /* make cards full width on small screens */
+    word-wrap: break-word; /* avoid text cutting */
+    white-space: normal;   /* break long text lines */
+  }
   .chapter-container {
     padding: 10px;
   }
