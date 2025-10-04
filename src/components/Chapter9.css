@@ -1,4 +1,4 @@
-/* Chapter9.css */
+/* Chapter9.css - Fixed Responsive Version */
 .chapter-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -6,6 +6,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
+  direction: rtl;
 }
 
 .header-section {
@@ -54,6 +55,7 @@
   font-size: 1.4rem;
   border-bottom: 3px solid #667eea;
   padding-bottom: 10px;
+  text-align: right;
 }
 
 .example-list {
@@ -114,6 +116,7 @@
   margin-bottom: 15px;
   border-bottom: 2px solid #e2e8f0;
   padding-bottom: 10px;
+  text-align: right;
 }
 
 .example-description {
@@ -125,6 +128,7 @@
   padding: 20px;
   border-radius: 10px;
   border-right: 4px solid #667eea;
+  text-align: right;
 }
 
 .code-section {
@@ -132,6 +136,8 @@
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .code-header {
@@ -142,6 +148,12 @@
   background: #2d3748;
   color: white;
   font-weight: 600;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.code-header span {
+  text-align: right;
 }
 
 .copy-btn {
@@ -153,6 +165,7 @@
   cursor: pointer;
   font-size: 0.9rem;
   transition: background 0.3s ease;
+  white-space: nowrap;
 }
 
 .copy-btn:hover {
@@ -168,6 +181,16 @@
   line-height: 1.5;
   overflow-x: auto;
   background: #1a202c;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-wrap: normal;
+  min-width: min-content;
+}
+
+.code-block code {
+  display: block;
+  min-width: min-content;
 }
 
 .copy-status {
@@ -192,6 +215,7 @@
   margin-bottom: 20px;
   border-bottom: 2px solid #e2e8f0;
   padding-bottom: 10px;
+  text-align: right;
 }
 
 .syntax-box {
@@ -201,12 +225,17 @@
   border-left: 4px solid #667eea;
   margin-bottom: 25px;
   font-family: 'Courier New', monospace;
+  direction: ltr;
+  text-align: left;
+  overflow-x: auto;
 }
 
 .syntax-box code {
   display: block;
   margin-bottom: 5px;
-  color: white;
+  color: #2d3748;
+  white-space: pre;
+  min-width: min-content;
 }
 
 .points-list {
@@ -223,6 +252,7 @@
   background: #f7fafc;
   border-radius: 8px;
   border-left: 4px solid #667eea;
+  text-align: right;
 }
 
 .point-number {
@@ -242,6 +272,8 @@
   margin: 0;
   color: #4a5568;
   line-height: 1.5;
+  text-align: right;
+  flex: 1;
 }
 
 .point-item code {
@@ -249,6 +281,7 @@
   padding: 2px 6px;
   border-radius: 4px;
   font-family: 'Courier New', monospace;
+  direction: ltr;
 }
 
 .summary-content {
@@ -256,12 +289,14 @@
   padding: 25px;
   border-radius: 10px;
   color: white;
+  text-align: right;
 }
 
 .summary-content p {
   margin-bottom: 12px;
   font-size: 1.1rem;
   line-height: 1.6;
+  text-align: right;
 }
 
 .summary-content p:last-child {
@@ -272,24 +307,8 @@
   margin-top: 15px;
 }
 
-/* Responsive Design */
-@media (max-width: 430px) {
-  .chapter-container {
-    padding: 15px;
-  }
-  
-  .header-section {
-    padding: 20px;
-  }
-  
-  .header-section h1 {
-    font-size: 1.8rem;
-  }
-  
-  .chapter-intro {
-    font-size: 1rem;
-  }
-  
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
   .content-wrapper {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -297,93 +316,145 @@
   
   .sidebar {
     position: static;
-    padding: 20px;
+    order: 2;
+  }
+  
+  .main-content {
+    order: 1;
+  }
+}
+
+@media (max-width: 430px) {
+  .chapter-container {
+    padding: 10px;
+    overflow-x: hidden;
+  }
+  
+  .header-section {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+  
+  .header-section h1 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+  
+  .chapter-intro {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .sidebar {
+    position: static;
+    padding: 15px;
+    margin-bottom: 0;
   }
   
   .example-section,
   .theory-section,
   .summary-section {
-    padding: 20px;
+    padding: 20px 15px;
+    margin: 0;
+    border-radius: 10px;
   }
   
   .example-section h2 {
     font-size: 1.4rem;
+    line-height: 1.3;
+  }
+  
+  .example-description {
+    padding: 15px;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .code-section {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: visible;
+  }
+  
+  .code-header {
+    padding: 12px 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
   }
   
   .code-block {
     padding: 15px;
     font-size: 0.85rem;
+    line-height: 1.4;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   
-  .code-header {
-    padding: 12px 15px;
-    flex-direction: column;
+  .copy-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .point-item {
+    padding: 12px;
     gap: 10px;
+    flex-direction: row;
     align-items: flex-start;
+  }
+  
+  .point-number {
+    width: 25px;
+    height: 25px;
+    font-size: 0.9rem;
+  }
+  
+  .summary-content {
+    padding: 20px 15px;
+  }
+  
+  .summary-content p {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 390px) {
-  .header-section h1 {
-    font-size: 1.6rem;
+  .chapter-container {
+    padding: 8px;
   }
   
-  .chapter-intro {
-    font-size: 0.95rem;
+  .header-section {
+    padding: 15px 12px;
+  }
+  
+  .header-section h1 {
+    font-size: 1.4rem;
   }
   
   .sidebar {
-    padding: 15px;
+    padding: 12px;
   }
   
   .sidebar-btn {
-    padding: 12px;
+    padding: 12px 10px;
     font-size: 0.9rem;
   }
   
   .example-section,
   .theory-section,
   .summary-section {
-    padding: 15px;
+    padding: 15px 12px;
   }
   
-  .example-description {
-    padding: 15px;
-    font-size: 1rem;
-  }
-  
-  .point-item {
-    padding: 12px;
-    gap: 12px;
-  }
-  
-  .summary-content {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 375px) {
-  .chapter-container {
-    padding: 10px;
-  }
-  
-  .header-section {
-    padding: 15px;
-    margin-bottom: 20px;
-  }
-  
-  .header-section h1 {
-    font-size: 1.5rem;
-  }
-  
-  .sidebar {
-    padding: 12px;
-  }
-  
-  .example-section,
-  .theory-section,
-  .summary-section {
-    padding: 12px;
+  .example-section h2 {
+    font-size: 1.3rem;
   }
   
   .code-block {
@@ -391,10 +462,21 @@
     font-size: 0.8rem;
   }
   
+  .code-header {
+    padding: 10px 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  
+  .copy-btn {
+    align-self: flex-start;
+  }
+  
   .point-item {
     flex-direction: column;
-    gap: 8px;
     text-align: center;
+    gap: 8px;
   }
   
   .point-number {
@@ -402,38 +484,92 @@
   }
 }
 
-/* RTL Support */
-.chapter-container {
-  direction: rtl;
+@media (max-width: 375px) {
+  .chapter-container {
+    padding: 5px;
+  }
+  
+  .header-section {
+    padding: 15px 10px;
+    margin-bottom: 15px;
+  }
+  
+  .header-section h1 {
+    font-size: 1.3rem;
+  }
+  
+  .sidebar,
+  .example-section,
+  .theory-section,
+  .summary-section {
+    padding: 12px 10px;
+    border-radius: 8px;
+  }
+  
+  .code-block {
+    padding: 10px;
+    font-size: 0.75rem;
+  }
+  
+  .example-description {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+  
+  .point-item {
+    padding: 10px;
+  }
+  
+  .summary-content {
+    padding: 15px 12px;
+  }
 }
 
-.sidebar-btn,
-.example-description,
-.point-item p,
-.summary-content p {
-  text-align: right;
-}
-
-.code-block,
-.syntax-box {
-  direction: ltr;
-  text-align: left;
-}
-
-/* Scrollbar Styling */
+/* Enhanced Scrollbar Styling for Mobile */
 .code-block::-webkit-scrollbar {
-  height: 8px;
+  height: 6px;
 }
 
 .code-block::-webkit-scrollbar-track {
   background: #2d3748;
+  border-radius: 3px;
 }
 
 .code-block::-webkit-scrollbar-thumb {
   background: #4a5568;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .code-block::-webkit-scrollbar-thumb:hover {
   background: #718096;
+}
+
+/* Ensure proper touch scrolling on mobile */
+.code-section {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fix for very small screens */
+@media (max-width: 320px) {
+  .chapter-container {
+    padding: 3px;
+  }
+  
+  .header-section,
+  .sidebar,
+  .example-section,
+  .theory-section,
+  .summary-section {
+    padding: 10px 8px;
+  }
+  
+  .code-block {
+    padding: 8px;
+    font-size: 0.7rem;
+  }
+  
+  .sidebar-btn {
+    padding: 10px 8px;
+    font-size: 0.85rem;
+  }
 }
