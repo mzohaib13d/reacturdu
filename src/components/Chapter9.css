@@ -1,0 +1,439 @@
+/* Chapter9.css */
+.chapter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.header-section {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.header-section h1 {
+  color: #2d3748;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.chapter-intro {
+  font-size: 1.2rem;
+  color: #4a5568;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.sidebar {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.sidebar h3 {
+  color: #2d3748;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 10px;
+}
+
+.example-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.example-list li {
+  margin-bottom: 10px;
+}
+
+.sidebar-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: #f7fafc;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4a5568;
+  transition: all 0.3s ease;
+  text-align: right;
+  border: 2px solid transparent;
+}
+
+.sidebar-btn:hover {
+  background: #667eea;
+  color: white;
+  transform: translateX(-5px);
+}
+
+.sidebar-btn.active {
+  background: #667eea;
+  color: white;
+  border-color: #5a67d8;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.example-section,
+.theory-section,
+.summary-section {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.example-section h2 {
+  color: #2d3748;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+.example-description {
+  font-size: 1.1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  background: #f7fafc;
+  padding: 20px;
+  border-radius: 10px;
+  border-right: 4px solid #667eea;
+}
+
+.code-section {
+  background: #1a202c;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #2d3748;
+  color: white;
+  font-weight: 600;
+}
+
+.copy-btn {
+  background: #48bb78;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.copy-btn:hover {
+  background: #38a169;
+}
+
+.code-block {
+  padding: 25px;
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  background: #1a202c;
+}
+
+.copy-status {
+  background: #48bb78;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.theory-section h3,
+.summary-section h3 {
+  color: #2d3748;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+.syntax-box {
+  background: #f7fafc;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+  margin-bottom: 25px;
+  font-family: 'Courier New', monospace;
+}
+
+.syntax-box code {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  background: #f7fafc;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.point-number {
+  background: #667eea;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.point-item p {
+  margin: 0;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+.point-item code {
+  background: #e2e8f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.summary-content {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 25px;
+  border-radius: 10px;
+  color: white;
+}
+
+.summary-content p {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.summary-content p:last-child {
+  margin-bottom: 0;
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 430px) {
+  .chapter-container {
+    padding: 15px;
+  }
+  
+  .header-section {
+    padding: 20px;
+  }
+  
+  .header-section h1 {
+    font-size: 1.8rem;
+  }
+  
+  .chapter-intro {
+    font-size: 1rem;
+  }
+  
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .sidebar {
+    position: static;
+    padding: 20px;
+  }
+  
+  .example-section,
+  .theory-section,
+  .summary-section {
+    padding: 20px;
+  }
+  
+  .example-section h2 {
+    font-size: 1.4rem;
+  }
+  
+  .code-block {
+    padding: 15px;
+    font-size: 0.85rem;
+  }
+  
+  .code-header {
+    padding: 12px 15px;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 390px) {
+  .header-section h1 {
+    font-size: 1.6rem;
+  }
+  
+  .chapter-intro {
+    font-size: 0.95rem;
+  }
+  
+  .sidebar {
+    padding: 15px;
+  }
+  
+  .sidebar-btn {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  
+  .example-section,
+  .theory-section,
+  .summary-section {
+    padding: 15px;
+  }
+  
+  .example-description {
+    padding: 15px;
+    font-size: 1rem;
+  }
+  
+  .point-item {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .summary-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .chapter-container {
+    padding: 10px;
+  }
+  
+  .header-section {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .header-section h1 {
+    font-size: 1.5rem;
+  }
+  
+  .sidebar {
+    padding: 12px;
+  }
+  
+  .example-section,
+  .theory-section,
+  .summary-section {
+    padding: 12px;
+  }
+  
+  .code-block {
+    padding: 12px;
+    font-size: 0.8rem;
+  }
+  
+  .point-item {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .point-number {
+    align-self: center;
+  }
+}
+
+/* RTL Support */
+.chapter-container {
+  direction: rtl;
+}
+
+.sidebar-btn,
+.example-description,
+.point-item p,
+.summary-content p {
+  text-align: right;
+}
+
+.code-block,
+.syntax-box {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Scrollbar Styling */
+.code-block::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-block::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+.code-block::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+
+.code-block::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}

@@ -1,0 +1,515 @@
+/* Global styles */
+body {
+  margin: 0;
+  font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+  background: #fdfdfd;
+  color: #222;
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.urdu-heading {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #0078ff;
+}
+
+/* Card design */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Urdu text (right aligned) */
+.urdu-text {
+  text-align: right;
+  direction: rtl;
+  line-height: 1.9;
+  font-size: 18px;
+}
+
+/* English quotes */
+.english-quote {
+  text-align: left;
+  direction: ltr;
+  background: #f0f4ff;
+  padding: 12px;
+  border-left: 4px solid #0078ff;
+  border-radius: 6px;
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  margin: 15px 0;
+}
+
+/* English code block */
+.english-code {
+  text-align: left;
+  direction: ltr;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0; /* صرف top/bottom margin */
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  overflow-x: auto;
+  position: relative;
+  line-height: 1.5; /* بہتر readability */
+}
+
+/* Table styles */
+.file-table {
+  margin: 20px 0;
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+}
+
+.file-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  min-width: 600px; /* چھوٹی سکرین پر scroll ہوگا */
+}
+
+.file-table th,
+.file-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: right;
+}
+
+.file-table th {
+  background-color: #f0f4ff;
+  font-weight: bold;
+}
+
+.file-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.file-table code {
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+  font-size: 12px;
+}
+
+/* Chapter 2 specific styles */
+.chapter-subtitle {
+  color: #666;
+  font-size: 16px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.lesson-section,
+.code-section,
+.explanation-section,
+.homework-section,
+.learning-outcomes {
+  margin: 25px 0;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border-right: 4px solid #0078ff;
+}
+
+.homework-section {
+  background: #fff3cd;
+  border-right-color: #ffc107;
+}
+
+.learning-outcomes {
+  background: #d1ecf1;
+  border-right-color: #17a2b8;
+}
+
+.lesson-section ul,
+.learning-outcomes ul,
+.homework-section ol {
+  margin: 15px 0;
+  padding-right: 20px;
+}
+
+.lesson-section li,
+.learning-outcomes li,
+.homework-section li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+/* 🔹 Copy Button */
+.copy-btn {
+  background: #0078ff;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  margin: 10px 0; /* صرف vertical margin */
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-family: sans-serif;
+  display: inline-block;
+}
+
+.copy-btn:hover {
+  background: #005fcc;
+  transform: translateY(-1px);
+}
+
+.copy-btn:hover {
+  background: #005fcc;
+}
+
+/* Copy success message */
+.copy-msg {
+  color: #0078ff;
+  font-size: 14px;
+  margin-top: 8px;
+  text-align: left;
+  direction: ltr;
+  font-family: "Fira Code", monospace;
+}
+
+.lesson-section h4,
+.code-section h4,
+.explanation-section h4 {
+  color: #0078ff;
+  margin-bottom: 15px;
+}
+
+.homework-section {
+  background: #fff3cd;
+  border-right-color: #ffc107;
+}
+
+.learning-outcomes {
+  background: #d1ecf1;
+  border-right-color: #17a2b8;
+}
+
+.lesson-section ul,
+.learning-outcomes ul,
+.homework-section ol {
+  margin: 15px 0;
+  padding-right: 20px;
+}
+
+.lesson-section li,
+.learning-outcomes li,
+.homework-section li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+
+/* Table of Contents Styles */
+.toc-actions {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.show-all-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: sans-serif;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+}
+
+.show-all-btn:hover {
+  background: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(40, 167, 69, 0.3);
+}
+
+/* Chapter content visibility */
+.chapter-content {
+  transition: all 0.3s ease;
+}
+
+/* Chapter visibility */
+.chapter-content {
+  transition: all 0.3s ease;
+}
+
+.toc-intro {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border-right: 4px solid #0078ff;
+}
+
+.toc-stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0078ff;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.chapters-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chapter-card {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.chapter-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: #0078ff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.chapter-card:hover {
+  border-color: #0078ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 120, 255, 0.1);
+}
+
+.chapter-card:hover::before {
+  opacity: 1;
+}
+
+.chapter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chapter-number {
+  background: #0078ff;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.chapter-duration {
+  color: #666;
+  font-size: 14px;
+}
+
+.chapter-title {
+  color: #222;
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.chapter-description {
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.chapter-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.topic-tag {
+  background: #e3f2fd;
+  color: #0078ff;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  border: 1px solid #0078ff;
+}
+
+.chapter-action {
+  text-align: left;
+}
+
+.read-btn {
+  background: transparent;
+  color: #0078ff;
+  border: 2px solid #0078ff;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: sans-serif;
+}
+
+.read-btn:hover {
+  background: #0078ff;
+  color: white;
+}
+
+.toc-footer {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 30px;
+}
+
+.toc-footer h3 {
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.toc-footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.toc-footer li {
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+/* Additional utility classes */
+.mt-3 {
+  margin-top: 1rem;
+}
+
+/* 🔹 Responsive Breakpoints */
+@media (max-width: 768px) {
+  .file-table {
+    font-size: 14px;
+  }
+  
+  .file-table th,
+  .file-table td {
+    padding: 8px;
+  }
+
+  .lesson-section,
+  .code-section,
+  .explanation-section,
+  .homework-section,
+  .learning-outcomes {
+    padding: 15px;
+    margin: 20px 0;
+  }
+  .toc-actions {
+    margin: 25px 0;
+  }
+  
+  .show-all-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+  }
+  .toc-stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .chapter-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .chapter-topics {
+    gap: 6px;
+  }
+  
+  .topic-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+}
+
+@media (max-width: 430px) {
+  .urdu-heading {
+    font-size: 22px;
+  }
+  .card {
+    padding: 15px;
+  }
+  .urdu-text {
+    font-size: 16px;
+  }
+    .chapter-card {
+    padding: 15px;
+  }
+  
+  .chapter-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 390px) {
+  .urdu-heading {
+    font-size: 20px;
+  }
+  .urdu-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 375px) {
+  .urdu-heading {
+    font-size: 18px;
+  }
+  .urdu-text {
+    font-size: 14px;
+  }
+  .english-code {
+    font-size: 13px;
+    padding: 10px;
+  }
+  .copy-btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
