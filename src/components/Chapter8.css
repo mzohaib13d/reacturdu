@@ -102,17 +102,21 @@
 }
 
 .code-block {
-  background: #1a1a1a;
-  color: #f8f9fa;
-  padding: 20px;
-  margin: 0;
-  overflow-x: auto; /* horizontal scroll */
-  overflow-y: auto; /* vertical scroll بھی on */
-  max-width: 100%; /* mobile پر fit کرے */
-  max-height: 400px; /* optional: ایک fixed height تاکہ بہت زیادہ لمبا نہ ہو */
-  font-family: "Courier New", monospace;
-  font-size: 0.95rem;
-  line-height: 1.5;
+    background: #1a1a1a;
+    color: #f8f9fa;
+    padding: 20px;
+    margin: 0;
+    overflow-x: auto; /* horizontal scroll */
+    overflow-y: auto; /* vertical scroll بھی on */
+    max-width: 100%; /* mobile پر fit کرے */
+    max-height: 400px; /* optional: ایک fixed height تاکہ بہت زیادہ لمبا نہ ہو */
+    font-family: "Courier New", monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    /* This is the key fix: It tells the browser *not* to break lines, forcing a single line for the code content. */
+    white-space: pre; 
+    /* The default 'display' for a 'pre' content element like this should be block, but we ensure it for safety */
+    display: block; 
 }
 
 .code-block code {
@@ -333,11 +337,10 @@
   }
 
   .code-block {
-    font-size: 0.85rem;
-    padding: 10px;
-    overflow-x: auto !important; /* force horizontal scroll */
-    white-space: pre !important; /* line break نہ کرے */
-    display: block; /* inline نہیں ہونا چاہیے */
+        font-size: 0.85rem;
+        padding: 10px;
+        overflow-x: auto; 
+        
   }
 
   .student-item {
