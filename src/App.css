@@ -1,4 +1,4 @@
-/* Global styles */
+/* Global styles in App.css*/
 body {
   margin: 0;
   font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
@@ -11,7 +11,10 @@ body {
   margin: 0 auto;
   padding: 20px;
 }
-
+p strong {
+  color: #faaabf;
+  font-size: 22px;
+}
 .urdu-heading {
   text-align: center;
   margin-bottom: 30px;
@@ -51,15 +54,15 @@ body {
 
 /* English code block */
 .english-code {
-  text-align: left;
-  direction: ltr;
   background: #1e1e1e;
   color: #d4d4d4;
   padding: 15px;
   border-radius: 8px;
   margin: 15px 0; /* صرف top/bottom margin */
+  direction: ltr;
+  text-align: left;
   font-family: "Fira Code", monospace;
-  font-size: 14px;
+  font-size: 16px;
   overflow-x: auto;
   position: relative;
   line-height: 1.5; /* بہتر readability */
@@ -119,12 +122,15 @@ body {
 .homework-section,
 .learning-outcomes {
   margin: 25px 0;
+  color: #333fcf;
   padding: 20px;
   background: #f8fafc;
   border-radius: 12px;
   border-right: 4px solid #0078ff;
 }
-
+.code-section h3 {
+  color: #0078ff;
+}
 .homework-section {
   background: #fff3cd;
   border-right-color: #ffc107;
@@ -214,7 +220,6 @@ body {
   line-height: 1.7;
 }
 
-
 /* Table of Contents Styles */
 .toc-actions {
   text-align: center;
@@ -301,7 +306,7 @@ body {
 }
 
 .chapter-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -344,9 +349,9 @@ body {
 }
 
 .chapter-title {
-  color: #222;
-  margin: 10px 0;
-  font-size: 20px;
+  color: #222 !important;
+  margin: 10px 0 !important;
+  font-size: 20px !important;
 }
 
 .chapter-description {
@@ -400,7 +405,7 @@ body {
 }
 
 .toc-footer h3 {
-  color: #222;
+  color: #2c3e50;
   margin-bottom: 15px;
 }
 
@@ -418,13 +423,385 @@ body {
 .mt-3 {
   margin-top: 1rem;
 }
+/* ===== CHAPTER 8 STYLES ===== */
+
+/* Chapter 8 Container */
+.chapter-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  direction: rtl;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Chapter Header */
+.chapter-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  color: white;
+}
+
+.chapter-title {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.chapter-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* Section Cards */
+.section-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.section-title {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #3498db;
+  text-align: right;
+}
+
+.section-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 25px;
+  text-align: right;
+}
+
+.section-text code {
+  background: #f8f9fa;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #e9ecef;
+  color: #e83e8c;
+  font-family: "Courier New", monospace;
+}
+
+/* Code Sections for Chapter 8 */
+.code-section {
+  margin: 25px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c3e50;
+  color: white;
+  padding: 15px 20px;
+}
+
+.code-header h3 {
+  margin: 0;
+  color: white;
+  font-size: 1.1rem;
+}
+
+/* Demo Sections */
+.demo-section {
+  margin: 25px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-right: 4px solid #3498db;
+}
+
+.demo-section h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.demo-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Student List Styles */
+.student-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.student-item {
+  background: white;
+  margin: 8px 0;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+.student-item:hover {
+  border-color: #3498db;
+  transform: translateX(-5px);
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
+}
+
+/* Explanation Box */
+.explanation-box {
+  background: #e8f4fd;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.explanation-box h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.explanation-box ul {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.explanation-box li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+/* Methods Grid */
+.methods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.method-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.method-card:hover {
+  transform: translateY(-5px);
+  border-color: #3498db;
+}
+
+.method-card h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.method-card p {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Summary Section */
+.summary-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.summary-card .section-title {
+  color: white;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+
+.summary-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.summary-icon {
+  font-size: 1.5rem;
+}
+
+/* Copy Notification */
+.copy-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #27ae60;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Utility Classes for Chapter 8 */
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+/* Chapter 8 Responsive Design */
+/* Content Wrapper for Sidebar Layout */
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.sidebar h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  border-bottom: 3px solid #0078ff;
+  padding-bottom: 10px;
+  text-align: right;
+}
+
+.example-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.example-list li {
+  margin-bottom: 10px;
+}
+
+.sidebar-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: #f7fafc;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4a5568;
+  transition: all 0.3s ease;
+  text-align: right;
+  border: 2px solid transparent;
+}
+
+.sidebar-btn:hover {
+  background: #0078ff;
+  color: white;
+  transform: translateX(-5px);
+}
+
+.sidebar-btn.active {
+  background: #0078ff;
+  color: white;
+  border-color: #005fcc;
+}
+
+/* Main Content Area */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Summary Content Styles */
+.summary-content {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+  color: white;
+  text-align: right;
+}
+
+.summary-content p {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: right;
+}
+
+.summary-content p:last-child {
+  margin-bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
 
 /* 🔹 Responsive Breakpoints */
 @media (max-width: 768px) {
   .file-table {
     font-size: 14px;
   }
-  
+
   .file-table th,
   .file-table td {
     padding: 8px;
@@ -441,7 +818,7 @@ body {
   .toc-actions {
     margin: 25px 0;
   }
-  
+
   .show-all-btn {
     width: 100%;
     padding: 14px;
@@ -451,20 +828,54 @@ body {
     flex-direction: column;
     gap: 15px;
   }
-  
+
   .chapter-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
-  
+
   .chapter-topics {
     gap: 6px;
   }
-  
+
   .topic-tag {
     font-size: 11px;
     padding: 3px 10px;
+  }
+  .chapter-title {
+    font-size: 2rem;
+  }
+
+  .section-card {
+    padding: 20px;
+  }
+
+  .methods-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .code-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .summary-points {
+    grid-template-columns: 1fr;
+  }
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sidebar {
+    position: static;
+    order: 2;
+  }
+
+  .main-content {
+    order: 1;
   }
 }
 
@@ -478,16 +889,63 @@ body {
   .urdu-text {
     font-size: 16px;
   }
-    .chapter-card {
+  .chapter-card {
     padding: 15px;
   }
-  
+
   .chapter-title {
     font-size: 18px;
+  }
+  .chapter-container {
+    padding: 15px;
+  }
+
+  .chapter-title {
+    font-size: 1.8rem;
+  }
+
+  .section-card {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .chapter-header {
+    padding: 20px;
+  }
+  .chapter-container {
+    padding: 15px;
+  }
+
+  .sidebar {
+    padding: 20px;
+  }
+
+  .sidebar-btn {
+    padding: 12px;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 390px) {
+  .chapter-title {
+    font-size: 1.6rem;
+  }
+
+  .chapter-subtitle {
+    font-size: 1rem;
+  }
+
+  .section-card {
+    padding: 15px;
+  }
+
+  .student-item {
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
   .urdu-heading {
     font-size: 20px;
   }
@@ -495,9 +953,36 @@ body {
     font-size: 15px;
     line-height: 1.7;
   }
+  .sidebar {
+    padding: 15px;
+  }
+
+  .sidebar-btn {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 375px) {
+  .chapter-header {
+    padding: 20px 15px;
+  }
+
+  .chapter-title {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .method-card {
+    padding: 20px 15px;
+  }
+
+  .demo-card {
+    padding: 15px;
+  }
   .urdu-heading {
     font-size: 18px;
   }
@@ -511,5 +996,17 @@ body {
   .copy-btn {
     font-size: 12px;
     padding: 6px 10px;
+  }
+  .chapter-container {
+    padding: 10px;
+  }
+
+  .sidebar {
+    padding: 12px;
+  }
+
+  .sidebar-btn {
+    padding: 8px;
+    font-size: 0.8rem;
   }
 }

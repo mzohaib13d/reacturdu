@@ -1,6 +1,5 @@
-// Chapter8.jsx
 import React, { useState } from "react";
-import "./Chapter8.css";
+// REMOVED: import "./Chapter8.css"; - Now using App.css
 
 function Chapter8() {
   const [copiedCode, setCopiedCode] = useState("");
@@ -98,7 +97,7 @@ export default MyComponent;`
   };
 
   return (
-    <div className="chapter-container">
+    <div className="chapter-container urdu-text">
       <div className="chapter-header">
         <h1 className="chapter-title">📚 چیپٹر 8: لسٹس اور کیز + React میں CSS اسٹائلنگ</h1>
         <p className="chapter-subtitle">Lists & Keys + CSS Styling in React</p>
@@ -122,7 +121,7 @@ export default MyComponent;`
               {copiedCode === "Basic List" ? "✅ Copied!" : "📋 Copy Code"}
             </button>
           </div>
-          <pre className="code-block">
+          <pre className="english-code">
             <code>{codeBlocks.basicList}</code>
           </pre>
         </div>
@@ -186,7 +185,7 @@ export default MyComponent;`
               {copiedCode === "Inline Style" ? "✅ Copied!" : "📋 Copy Code"}
             </button>
           </div>
-          <pre className="code-block">
+          <pre className="english-code">
             <code>{codeBlocks.inlineStyle}</code>
           </pre>
         </div>
@@ -218,7 +217,7 @@ export default MyComponent;`
               {copiedCode === "Separate CSS" ? "✅ Copied!" : "📋 Copy Code"}
             </button>
           </div>
-          <pre className="code-block">
+          <pre className="english-code">
             <code>{codeBlocks.separateCSS}</code>
           </pre>
         </div>
@@ -242,7 +241,7 @@ export default MyComponent;`
               {copiedCode === "CSS Modules" ? "✅ Copied!" : "📋 Copy Code"}
             </button>
           </div>
-          <pre className="code-block">
+          <pre className="english-code">
             <code>{codeBlocks.cssModules}</code>
           </pre>
         </div>

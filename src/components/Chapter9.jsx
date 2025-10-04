@@ -1,6 +1,5 @@
-// Chapter9.jsx
 import React, { useState, useEffect } from "react";
-import "./Chapter9.css";
+// REMOVED: import "./Chapter9.css"; - Now using App.css
 
 const Chapter9 = () => {
   // 👉 useState: یہ React کا ایک Hook ہے جو کسی بھی ویلیو کو یاد رکھتا ہے
@@ -149,12 +148,12 @@ export default App;`,
   ];
 
   return (
-    <div className="chapter-container">
-      <div className="header-section">
-        <h1>📚 چيپٹر نمبر 9 – useEffect Hook (ابتدائی سطح)</h1>
-        <p className="chapter-intro">
+    <div className="chapter-container urdu-text">
+      <div className="chapter-header">
+        <h1 className="chapter-title">📚 چيپٹر نمبر 9 – useEffect Hook (ابتدائی سطح)</h1>
+        <p className="chapter-subtitle">
           React میں <strong>useEffect()</strong> ایک ایسا Hook ہے جو آپ کو{" "}
-          <strong>side effects</strong>
+          <strong>nbsp; side effects</strong>
           (یعنی وہ کام جو React کے render ہونے کے بعد ہونا چاہیے) کرنے دیتا ہے۔
         </p>
       </div>
@@ -181,9 +180,9 @@ export default App;`,
 
         {/* 🔹 main content: منتخب مثال دکھانا */}
         <div className="main-content">
-          <div className="example-section">
-            <h2>{examples[activeTab - 1].title}</h2>
-            <p className="example-description">
+          <div className="section-card">
+            <h2 className="section-title">{examples[activeTab - 1].title}</h2>
+            <p className="section-text">
               {examples[activeTab - 1].description}
             </p>
 
@@ -199,56 +198,37 @@ export default App;`,
                   📋 کوڈ کوپي کریں
                 </button>
               </div>
-              <pre className="code-block">
+              <pre className="english-code">
                 <code>{examples[activeTab - 1].code}</code>
               </pre>
             </div>
 
-            {copyStatus && <div className="copy-status">{copyStatus}</div>}
+            {copyStatus && <div className="copy-msg">{copyStatus}</div>}
           </div>
 
           {/* 🔹 useEffect syntax کا الگ سیکشن */}
-          <div className="theory-section">
-            <h3>📖 useEffect کا بنیادی syntax</h3>
-            <div className="syntax-box">
+          <div className="section-card">
+            <h3 className="section-title">📖 useEffect کا بنیادی syntax</h3>
+            <div className="english-code">
               <code>useEffect(() =&gt; {"{"}</code>
               <code>  // یہاں آپ کا کوڈ ہوگا جو render کے بعد چلے گا</code>
               <code>{"}"}, []);</code>
             </div>
 
-            <div className="points-list">
-              <div className="point-item">
-                <span className="point-number">1</span>
-                <p>
-                  <strong>پہلا argument:</strong> ایک فنکشن ہے (یعنی code کا بلاک)
-                </p>
-              </div>
-              <div className="point-item">
-                <span className="point-number">2</span>
-                <p>
-                  <strong>دوسرا argument:</strong> dependency array ہے (کس پر
-                  نظر رکھنی ہے)
-                </p>
-              </div>
-              <div className="point-item">
-                <span className="point-number">•</span>
-                <p>
-                  اگر یہ خالی ہو <code>[]</code> تو یہ صرف ایک بار (component
-                  mount پر) چلے گا
-                </p>
-              </div>
-              <div className="point-item">
-                <span className="point-number">•</span>
-                <p>
-                  اگر اس میں کوئی state یا prop دیں تو اس کے بدلنے پر بھی چلے گا
-                </p>
-              </div>
+            <div className="explanation-box">
+              <h4>🔹 وضاحت:</h4>
+              <ul>
+                <li><strong>پہلا argument:</strong> ایک فنکشن ہے (یعنی code کا بلاک)</li>
+                <li><strong>دوسرا argument:</strong> dependency array ہے (کس پر نظر رکھنی ہے)</li>
+                <li>اگر یہ خالی ہو <code>[]</code> تو یہ صرف ایک بار (component mount پر) چلے گا</li>
+                <li>اگر اس میں کوئی state یا prop دیں تو اس کے بدلنے پر بھی چلے گا</li>
+              </ul>
             </div>
           </div>
 
           {/* 🔹 summary */}
-          <div className="summary-section">
-            <h3>📌 خلاصہ</h3>
+          <div className="summary-card">
+            <h3 className="section-title">📌 خلاصہ</h3>
             <div className="summary-content">
               <p>
                 <strong>useEffect</strong> React کا Hook ہے جو render کے بعد
