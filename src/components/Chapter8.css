@@ -334,7 +334,10 @@
 
   .code-block {
     font-size: 0.85rem;
-    padding: 12px;
+    padding: 10px;
+    overflow-x: auto !important; /* force horizontal scroll */
+    white-space: pre !important; /* line break نہ کرے */
+    display: block; /* inline نہیں ہونا چاہیے */
   }
 
   .student-item {
