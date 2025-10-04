@@ -1010,3 +1010,312 @@ p strong {
     font-size: 0.8rem;
   }
 }
+/* ===== CHAPTER 9 MOBILE FIXES ===== */
+
+/* Fix for code block horizontal scrolling */
+.english-code {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  direction: ltr;
+  text-align: left;
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  overflow-x: auto;
+  position: relative;
+  line-height: 1.5;
+  white-space: pre;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Code block container for better scrolling */
+.code-block-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #1e1e1e;
+  border-radius: 8px;
+}
+
+/* Ensure code content doesn't wrap and scrolls properly */
+.english-code code {
+  display: block;
+  white-space: pre;
+  min-width: min-content;
+  padding: 0;
+  margin: 0;
+}
+
+/* Mobile-specific fixes for 390px and 375px */
+@media (max-width: 430px) {
+  .chapter-container {
+    padding: 10px;
+    overflow-x: hidden;
+  }
+  
+  .chapter-header {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+  
+  .chapter-title {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    word-wrap: break-word;
+  }
+  
+  .chapter-subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .sidebar {
+    position: static;
+    padding: 15px;
+    margin-bottom: 0;
+  }
+  
+  .section-card {
+    padding: 15px;
+    margin: 0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+    line-height: 1.3;
+    word-wrap: break-word;
+  }
+  
+  .section-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+  
+  .english-code {
+    font-size: 12px;
+    padding: 12px;
+    margin: 10px 0;
+  }
+  
+  .code-header {
+    padding: 10px 15px;
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+  
+  .copy-btn {
+    align-self: flex-start;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .sidebar-btn {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Specific fixes for 390px devices */
+@media (max-width: 390px) {
+  .chapter-container {
+    padding: 8px;
+  }
+  
+  .chapter-header {
+    padding: 18px 12px;
+  }
+  
+  .chapter-title {
+    font-size: 1.4rem;
+  }
+  
+  .chapter-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .sidebar {
+    padding: 12px;
+  }
+  
+  .section-card {
+    padding: 12px;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+  
+  .section-text {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  
+  .english-code {
+    font-size: 11px;
+    padding: 10px;
+    line-height: 1.4;
+  }
+  
+  .sidebar-btn {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+  
+  .copy-btn {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+  
+  /* Fix text overflow in cards */
+  .section-card * {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Specific fixes for 375px devices */
+@media (max-width: 375px) {
+  .chapter-container {
+    padding: 5px;
+  }
+  
+  .chapter-header {
+    padding: 15px 10px;
+    margin-bottom: 15px;
+  }
+  
+  .chapter-title {
+    font-size: 1.3rem;
+  }
+  
+  .chapter-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .sidebar {
+    padding: 10px;
+  }
+  
+  .section-card {
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+  }
+  
+  .section-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+  
+  .english-code {
+    font-size: 10px;
+    padding: 8px;
+    line-height: 1.3;
+    border-radius: 6px;
+  }
+  
+  .sidebar-btn {
+    padding: 6px 8px;
+    font-size: 0.75rem;
+  }
+  
+  .copy-btn {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+  }
+  
+  .code-header {
+    padding: 8px 10px;
+  }
+  
+  /* Emergency text fitting */
+  .section-card h2,
+  .section-card h3,
+  .section-card p {
+    max-width: 100%;
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
+
+/* Enhanced code block scrolling for all mobile sizes */
+@media (max-width: 430px) {
+  .english-code {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: pre;
+    word-wrap: normal;
+  }
+  
+  .english-code code {
+    display: block;
+    min-width: max-content;
+    padding-right: 10px;
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .english-code {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Force horizontal scrolling on problematic code blocks */
+.mobile-code-scroll {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* Fix for very long words in text */
+.text-break {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Ensure all content fits within screen */
+.chapter-container * {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Emergency width fixes for mobile */
+@media (max-width: 375px) {
+  .chapter-container {
+    width: 100vw;
+    margin: 0;
+    padding: 5px;
+  }
+  
+  .content-wrapper,
+  .sidebar,
+  .main-content,
+  .section-card {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
