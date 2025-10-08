@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from "react";
-// REMOVED: import "./Chapter9.css"; - Now using App.css
 
 const Chapter9 = () => {
-  // 👉 useState: یہ React کا ایک Hook ہے جو کسی بھی ویلیو کو یاد رکھتا ہے
-  // activeTab میں ہم یہ رکھ رہے ہیں کہ کونسی مثال (example) کھلی ہے
   const [activeTab, setActiveTab] = useState(1);
-
-  // 👉 copyStatus: یہ state بس یہ دکھانے کے لیے ہے کہ "کاپی ہو گئی"
   const [copyStatus, setCopyStatus] = useState("");
 
-  // 👉 یہ فنکشن code کو کلپ بورڈ (جہاں copy ہوتا ہے) میں ڈال دیتا ہے
   const copyToClipboard = (code, exampleNum) => {
-    navigator.clipboard.writeText(code); // یہ براؤزر کا خاص فنکشن ہے جو text copy کرتا ہے
-    setCopyStatus(`مثال ${exampleNum} کوپي ہو گئی!`); // status دکھا دیا
-    setTimeout(() => setCopyStatus(""), 2000); // 2 سیکنڈ بعد میسج غائب ہو جائے گا
+    navigator.clipboard.writeText(code);
+    setCopyStatus(`مثال ${exampleNum} کوپي ہو گئی!`);
+    setTimeout(() => setCopyStatus(""), 2000);
   };
 
-  // 🔹 تمام مثالیں یہاں objects کی list (array) میں رکھی گئیں ہیں
-  // 👉 ES6 میں object بنانے کے لیے { } استعمال ہوتا ہے اور array کیلئے [ ] 
+  // 🔹 Copy function for the syntax code block
+  const copySyntaxCode = () => {
+    const syntaxCode = `useEffect(() => {
+  // یہاں آپ کا کوڈ ہوگا جو render کے بعد چلے گا
+}, []);`;
+    navigator.clipboard.writeText(syntaxCode);
+    setCopyStatus("Syntax کوڈ کوپي ہو گیا!");
+    setTimeout(() => setCopyStatus(""), 2000);
+  };
+
   const examples = [
     {
       id: 1,
@@ -150,7 +152,9 @@ export default App;`,
   return (
     <div className="chapter-container urdu-text">
       <div className="chapter-header">
-        <h1 className="chapter-title text-break">📚 چيپٹر نمبر 9 – useEffect Hook (ابتدائی سطح)</h1>
+        <h1 className="chapter-title text-break">
+          📚 چيپٹر نمبر 9 – useEffect Hook (ابتدائی سطح)
+        </h1>
         <p className="chapter-subtitle text-break">
           React میں <strong>useEffect()</strong> ایک ایسا Hook ہے جو آپ کو{" "}
           <strong>side effects</strong>
@@ -178,15 +182,17 @@ export default App;`,
           </ul>
         </div>
 
-        {/* 🔹 main content: منتخب مثال دکھانا */}
+        {/*🔹 main content: منتخب مثال دکھانا */}
         <div className="main-content">
           <div className="section-card">
-            <h2 className="section-title text-break">{examples[activeTab - 1].title}</h2>
+            <h2 className="section-title text-break">
+              {examples[activeTab - 1].title}
+            </h2>
             <p className="section-text text-break">
               {examples[activeTab - 1].description}
             </p>
 
-            <div className="code-section">
+            <div className="code-block-container">
               <div className="code-header">
                 <span className="text-break">کوڈ:</span>
                 <button
@@ -195,11 +201,12 @@ export default App;`,
                     copyToClipboard(examples[activeTab - 1].code, activeTab)
                   }
                 >
-                  📋 کوڈ کوپي کریں
+                  {copyStatus.includes(`مثال ${activeTab}`) ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
                 </button>
               </div>
-              <div className="code-block-container">
-                <pre className="english-code mobile-code-scroll">
+
+              <div className="code-block-wrapper">
+                <pre className="english-code">
                   <code>{examples[activeTab - 1].code}</code>
                 </pre>
               </div>
@@ -208,35 +215,56 @@ export default App;`,
             {copyStatus && <div className="copy-msg">{copyStatus}</div>}
           </div>
 
-          {/* 🔹 useEffect syntax کا الگ سیکشن */}
           <div className="section-card">
-            <h3 className="section-title text-break">📖 useEffect کا بنیادی syntax</h3>
+            <h3 className="section-title text-break">
+              📖 useEffect کا بنیادی syntax
+            </h3>
             <div className="code-block-container">
-              <pre className="english-code mobile-code-scroll">
-                <code>useEffect(() =&gt; {"{"}</code>
-                <code>  // یہاں آپ کا کوڈ ہوگا جو render کے بعد چلے گا</code>
-                <code>{"}"}, []);</code>
-              </pre>
+              <div className="code-header">
+                <span className="text-break">Syntax:</span>
+                <button
+                  className="copy-btn"
+                  onClick={copySyntaxCode}
+                >
+                  {copyStatus === "Syntax کوڈ کوپي ہو گیا!" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+                </button>
+              </div>
+              <div className="code-block-wrapper">
+                <pre className="english-code">
+                  <code>{`useEffect(() => {
+  // یہاں آپ کا کوڈ ہوگا جو render کے بعد چلے گا
+}, []);`}</code>
+                </pre>
+              </div>
             </div>
-
             <div className="explanation-box">
               <h4 className="text-break">🔹 وضاحت:</h4>
               <ul>
-                <li className="text-break"><strong>پہلا argument:</strong> ایک فنکشن ہے (یعنی code کا بلاک)</li>
-                <li className="text-break"><strong>دوسرا argument:</strong> dependency array ہے (کس پر نظر رکھنی ہے)</li>
-                <li className="text-break">اگر یہ خالی ہو <code>[]</code> تو یہ صرف ایک بار (component mount پر) چلے گا</li>
-                <li className="text-break">اگر اس میں کوئی state یا prop دیں تو اس کے بدلنے پر بھی چلے گا</li>
+                <li className="text-break">
+                  <strong>پہلا argument:</strong> ایک فنکشن ہے (یعنی code کا
+                  بلاک)
+                </li>
+                <li className="text-break">
+                  <strong>دوسرا argument:</strong> dependency array ہے (کس پر
+                  نظر رکھنی ہے)
+                </li>
+                <li className="text-break">
+                  اگر یہ خالی ہو <code>[]</code> تو یہ صرف ایک بار (component
+                  mount پر) چلے گا
+                </li>
+                <li className="text-break">
+                  اگر اس میں کوئی state یا prop دیں تو اس کے بدلنے پر بھی چلے گا
+                </li>
               </ul>
             </div>
           </div>
 
-          {/* 🔹 summary */}
           <div className="summary-card">
             <h3 className="section-title text-break">📌 خلاصہ</h3>
             <div className="summary-content">
               <p className="text-break">
-                <strong>useEffect</strong> React کا Hook ہے جو render کے بعد
-                کوڈ چلانے دیتا ہے
+                <strong>useEffect</strong> React کا Hook ہے جو render کے بعد کوڈ
+                چلانے دیتا ہے
               </p>
               <p className="text-break">
                 <strong>[]</strong> دینے سے صرف ایک بار چلے گا
@@ -254,6 +282,13 @@ export default App;`,
           </div>
         </div>
       </div>
+
+      {/* Global Copy Notification */}
+      {copyStatus && (
+        <div className="copy-notification">
+          ✅ {copyStatus}
+        </div>
+      )}
     </div>
   );
 };

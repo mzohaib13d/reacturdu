@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
 function Chapter6() {
-  const [copySuccess, setCopySuccess] = useState("");
+  const [copiedCode, setCopiedCode] = useState("");
 
-  const handleCopy = (code) => {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopySuccess("کاپی ہوگیا ✅");
-      setTimeout(() => setCopySuccess(""), 2000);
-    });
+  const copyToClipboard = (code, title) => {
+    navigator.clipboard.writeText(code);
+    setCopiedCode(title);
+    setTimeout(() => setCopiedCode(""), 2000);
   };
 
   // Example 1 Code
@@ -140,8 +139,11 @@ function App() {
         <div className="english-code">
           <code>const [value, setValue] = useState(initialValue);</code>
         </div>
-        <button onClick={() => handleCopy("const [value, setValue] = useState(initialValue);")} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard("const [value, setValue] = useState(initialValue);", "useState Syntax")}
+        >
+          {copiedCode === "useState Syntax" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
       </div>
 
@@ -151,8 +153,11 @@ function App() {
         <pre className="english-code">
           <code>{example1Code}</code>
         </pre>
-        <button onClick={() => handleCopy(example1Code)} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard(example1Code, "Counter Example")}
+        >
+          {copiedCode === "Counter Example" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
       </div>
 
@@ -162,16 +167,22 @@ function App() {
         <pre className="english-code">
           <code>{example2Code}</code>
         </pre>
-        <button onClick={() => handleCopy(example2Code)} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard(example2Code, "Toggle Background")}
+        >
+          {copiedCode === "Toggle Background" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
 
         <p className="mt-3"><strong>اور App.jsx میں آپ اسے اس طرح استعمال کر سکتے ہیں:</strong></p>
         <pre className="english-code">
           <code>{appUsageCode}</code>
         </pre>
-        <button onClick={() => handleCopy(appUsageCode)} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard(appUsageCode, "App Usage")}
+        >
+          {copiedCode === "App Usage" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
       </div>
 
@@ -180,8 +191,11 @@ function App() {
         <pre className="english-code">
           <code>{cssCode}</code>
         </pre>
-        <button onClick={() => handleCopy(cssCode)} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard(cssCode, "CSS Styles")}
+        >
+          {copiedCode === "CSS Styles" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
         
         <p className="mt-3"><em>(آپ کا پچھلا CSS بھی لگا رہے گا، یہ اضافی کلاسیں اس پر کام کریں گی۔)</em></p>
@@ -216,7 +230,11 @@ function App() {
         </ul>
       </div>
 
-      {copySuccess && <p className="copy-msg">{copySuccess}</p>}
+      {copiedCode && (
+        <div className="copy-notification">
+          ✅ {copiedCode} code copied to clipboard!
+        </div>
+      )}
     </div>
   );
 }

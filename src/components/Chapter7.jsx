@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
 function Chapter7() {
-  const [copySuccess, setCopySuccess] = useState("");
+  const [copiedCode, setCopiedCode] = useState("");
 
-  const handleCopy = (code) => {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopySuccess("کاپی ہوگیا ✅");
-      setTimeout(() => setCopySuccess(""), 2000);
-    });
+  const copyToClipboard = (code, title) => {
+    navigator.clipboard.writeText(code);
+    setCopiedCode(title);
+    setTimeout(() => setCopiedCode(""), 2000);
   };
 
   // Event Handling Example Code
@@ -178,16 +177,22 @@ export default App;`;
         <pre className="english-code">
           <code>{eventHandlingCode}</code>
         </pre>
-        <button onClick={() => handleCopy(eventHandlingCode)} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard(eventHandlingCode, "Event Handling Form")}
+        >
+          {copiedCode === "Event Handling Form" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
 
         <p className="mt-3"><strong>📁 src/App.css میں فارم کے لئے کلاسیں:</strong></p>
         <pre className="english-code">
           <code>{formCssCode}</code>
         </pre>
-        <button onClick={() => handleCopy(formCssCode)} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard(formCssCode, "Form CSS")}
+        >
+          {copiedCode === "Form CSS" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
       </div>
 
@@ -215,24 +220,33 @@ export default App;`;
         <pre className="english-code">
           <code>{conditionalRenderingCode}</code>
         </pre>
-        <button onClick={() => handleCopy(conditionalRenderingCode)} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard(conditionalRenderingCode, "Conditional Rendering")}
+        >
+          {copiedCode === "Conditional Rendering" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
 
         <p className="mt-3"><strong>📁 src/App.jsx میں اس کو استعمال کریں:</strong></p>
         <pre className="english-code">
           <code>{appUsageCode}</code>
         </pre>
-        <button onClick={() => handleCopy(appUsageCode)} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard(appUsageCode, "App Usage")}
+        >
+          {copiedCode === "App Usage" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
 
         <p className="mt-3"><strong>📁 src/App.css میں کلاسیں:</strong></p>
         <pre className="english-code">
           <code>{conditionalCssCode}</code>
         </pre>
-        <button onClick={() => handleCopy(conditionalCssCode)} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard(conditionalCssCode, "Conditional CSS")}
+        >
+          {copiedCode === "Conditional CSS" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
       </div>
 
@@ -266,7 +280,11 @@ export default App;`;
         </ul>
       </div>
 
-      {copySuccess && <p className="copy-msg">{copySuccess}</p>}
+      {copiedCode && (
+        <div className="copy-notification">
+          ✅ {copiedCode} code copied to clipboard!
+        </div>
+      )}
     </div>
   );
 }

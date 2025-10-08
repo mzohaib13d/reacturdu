@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// REMOVED: import "./Chapter8.css"; - Now using App.css
 
 function Chapter8() {
   const [copiedCode, setCopiedCode] = useState("");
@@ -112,7 +111,7 @@ export default MyComponent;`
         </p>
 
         <div className="code-section">
-          <div className="code-header">
+          <div className="code-header" style={{ marginBottom: "15px" }}>
             <h3>✍️ Basic List Example:</h3>
             <button 
               className="copy-btn"

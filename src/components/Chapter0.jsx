@@ -18,10 +18,16 @@ function Chapter0() {
     },
     {
       id: 3,
-      title: "Vite بنیاد پر React سیٹ اپ",
-      description: "Vite کے ساتھ جدید React پروجیکٹ کیسے بنائیں",
-      duration: "12 منٹ",
-      topics: ["Vite سیٹ اپ", "npm commands", "پراجیکٹ structure"],
+      title: "Vite سیٹ اپ اور React Fragments",
+      description: "Vite کے ساتھ React پروجیکٹ بنانا اور Fragments کا استعمال",
+      duration: "20 منٹ",
+      topics: [
+        "Vite سیٹ اپ",
+        "npm commands",
+        "Fragments کیا ہیں؟",
+        "<> شارٹ کٹ",
+        "JSX Rules",
+      ],
     },
     {
       id: 4,
@@ -94,6 +100,19 @@ function Chapter0() {
         "Cleanup Functions",
       ],
     },
+    {
+      id: 10,
+      title: "useRef Hook - DOM رسائی اور values کا انتظام",
+      description: "DOM elements تک سیدھی رسائی اور values کو render کے بغیر محفوظ رکھنا",
+      duration: "25 منٹ",
+      topics: [
+        "useRef Hook",
+        "DOM Elements رسائی",
+        "Previous Values Track کرنا",
+        "Focus Management",
+        "Timers اور Intervals",
+      ],
+    },
   ];
 
   const handleChapterClick = (chapterId) => {
@@ -145,11 +164,11 @@ function Chapter0() {
             <span className="stat-label">Chapters</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">140+</span>
+            <span className="stat-number">183+</span>
             <span className="stat-label">منٹ</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">30+</span>
+            <span className="stat-number">40+</span>
             <span className="stat-label">کوڈ مثالوں</span>
           </div>
         </div>
@@ -199,9 +218,11 @@ function Chapter0() {
           <li>✅ React کے بنیادی concepts سمجھنا</li>
           <li>✅ Functional Components اور JSX میں مہارت</li>
           <li>✅ Props اور State کا استعمال</li>
+          <li>✅ React Fragments کا استعمال</li>
           <li>✅ Lists & Keys کے ساتھ ڈیٹا ڈسپلے</li>
           <li>✅ CSS Styling کے مختلف طریقے</li>
           <li>✅ useEffect Hook کے ساتھ side effects manage کرنا</li>
+          <li>✅ useRef Hook کے ساتھ DOM رسائی اور values کا انتظام</li>
           <li>✅ Modern React tools (Vite) سے واقفیت</li>
           <li>✅ حقیقی پراجیکٹس بنانے کی صلاحیت</li>
         </ul>

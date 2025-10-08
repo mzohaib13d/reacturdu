@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
 function Chapter4() {
-  const [copySuccess, setCopySuccess] = useState("");
+  const [copiedCode, setCopiedCode] = useState("");
 
-  const handleCopy = (code) => {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopySuccess("کاپی ہوگیا ✅");
-      setTimeout(() => setCopySuccess(""), 2000);
-    });
+  const copyToClipboard = (code, title) => {
+    navigator.clipboard.writeText(code);
+    setCopiedCode(title);
+    setTimeout(() => setCopiedCode(""), 2000);
   };
 
   const fileStructureCode = `public/index.html
@@ -127,37 +126,54 @@ body {
       <pre className="english-code">
         <code>{htmlCode}</code>
       </pre>
-      <button onClick={() => handleCopy(htmlCode)} className="copy-btn">
-        کاپی کریں
+      <button 
+        className="copy-btn"
+        onClick={() => copyToClipboard(htmlCode, "HTML Template")}
+      >
+        {copiedCode === "HTML Template" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
       </button>
 
       <h4>src/main.jsx (یا index.jsx)</h4>
       <pre className="english-code">
         <code>{mainJsxCode}</code>
       </pre>
-      <button onClick={() => handleCopy(mainJsxCode)} className="copy-btn">
-        کاپی کریں
+      <button 
+        className="copy-btn"
+        onClick={() => copyToClipboard(mainJsxCode, "Main JSX")}
+      >
+        {copiedCode === "Main JSX" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
       </button>
 
       <h4>src/App.jsx</h4>
       <pre className="english-code">
         <code>{appJsxCode}</code>
       </pre>
-      <button onClick={() => handleCopy(appJsxCode)} className="copy-btn">
-        کاپی کریں
+      <button 
+        className="copy-btn"
+        onClick={() => copyToClipboard(appJsxCode, "App JSX")}
+      >
+        {copiedCode === "App JSX" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
       </button>
 
       <h4>src/index.css + src/App.css</h4>
       <pre className="english-code">
         <code>{cssCode}</code>
       </pre>
-      <button onClick={() => handleCopy(cssCode)} className="copy-btn">
-        کاپی کریں
+      <button 
+        className="copy-btn"
+        onClick={() => copyToClipboard(cssCode, "CSS Styles")}
+      >
+        {copiedCode === "CSS Styles" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
       </button>
 
       <p>اگر آپ یہ تمام فائلیں صحیح ترتیب میں رکھیں اور <code>npm run dev</code> کریں، تو آپ براؤزر میں جاکر دیکھیں گے: <strong>ہیلو ورلڈ!</strong></p>
       <p>یہ وہ بنیادی ترتیب ہے۔</p>
-      {copySuccess && <p className="copy-msg">{copySuccess}</p>}
+      
+      {copiedCode && (
+        <div className="copy-notification">
+          ✅ {copiedCode} code copied to clipboard!
+        </div>
+      )}
     </div>
   );
 }

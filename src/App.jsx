@@ -10,6 +10,7 @@ import Chapter6 from './components/Chapter6';
 import Chapter7 from './components/Chapter7';
 import Chapter8 from './components/Chapter8';
 import Chapter9 from './components/Chapter9';  // نیا Chapter9 شامل کریں
+import Chapter10 from './components/Chapter10';  // ✅ Add this import
 
 function App() {
   const [copySuccess, setCopySuccess] = useState("");
@@ -54,7 +55,9 @@ function App() {
       <div id="chapter-9" className="chapter-content">  
         <Chapter9 />
       </div>
-      
+         <div id="chapter-10" className="chapter-content">  
+        <Chapter10 />
+      </div>
       {copySuccess && <p className="copy-msg">{copySuccess}</p>}
     </div>
   );

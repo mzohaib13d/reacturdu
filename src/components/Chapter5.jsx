@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
 function Chapter5() {
-  const [copySuccess, setCopySuccess] = useState("");
+  const [copiedCode, setCopiedCode] = useState("");
 
-  const handleCopy = (code) => {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopySuccess("کاپی ہوگیا ✅");
-      setTimeout(() => setCopySuccess(""), 2000);
-    });
+  const copyToClipboard = (code, title) => {
+    navigator.clipboard.writeText(code);
+    setCopiedCode(title);
+    setTimeout(() => setCopiedCode(""), 2000);
   };
 
   const chapter2AppCode = `// اردو وضاحت: یہ مین کمپوننٹ ہے جو سب کچھ اسکرین پر دکھائے گا۔
@@ -85,16 +84,22 @@ function Greeting({ name, message }) {
         <pre className="english-code">
           <code>{chapter2AppCode}</code>
         </pre>
-        <button onClick={() => handleCopy(chapter2AppCode)} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard(chapter2AppCode, "App Component")}
+        >
+          {copiedCode === "App Component" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
 
         <h4>📁 src/Greeting.jsx</h4>
         <pre className="english-code">
           <code>{chapter2GreetingCode}</code>
         </pre>
-        <button onClick={() => handleCopy(chapter2GreetingCode)} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard(chapter2GreetingCode, "Greeting Component")}
+        >
+          {copiedCode === "Greeting Component" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
       </div>
 
@@ -110,8 +115,11 @@ function Greeting({ name, message }) {
         <pre className="english-code">
           <code>{chapter2DestructuringCode}</code>
         </pre>
-        <button onClick={() => handleCopy(chapter2DestructuringCode)} className="copy-btn">
-          کاپی کریں
+        <button 
+          className="copy-btn"
+          onClick={() => copyToClipboard(chapter2DestructuringCode, "Destructuring Props")}
+        >
+          {copiedCode === "Destructuring Props" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
       </div>
 
@@ -131,7 +139,12 @@ function Greeting({ name, message }) {
           <li>ایک ہی Component کو مختلف ڈیٹا کے ساتھ استعمال کرنا سیکھیں گے۔</li>
         </ul>
       </div>
-      {copySuccess && <p className="copy-msg">{copySuccess}</p>}
+      
+      {copiedCode && (
+        <div className="copy-notification">
+          ✅ {copiedCode} code copied to clipboard!
+        </div>
+      )}
     </div>
   );
 }
