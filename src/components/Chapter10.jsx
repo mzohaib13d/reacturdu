@@ -496,10 +496,10 @@ export default VideoPlayer;`;
   return (
     <div className="chapter-container urdu-text">
       <div className="chapter-header">
-        <h1 className="chapter-title text-break">
+        <h1 className="chapter-title2 text-break">
           📚 چيپٹر نمبر 10 – useRef Hook
         </h1>
-        <p className="chapter-subtitle text-break">
+        <p className="chapter-subtitle2 text-break">
           useRef Hook: DOM elements تک سیدھی رسائی اور values کو render کے بغیر محفوظ رکھنا
         </p>
       </div>

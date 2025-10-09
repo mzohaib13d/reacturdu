@@ -152,7 +152,7 @@ export default App;`,
   return (
     <div className="chapter-container urdu-text">
       <div className="chapter-header">
-        <h1 className="chapter-title text-break">
+        <h1 className="chapter-title2 text-break">
           📚 چيپٹر نمبر 9 – useEffect Hook (ابتدائی سطح)
         </h1>
         <p className="chapter-subtitle text-break">

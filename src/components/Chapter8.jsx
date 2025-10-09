@@ -98,7 +98,7 @@ export default MyComponent;`,
   return (
     <div className="chapter-container urdu-text">
       <div className="chapter-header">
-        <h1 className="chapter-title">
+        <h1 className="chapter-title2">
           📚 چیپٹر 8: لسٹس اور کیز + React میں CSS اسٹائلنگ
         </h1>
         <p className="chapter-subtitle">Lists & Keys + CSS Styling in React</p>

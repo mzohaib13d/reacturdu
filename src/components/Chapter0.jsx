@@ -44,10 +44,20 @@ function Chapter0() {
     },
     {
       id: 5,
-      title: "React Functional Components + JSX + Props",
-      description: "کمپوننٹس بنانا، JSX اور Props کا استعمال",
-      duration: "20 منٹ",
-      topics: ["Functional Components", "JSX syntax", "Props", "Destructuring"],
+      title: "ری ایکٹ کی بنیادی پروگرامنگ + فنکشنل کمپونینٹس",
+      description: "نئے اضافہ: کمنٹس، تصاویر، لنکس، کمپونینٹس + فنکشنل کمپونینٹس اور Props",
+      duration: "25 منٹ",
+      topics: [
+        "ری ایکٹ کمنٹس", 
+        "تصاویر شامل کرنا", 
+        "لنکس بنانا", 
+        "کمپونینٹس بنانا", 
+        "Navbar بنانا",
+        "Functional Components", 
+        "JSX syntax", 
+        "Props", 
+        "Destructuring"
+      ],
     },
     {
       id: 6,
@@ -113,6 +123,19 @@ function Chapter0() {
         "Timers اور Intervals",
       ],
     },
+    {
+      id: 11,
+      title: "ColorZilla - ویب سائٹس سے رنگ چننا سیکھیں",
+      description: "ColorZilla extension ڈاؤن لوڈ اور استعمال کرنے کا مکمل گائیڈ",
+      duration: "15 منٹ",
+      topics: [
+        "ColorZilla ڈاؤن لوڈ",
+        "Chrome Extension",
+        "رنگ چننے کا طریقہ",
+        "HEX Codes",
+        "ویب ڈیزائن",
+      ],
+    },
   ];
 
   const handleChapterClick = (chapterId) => {
@@ -164,11 +187,11 @@ function Chapter0() {
             <span className="stat-label">Chapters</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">183+</span>
+            <span className="stat-number">205+</span>
             <span className="stat-label">منٹ</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">40+</span>
+            <span className="stat-number">50+</span>
             <span className="stat-label">کوڈ مثالوں</span>
           </div>
         </div>
@@ -216,16 +239,48 @@ function Chapter0() {
         <h3>🎯 ٹیوٹوریل کے مقاصد:</h3>
         <ul>
           <li>✅ React کے بنیادی concepts سمجھنا</li>
+          <li>✅ <strong>نئی: ری ایکٹ بنیادی پروگرامنگ</strong> - کمنٹس، تصاویر، لنکس</li>
           <li>✅ Functional Components اور JSX میں مہارت</li>
           <li>✅ Props اور State کا استعمال</li>
+          <li>✅ <strong>نئی: Navbar بنانا اور استعمال کرنا</strong></li>
           <li>✅ React Fragments کا استعمال</li>
           <li>✅ Lists & Keys کے ساتھ ڈیٹا ڈسپلے</li>
           <li>✅ CSS Styling کے مختلف طریقے</li>
           <li>✅ useEffect Hook کے ساتھ side effects manage کرنا</li>
           <li>✅ useRef Hook کے ساتھ DOM رسائی اور values کا انتظام</li>
+          <li>✅ <strong>نئی: ColorZilla کے ساتھ ویب ڈیزائن</strong></li>
           <li>✅ Modern React tools (Vite) سے واقفیت</li>
           <li>✅ حقیقی پراجیکٹس بنانے کی صلاحیت</li>
         </ul>
+
+        <div style={{ marginTop: '20px', padding: '15px', background: '#e8f4fd', borderRadius: '8px', border: '2px solid #0078ff' }}>
+          <h4 style={{ color: '#0078ff', marginBottom: '10px' }}>🎨 نیا Chapter: ColorZilla گائیڈ</h4>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}>
+            <strong>Chapter 11</strong> میں اب شامل ہیں:
+          </p>
+          <ul style={{ margin: '10px 0', paddingRight: '20px' }}>
+            <li>✅ ColorZilla extension ڈاؤن لوڈ کرنا</li>
+            <li>✅ Chrome Web Store سے انسٹالیشن</li>
+            <li>✅ ویب سائٹس سے رنگ چننے کا طریقہ</li>
+            <li>✅ HEX Codes سمجھنا اور استعمال کرنا</li>
+            <li>✅ ویب ڈیزائن کے لیے رنگوں کا انتخاب</li>
+          </ul>
+        </div>
+
+        <div style={{ marginTop: '15px', padding: '15px', background: '#fff3cd', borderRadius: '8px', border: '2px solid #ffc107' }}>
+          <h4 style={{ color: '#856404', marginBottom: '10px' }}>📢 اہم اپ ڈیٹ: Chapter 5 میں نئے اضافے</h4>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}>
+            <strong>Chapter 5</strong> میں اب شامل ہیں:
+          </p>
+          <ul style={{ margin: '10px 0', paddingRight: '20px' }}>
+            <li>✅ ری ایکٹ میں کمنٹس لکھنے کے طریقے</li>
+            <li>✅ تصاویر شامل کرنے کے مختلف طریقے</li>
+            <li>✅ اینکر لنکس بنانا (ویب سائٹس، ایمیل، فون)</li>
+            <li>✅ نئے کمپونینٹس اور پیجز بنانا</li>
+            <li>✅ Navbar بنانا اور App.jsx میں استعمال کرنا</li>
+            <li>✅ فنکشنل کمپونینٹس اور Props کا مکمل کورس</li>
+          </ul>
+        </div>
       </div>
     </div>
   );
