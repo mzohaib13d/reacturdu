@@ -101,7 +101,7 @@ export default MyComponent;`,
         <h1 className="chapter-title2">
           📚 چیپٹر 8: لسٹس اور کیز + React میں CSS اسٹائلنگ
         </h1>
-        <p className="chapter-subtitle">Lists & Keys + CSS Styling in React</p>
+        <p className="chapter-subtitle2">Lists & Keys + CSS Styling in React</p>
       </div>
 
       {/* Part 1: Lists & Keys */}

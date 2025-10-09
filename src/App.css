@@ -230,9 +230,18 @@ html {
   font-family: "Fira Code", monospace;
   font-size: 12px;
 }
-
+.chapter-subtitle2 {
+  color: #fdfdfd;
+  padding: 20px 30px;
+  font-size: 26px;
+  font-weight: 450;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  font-style: italic;
+  opacity: 0.9;
+}
 .chapter-subtitle {
-  color: #03e8f8;
+  color: #0382fa;
   padding: 20px 30px;
   font-size: 26px;
   font-weight: 450;
@@ -1132,7 +1141,7 @@ html {
 .chapter-title2 {
   color: #fefefe !important;
   margin: 10px 0 !important;
-  font-size: 20px !important;
+  font-size: 22px !important
 }
 
 .chapter-description {

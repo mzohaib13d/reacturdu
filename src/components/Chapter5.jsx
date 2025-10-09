@@ -404,10 +404,10 @@ function Greeting({ name, message }) {
   return (
     <div className="chapter-container urdu-text">
       <div className="chapter-header">
-        <h1 className="chapter-title text-break">
+        <h1 className="chapter-title2 text-break">
           📚 چيپٹر 5 – ری ایکٹ کی بنیادی پروگرامنگ + فنکشنل کمپونینٹس
         </h1>
-        <p className="chapter-subtitle text-break">
+        <p className="chapter-subtitle2 text-break">
           ری ایکٹ جے ایس میں بنیادی پروگرامنگ سے لے کر فنکشنل کمپونینٹس اور
           Props تک کا مکمل سفر
         </p>

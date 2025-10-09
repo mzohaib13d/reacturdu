@@ -155,7 +155,7 @@ export default App;`,
         <h1 className="chapter-title2 text-break">
           📚 چيپٹر نمبر 9 – useEffect Hook (ابتدائی سطح)
         </h1>
-        <p className="chapter-subtitle text-break">
+        <p className="chapter-subtitle2 text-break">
           React میں <strong>useEffect()</strong> ایک ایسا Hook ہے جو آپ کو{" "}
           <strong>side effects</strong>
           (یعنی وہ کام جو React کے render ہونے کے بعد ہونا چاہیے) کرنے دیتا ہے۔
