@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Chapter6() {
   const [copiedCode, setCopiedCode] = useState("");
@@ -120,28 +120,45 @@ function App() {
   return (
     <div className="card urdu-text">
       <h2>Chapter 6. React Hooks کا آغاز – useState Hook</h2>
-      
+
       <div className="lesson-section">
         <h3>📝 سبق: React Hooks کا آغاز – useState Hook</h3>
 
         <h4>⿡ Hook کیا ہے؟</h4>
-        <p>React میں <em>Hook</em> وہ فنکشن ہے جو ہمیں Functional Components میں state یا دوسری React کی خصوصیات استعمال کرنے دیتا ہے۔</p>
+        <p>
+          React میں <em>Hook</em> وہ فنکشن ہے جو ہمیں Functional Components میں
+          state یا دوسری React کی خصوصیات استعمال کرنے دیتا ہے۔
+        </p>
 
         <h4>⿢ useState Hook کیا کرتا ہے؟</h4>
-        <p>یہ ایک React Hook ہے جو کسی کمپوننٹ کے اندر <em>state</em> (یعنی اندرونی ڈیٹا جو بدل سکتا ہے) رکھتا ہے۔</p>
-        
-        <p><strong>ہم اس سے دو چیزیں حاصل کرتے ہیں:</strong></p>
+        <p>
+          یہ ایک React Hook ہے جو کسی کمپوننٹ کے اندر <em>state</em> (یعنی
+          اندرونی ڈیٹا جو بدل سکتا ہے) رکھتا ہے۔
+        </p>
+
+        <p>
+          <strong>ہم اس سے دو چیزیں حاصل کرتے ہیں:</strong>
+        </p>
         <ul>
-          <li><em>state variable</em> (موجودہ ویلیو)</li>
-          <li><em>set function</em> (state کو بدلنے والا فنکشن)</li>
+          <li>
+            <em>state variable</em> (موجودہ ویلیو)
+          </li>
+          <li>
+            <em>set function</em> (state کو بدلنے والا فنکشن)
+          </li>
         </ul>
 
         <div className="english-code">
           <code>const [value, setValue] = useState(initialValue);</code>
         </div>
-        <button 
+        <button
           className="copy-btn"
-          onClick={() => copyToClipboard("const [value, setValue] = useState(initialValue);", "useState Syntax")}
+          onClick={() =>
+            copyToClipboard(
+              "const [value, setValue] = useState(initialValue);",
+              "useState Syntax"
+            )
+          }
         >
           {copiedCode === "useState Syntax" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
@@ -149,11 +166,13 @@ function App() {
 
       <div className="code-section">
         <h3>🧑‍💻 مثال 1: دو Counter بٹن</h3>
-        <p><strong>📁 src/App.jsx</strong></p>
+        <p>
+          <strong>📁 src/App.jsx</strong>
+        </p>
         <pre className="english-code">
           <code>{example1Code}</code>
         </pre>
-        <button 
+        <button
           className="copy-btn"
           onClick={() => copyToClipboard(example1Code, "Counter Example")}
         >
@@ -163,60 +182,95 @@ function App() {
 
       <div className="code-section">
         <h3>🧑‍💻 مثال 2: Toggle Background Button</h3>
-        <p><strong>📁 src/ToggleBackground.jsx</strong></p>
+        <p>
+          <strong>📁 src/ToggleBackground.jsx</strong>
+        </p>
         <pre className="english-code">
           <code>{example2Code}</code>
         </pre>
-        <button 
+        <div className="code-scroll-notice-parent">
+          <div className="code-scroll-notice">Please scroll  → </div>
+            <button
           className="copy-btn"
-          onClick={() => copyToClipboard(example2Code, "Toggle Background")}
+          onClick={() => copyToClipboard(cssCode, "CSS Styles")}
         >
-          {copiedCode === "Toggle Background" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+          {copiedCode === "CSS Styles" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
-
-        <p className="mt-3"><strong>اور App.jsx میں آپ اسے اس طرح استعمال کر سکتے ہیں:</strong></p>
+        </div>
+        <p className="mt-3">
+          <strong>اور App.jsx میں آپ اسے اس طرح استعمال کر سکتے ہیں:</strong>
+        </p>
         <pre className="english-code">
           <code>{appUsageCode}</code>
         </pre>
-        <button 
+       <div className="code-scroll-notice-parent">
+         <div className="code-scroll-notice">Please scroll → </div>
+          <button
           className="copy-btn"
           onClick={() => copyToClipboard(appUsageCode, "App Usage")}
         >
           {copiedCode === "App Usage" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
+       </div>
+       
       </div>
 
       <div className="code-section">
         <h3>📁 src/App.css (اضافی کلاسیں)</h3>
         <pre className="english-code">
           <code>{cssCode}</code>
-        </pre>
-        <button 
+        </pre>          
+            <button
           className="copy-btn"
           onClick={() => copyToClipboard(cssCode, "CSS Styles")}
         >
           {copiedCode === "CSS Styles" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
         
-        <p className="mt-3"><em>(آپ کا پچھلا CSS بھی لگا رہے گا، یہ اضافی کلاسیں اس پر کام کریں گی۔)</em></p>
+      
+
+        <p className="mt-3">
+          <em>
+            (آپ کا پچھلا CSS بھی لگا رہے گا، یہ اضافی کلاسیں اس پر کام کریں گی۔)
+          </em>
+        </p>
       </div>
 
       <div className="explanation-section">
         <h3>🔹 وضاحت:</h3>
         <ul>
-          <li><strong>دو Counter:</strong> ہر ایک کیلئے الگ useState استعمال کیا۔</li>
-          <li><strong>Toggle Background:</strong> ایک boolean state dark رکھا، ہر کلک پر true/false بدلتا ہے اور background تبدیل ہوتا ہے۔</li>
-          <li><strong>useState Syntax:</strong> <code>const [state, setState] = useState(initialValue)</code></li>
-          <li><strong>State Update:</strong> set function استعمال کر کے state کو update کریں۔</li>
+          <li>
+            <strong>دو Counter:</strong> ہر ایک کیلئے الگ useState استعمال کیا۔
+          </li>
+          <li>
+            <strong>Toggle Background:</strong> ایک boolean state dark رکھا، ہر
+            کلک پر true/false بدلتا ہے اور background تبدیل ہوتا ہے۔
+          </li>
+          <li>
+            <strong>useState Syntax:</strong>{" "}
+            <code>const [state, setState] = useState(initialValue)</code>
+          </li>
+          <li>
+            <strong>State Update:</strong> set function استعمال کر کے state کو
+            update کریں۔
+          </li>
         </ul>
       </div>
 
       <div className="homework-section">
         <h3>📝 ہوم ورک (طلبہ کیلئے)</h3>
         <ol>
-          <li>ایک <em>User Profile</em> Component بنائیں جس میں نام اور عمر کی state ہو۔</li>
-          <li>دو بٹن بنائیں: ایک نام تبدیل کرنے کیلئے، دوسرا عمر بڑھانے کیلئے۔</li>
-          <li>ایک <em>Theme Switcher</em> بنائیں جو 3 مختلف themes میں toggle کر سکے۔</li>
+          <li>
+            ایک <em>User Profile</em> Component بنائیں جس میں نام اور عمر کی
+            state ہو۔
+          </li>
+          <li>
+            دو بٹن بنائیں: ایک نام تبدیل کرنے کیلئے، دوسرا عمر بڑھانے کیلئے۔
+          </li>
+          <li>
+            ایک <em>Theme Switcher</em> بنائیں جو 3 مختلف themes میں toggle کر
+            سکے۔
+          </li>
         </ol>
       </div>
 

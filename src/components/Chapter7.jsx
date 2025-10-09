@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Chapter7() {
   const [copiedCode, setCopiedCode] = useState("");
@@ -167,28 +167,44 @@ export default App;`;
 
       <div className="lesson-section">
         <h3>📝 ۱۔ ایونٹس ہینڈلنگ (Event Handling)</h3>
-        <p>React میں ایونٹ وہی کام کرتے ہیں جو HTML میں ہوتے ہیں، لیکن ان کے نام camelCase میں ہوتے ہیں، جیسے onClick، onChange وغیرہ۔</p>
-        <p>ہم ایونٹ ہینڈلرز کو فنکشن کی شکل میں لکھتے ہیں اور کمپوننٹ کے اندر استعمال کرتے ہیں۔</p>
+        <p>
+          React میں ایونٹ وہی کام کرتے ہیں جو HTML میں ہوتے ہیں، لیکن ان کے نام
+          camelCase میں ہوتے ہیں، جیسے onClick، onChange وغیرہ۔
+        </p>
+        <p>
+          ہم ایونٹ ہینڈلرز کو فنکشن کی شکل میں لکھتے ہیں اور کمپوننٹ کے اندر
+          استعمال کرتے ہیں۔
+        </p>
       </div>
 
       <div className="code-section">
         <h4>🧑‍💻 مثال: ایک سادہ فارم (onChange + onClick)</h4>
-        <p><strong>📁 src/App.jsx</strong></p>
+        <p>
+          <strong>📁 src/App.jsx</strong>
+        </p>
         <pre className="english-code">
           <code>{eventHandlingCode}</code>
         </pre>
-        <button 
-          className="copy-btn"
-          onClick={() => copyToClipboard(eventHandlingCode, "Event Handling Form")}
-        >
-          {copiedCode === "Event Handling Form" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-        </button>
-
-        <p className="mt-3"><strong>📁 src/App.css میں فارم کے لئے کلاسیں:</strong></p>
+        <div className="code-scroll-notice-parent">
+          <div className="code-scroll-noice">Please scroll →</div>
+          <button
+            className="copy-btn"
+            onClick={() =>
+              copyToClipboard(eventHandlingCode, "Event Handling Form")
+            }
+          >
+            {copiedCode === "Event Handling Form"
+              ? "کاپی ہوگیا ✅"
+              : "📋 کاپی کریں"}
+          </button>
+        </div>
+        <p className="mt-3">
+          <strong>📁 src/App.css میں فارم کے لئے کلاسیں:</strong>
+        </p>
         <pre className="english-code">
           <code>{formCssCode}</code>
         </pre>
-        <button 
+        <button
           className="copy-btn"
           onClick={() => copyToClipboard(formCssCode, "Form CSS")}
         >
@@ -199,9 +215,16 @@ export default App;`;
       <div className="explanation-section">
         <h4>🔹 وضاحت:</h4>
         <ul>
-          <li><strong>onChange</strong> ہر کی-اسٹروک پر state اپڈیٹ کر رہا ہے۔</li>
-          <li><strong>onSubmit</strong> بٹن دبانے پر فارم سبمٹ کر رہا ہے اور alert دکھا رہا ہے۔</li>
-          <li><strong>e.preventDefault()</strong> صفحہ کو ری لوڈ ہونے سے روکتا ہے۔</li>
+          <li>
+            <strong>onChange</strong> ہر کی-اسٹروک پر state اپڈیٹ کر رہا ہے۔
+          </li>
+          <li>
+            <strong>onSubmit</strong> بٹن دبانے پر فارم سبمٹ کر رہا ہے اور alert
+            دکھا رہا ہے۔
+          </li>
+          <li>
+            <strong>e.preventDefault()</strong> صفحہ کو ری لوڈ ہونے سے روکتا ہے۔
+          </li>
         </ul>
       </div>
 
@@ -209,63 +232,98 @@ export default App;`;
         <h3>📝 ۲۔ Conditional Rendering (شرطی طور پر UI بدلنا)</h3>
         <p>React میں ہم کسی شرط پر UI بدل سکتے ہیں:</p>
         <ul>
-          <li><strong>if</strong> استعمال کر کے</li>
-          <li>یا <strong>ternary operator ? :</strong> سے</li>
+          <li>
+            <strong>if</strong> استعمال کر کے
+          </li>
+          <li>
+            یا <strong>ternary operator ? :</strong> سے
+          </li>
         </ul>
       </div>
 
       <div className="code-section">
         <h4>🧑‍💻 مثال: لاگ اِن / لاگ آؤٹ بٹن (if / ternary)</h4>
-        <p><strong>📁 src/ConditionalExample.jsx</strong></p>
+        <p>
+          <strong>📁 src/ConditionalExample.jsx</strong>
+        </p>
         <pre className="english-code">
           <code>{conditionalRenderingCode}</code>
         </pre>
-        <button 
-          className="copy-btn"
-          onClick={() => copyToClipboard(conditionalRenderingCode, "Conditional Rendering")}
-        >
-          {copiedCode === "Conditional Rendering" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-        </button>
-
-        <p className="mt-3"><strong>📁 src/App.jsx میں اس کو استعمال کریں:</strong></p>
+        <div className="code-scroll-notice-parent">
+          <div className="code-scroll-noice"> Please scroll → </div>
+          <button
+            className="copy-btn"
+            onClick={() =>
+              copyToClipboard(conditionalRenderingCode, "Conditional Rendering")
+            }
+          >
+            {copiedCode === "Conditional Rendering"
+              ? "کاپی ہوگیا ✅"
+              : "📋 کاپی کریں"}
+          </button>
+        </div>
+        <p className="mt-3">
+          <strong>📁 src/App.jsx میں اس کو استعمال کریں:</strong>
+        </p>
         <pre className="english-code">
           <code>{appUsageCode}</code>
         </pre>
-        <button 
+        <button
           className="copy-btn"
           onClick={() => copyToClipboard(appUsageCode, "App Usage")}
         >
           {copiedCode === "App Usage" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
 
-        <p className="mt-3"><strong>📁 src/App.css میں کلاسیں:</strong></p>
+        <p className="mt-3">
+          <strong>📁 src/App.css میں کلاسیں:</strong>
+        </p>
         <pre className="english-code">
           <code>{conditionalCssCode}</code>
         </pre>
-        <button 
+        <div className="code-scroll-notice-parent">
+          <div className="code-scroll-noice"> → Please scroll </div>
+        <button
           className="copy-btn"
           onClick={() => copyToClipboard(conditionalCssCode, "Conditional CSS")}
         >
           {copiedCode === "Conditional CSS" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
         </button>
+        </div>
       </div>
 
       <div className="explanation-section">
         <h4>🔹 وضاحت:</h4>
         <ul>
-          <li>ہم نے state <code>loggedIn</code> رکھی۔</li>
-          <li><strong>if</strong> کے ذریعے پیغام بدلتے ہیں۔</li>
-          <li><strong>ternary</strong> کے ذریعے بٹن کا متن بدلتے ہیں۔</li>
-          <li><strong>toggleLogin</strong> فنکشن state کو true/false کرتا ہے۔</li>
+          <li>
+            ہم نے state <code>loggedIn</code> رکھی۔
+          </li>
+          <li>
+            <strong>if</strong> کے ذریعے پیغام بدلتے ہیں۔
+          </li>
+          <li>
+            <strong>ternary</strong> کے ذریعے بٹن کا متن بدلتے ہیں۔
+          </li>
+          <li>
+            <strong>toggleLogin</strong> فنکشن state کو true/false کرتا ہے۔
+          </li>
         </ul>
       </div>
 
       <div className="homework-section">
         <h3>📝 ہوم ورک (طلبہ کیلئے)</h3>
         <ol>
-          <li>ایک <em>Todo List</em> بنائیں جس میں add اور delete کے buttons ہوں۔</li>
-          <li>ایک <em>Theme Switcher</em> بنائیں جو light/dark mode کے علاوہ blue/green themes بھی switch کر سکے۔</li>
-          <li>ایک <em>User Registration</em> فارم بنائیں جس میں password strength دکھائی جائے (weak/medium/strong)۔</li>
+          <li>
+            ایک <em>Todo List</em> بنائیں جس میں add اور delete کے buttons ہوں۔
+          </li>
+          <li>
+            ایک <em>Theme Switcher</em> بنائیں جو light/dark mode کے علاوہ
+            blue/green themes بھی switch کر سکے۔
+          </li>
+          <li>
+            ایک <em>User Registration</em> فارم بنائیں جس میں password strength
+            دکھائی جائے (weak/medium/strong)۔
+          </li>
         </ol>
       </div>
 
