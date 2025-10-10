@@ -136,6 +136,20 @@ function Chapter0() {
         "ویب ڈیزائن",
       ],
     },
+    {
+      id: 12,
+      title: "useContext Hook - Props کے بغیر ڈیٹا کا سفر",
+      description: "Context API کے ذریعے پوری ایپ میں ڈیٹا بانٹنا سیکھیں",
+      duration: "22 منٹ",
+      topics: [
+        "useContext Hook",
+        "Context API",
+        "Props Drilling حل",
+        "Theme Switcher",
+        "Language Context",
+        "Real-world Examples",
+      ],
+    },
   ];
 
   const handleChapterClick = (chapterId) => {
@@ -187,11 +201,11 @@ function Chapter0() {
             <span className="stat-label">Chapters</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">205+</span>
+            <span className="stat-number">227+</span>
             <span className="stat-label">منٹ</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">50+</span>
+            <span className="stat-number">60+</span>
             <span className="stat-label">کوڈ مثالوں</span>
           </div>
         </div>
@@ -249,12 +263,28 @@ function Chapter0() {
           <li>✅ useEffect Hook کے ساتھ side effects manage کرنا</li>
           <li>✅ useRef Hook کے ساتھ DOM رسائی اور values کا انتظام</li>
           <li>✅ <strong>نئی: ColorZilla کے ساتھ ویب ڈیزائن</strong></li>
+          <li>✅ <strong>نئی: useContext Hook کے ساتھ Props Drilling حل</strong></li>
           <li>✅ Modern React tools (Vite) سے واقفیت</li>
           <li>✅ حقیقی پراجیکٹس بنانے کی صلاحیت</li>
         </ul>
 
         <div style={{ marginTop: '20px', padding: '15px', background: '#e8f4fd', borderRadius: '8px', border: '2px solid #0078ff' }}>
-          <h4 style={{ color: '#0078ff', marginBottom: '10px' }}>🎨 نیا Chapter: ColorZilla گائیڈ</h4>
+          <h4 style={{ color: '#0078ff', marginBottom: '10px' }}>🔄 نیا Chapter: useContext Hook</h4>
+          <p style={{ margin: '5px 0', fontSize: '14px' }}>
+            <strong>Chapter 12</strong> میں اب شامل ہیں:
+          </p>
+          <ul style={{ margin: '10px 0', paddingRight: '20px' }}>
+            <li>✅ useContext Hook کا مکمل تعارف</li>
+            <li>✅ Props Drilling کا مسئلہ اور حل</li>
+            <li>✅ Theme Switcher (Light/Dark Mode) مثال</li>
+            <li>✅ Language Context (اردو/English) مثال</li>
+            <li>✅ Real-world use cases کی مکمل فہرست</li>
+            <li>✅ Summary Box کے ساتھ آسان ریویژن</li>
+          </ul>
+        </div>
+
+        <div style={{ marginTop: '15px', padding: '15px', background: '#e8f5e8', borderRadius: '8px', border: '2px solid #4caf50' }}>
+          <h4 style={{ color: '#2e7d32', marginBottom: '10px' }}>🎨 نیا Chapter: ColorZilla گائیڈ</h4>
           <p style={{ margin: '5px 0', fontSize: '14px' }}>
             <strong>Chapter 11</strong> میں اب شامل ہیں:
           </p>

@@ -1665,6 +1665,58 @@ html {
   padding: 15px;
   margin: 15px 0;
 }
+/* 🌸 useContext Summary Box */
+.summary-box {
+  direction: rtl;
+  font-family: "Noto Nastaliq Urdu", serif;
+  background: #f8f9fa;
+  border: 2px solid #0d6efd;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 30px auto;
+  max-width: 650px;
+  line-height: 1.9;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.summary-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.2);
+}
+
+.summary-box h3 {
+  color: #0d6efd;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.summary-box h4 {
+  color: #333;
+  margin-top: 18px;
+  font-size: 1.2rem;
+}
+
+.summary-box p {
+  color: #212529;
+  margin: 6px 0;
+  font-size: 1.05rem;
+}
+
+.summary-box code {
+  display: block;
+  background: #e9ecef;
+  color: #000;
+  padding: 8px 10px;
+  border-radius: 6px;
+  direction: ltr;
+  text-align: left;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  font-family: monospace;
+}
+
 /* 🔹 Responsive Breakpoints */
 @media (max-width: 768px) {
   .code-block-container,
@@ -1851,6 +1903,19 @@ html {
 /* Enhanced code block scrolling for all mobile sizes */
 /* Max-width: 430px */
 @media (max-width: 430px) {
+   .summary-box {
+    padding: 15px;
+    margin: 20px;
+    font-size: 0.95rem;
+  }
+
+  .summary-box h3 {
+    font-size: 1.4rem;
+  }
+
+  .summary-box h4 {
+    font-size: 1.1rem;
+  }
   .demo-section {
     padding: 15px;
   }
