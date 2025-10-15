@@ -10,54 +10,107 @@ function Chapter7() {
   };
 
   // Event Handling Example Code
-  const eventHandlingCode = `import React, { useState } from "react";
+  const eventHandlingCode = `// 🌸 سب سے پہلے ہم React کو import کر رہے ہیں تاکہ React کا code استعمال کر سکیں۔
+// React کے ساتھ ہم { useState } بھی لے رہے ہیں کیونکہ ہمیں data (نام اور ای میل) یاد رکھنا ہے۔
+import React, { useState } from "react";
+
+// 🌼 اپنی CSS فائل import کر رہے ہیں تاکہ صفحہ خوبصورت لگے۔
 import "./App.css";
 
-export default function App() {
-  // اردو: نام اور ای میل رکھنے کیلئے state
+// 🌷 یہ ہمارا main component ہے جسے "App" کہا گیا ہے۔
+// ہر React ایپ میں ایک main component ہوتا ہے جو پورا صفحہ سنبھالتا ہے۔
+function App() {
+
+  // 🩵 useState ایک خاص React Hook ہے جو data کو یاد رکھتا ہے۔
+  // یہاں ہم دو چیزیں یاد رکھ رہے ہیں:
+  // (1) name → user کا نام
+  // (2) email → user کی ای میل
+  // شروع میں دونوں خالی ("") ہیں کیونکہ ابھی user نے کچھ نہیں لکھا۔
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  // اردو: فارم سبمٹ ہونے پر کال ہونے والا فنکشن
+  // 💛 یہ function تب چلے گا جب user فارم کو submit کرے گا۔
+  // فارم submit کرنے کا مطلب ہے "بھیجنا" یعنی user نے لکھ لیا اور بٹن دبا دیا۔
   const handleSubmit = (e) => {
-    e.preventDefault(); // صفحہ ری لوڈ نہ ہو
-    alert(\`نام: \${name}\\nای میل: \${email}\`);
+    // 🚫 e.preventDefault() صفحے کو دوبارہ reload ہونے سے روکتا ہے۔
+    // ورنہ فارم submit ہوتے ہی پورا صفحہ ریفریش ہو جاتا ہے اور data ختم ہو جاتا ہے۔
+    e.preventDefault(); 
+
+    // 🩷 alert() ایک چھوٹا popup box کھولتا ہے جس میں ہم user کا نام اور ای میل دکھا رہے ہیں۔
+    // \`\${name}\` اور \`\${email}\` وہی values ہیں جو user نے input میں لکھی تھیں۔
+    alert(\`نام: \${name} \\nای میل: \${email}\`);
+
+    // 🧹 فارم submit ہونے کے بعد ان دونوں input فیلڈز کو خالی کر رہے ہیں
+    // تاکہ اگلی بار نیا نام اور نئی ای میل لکھی جا سکے۔
     setName("");
     setEmail("");
   };
 
+  // 💜 اب ہم return کے اندر وہ HTML نما code لکھتے ہیں جو browser میں دکھائی دیتا ہے۔
+  // React میں اس طرح کا code JSX کہلاتا ہے۔
   return (
+    // 📦 یہ ایک container div ہے — اس کے اندر ہمارا پورا فارم رکھا گیا ہے۔
     <div className="app-container">
+
+      {/* 🏷️ یہ فارم کا Title (سرخی) ہے۔ */}
       <h1 className="title">ایونٹس ہینڈلنگ – سادہ فارم</h1>
+
+      {/* 🌷 فارم شروع ہو رہا ہے۔
+          onSubmit کا مطلب ہے کہ جب فارم submit کیا جائے تو handleSubmit function چلے۔ */}
       <form onSubmit={handleSubmit} className="form-section">
+
+        {/* 🩵 پہلا input field — user یہاں اپنا نام لکھے گا۔ */}
         <label>
           نام:
           <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)} // onChange
+            type="text"                  // input کا مطلب ہے text لکھنے کی جگہ
+            value={name}                 // value وہی دکھائے گی جو state میں محفوظ ہے
+            onChange={(e) => setName(e.target.value)} // جیسے ہی user کچھ لکھے، وہ state میں محفوظ ہو جائے
           />
         </label>
+
+        {/* 💛 دوسرا input field — user یہاں اپنی ای میل لکھے گا۔ */}
         <label>
           ای میل:
           <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)} // onChange
+            type="email"                 // اس سے browser کو پتہ چلتا ہے کہ یہ email فیلڈ ہے
+            value={email}                // value وہی دکھائے گی جو state میں محفوظ ہے
+            onChange={(e) => setEmail(e.target.value)} // user کے لکھتے ہی state اپڈیٹ ہو جائے
           />
         </label>
-        <button type="submit">بھیجیں</button> {/* onClick فارم سبمٹ */}
+
+        {/* 🌸 یہ Submit بٹن ہے۔
+            type="submit" کا مطلب ہے کہ فارم بھیج دیا جائے۔
+            فارم بھیجنے پر اوپر والا handleSubmit function خود بخود چل جائے گا۔ */}
+        <button type="submit">بھیجیں</button>
       </form>
     </div>
   );
-}`;
+}
+
+export default App;
+`;
 
   // Form CSS Code
-  const formCssCode = `.form-section {
+  const formCssCode = `.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: system-ui;
+}
+
+.title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-section {
   display: flex;
   flex-direction: column;
   gap: 15px;
   max-width: 400px;
+  margin: 0 auto;
 }
 
 .form-section label {
@@ -94,7 +147,7 @@ export default function App() {
   const conditionalRenderingCode = `import React, { useState } from "react";
 import "./App.css";
 
-export default function ConditionalExample() {
+function ConditionalExample() {
   // اردو: یوزر لاگ ان ہے یا نہیں
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -121,7 +174,10 @@ export default function ConditionalExample() {
       </button>
     </div>
   );
-}`;
+}
+
+export default ConditionalExample;
+`;
 
   // Conditional CSS Code
   const conditionalCssCode = `.conditional-section {
@@ -147,7 +203,9 @@ export default function ConditionalExample() {
 }`;
 
   // App.jsx Usage Code
-  const appUsageCode = `import ConditionalExample from "./ConditionalExample";
+  const appUsageCode = `import React from "react";
+import ConditionalExample from "./ConditionalExample";
+import "./App.css";
 
 function App() {
   return (
@@ -283,12 +341,12 @@ export default App;`;
         </pre>
         <div className="code-scroll-notice-parent">
           <div className="code-scroll-noice"> → Please scroll </div>
-        <button
-          className="copy-btn"
-          onClick={() => copyToClipboard(conditionalCssCode, "Conditional CSS")}
-        >
-          {copiedCode === "Conditional CSS" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-        </button>
+          <button
+            className="copy-btn"
+            onClick={() => copyToClipboard(conditionalCssCode, "Conditional CSS")}
+          >
+            {copiedCode === "Conditional CSS" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+          </button>
         </div>
       </div>
 
