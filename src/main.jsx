@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 
 // Direct implementation in main.jsx
-// document.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("contextmenu", e => e.preventDefault());
 document.addEventListener("keydown", e => {
   const key = e.key.toLowerCase();
   if (
