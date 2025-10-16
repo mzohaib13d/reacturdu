@@ -24,6 +24,8 @@ import Chapter20 from "./components/Chapter20";
 import Chapter21 from "./components/Chapter21";
 import Chapter22 from "./components/Chapter22";
 import Chapter23 from "./components/Chapter23";
+import Chapter24 from "./components/Chapter24";
+import Chapter25 from "./components/Chapter25";
 
 function App() {
   const [copySuccess, setCopySuccess] = useState("");
@@ -35,9 +37,59 @@ function App() {
     });
   };
 
+  // Simple navigation function for chapter links
+  const scrollToChapter = (chapterId) => {
+    const element = document.getElementById(`chapter-${chapterId}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Show all chapters function
+  const showAllChapters = () => {
+    const chapters = document.querySelectorAll('.chapter-content');
+    chapters.forEach(chapter => {
+      chapter.style.display = 'block';
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="app-container">
-      <h1 className="urdu-heading">ReactUrdu — ری ایکٹ ٹیوٹوریل</h1>
+      {/* Navigation Header */}
+      <div className="chapter-navigation" style={{ 
+        marginBottom: '20px', 
+        padding: '15px', 
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
+        borderRadius: '12px',
+        color: 'white',
+        textAlign: 'center'
+      }}>
+        <h2 style={{ margin: '0 0 10px 0', color: 'white' }}>ReactUrdu — ری ایکٹ ٹیوٹوریل</h2>
+        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <button 
+            onClick={showAllChapters}
+            className="interactive-btn"
+            style={{ background: '#28a745' }}
+          >
+            📚 تمام Chapters
+          </button>
+          <button 
+            onClick={() => scrollToChapter(25)}
+            className="interactive-btn"
+            style={{ background: '#007bff' }}
+          >
+            🚀 Chapter 25 - SweetAlert2
+          </button>
+          <button 
+            onClick={() => scrollToChapter(24)}
+            className="interactive-btn"
+            style={{ background: '#6f42c1' }}
+          >
+            🔐 Chapter 24 - Logout System
+          </button>
+        </div>
+      </div>
 
       <Chapter0 />
 
@@ -110,7 +162,36 @@ function App() {
       <div id="chapter-23" className="chapter-content">
         <Chapter23 />
       </div>
+      <div id="chapter-24" className="chapter-content">
+        <Chapter24 />
+      </div>
+      <div id="chapter-25" className="chapter-content">
+        <Chapter25 />
+      </div>
+      
       {copySuccess && <p className="copy-msg">{copySuccess}</p>}
+
+      {/* Back to Top Button */}
+      <button 
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          background: '#0078ff',
+          color: 'white',
+          border: 'none',
+          borderRadius: '50%',
+          width: '50px',
+          height: '50px',
+          fontSize: '20px',
+          cursor: 'pointer',
+          boxShadow: '0 4px 12px rgba(0, 120, 255, 0.3)',
+          zIndex: 1000
+        }}
+      >
+        ↑
+      </button>
     </div>
   );
 }

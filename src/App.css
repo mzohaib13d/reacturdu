@@ -2955,6 +2955,7 @@ html {
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
 }
+
 .english-code,
 .english-code *,
 .css-code,
@@ -2963,4 +2964,115 @@ html {
 .code-header * {
   text-align: left !important;
   direction: ltr !important;
+}
+/* 🔹 Coding Text Styles - For inline code blocks */
+.coding {
+  display: inline-block;
+  background: #1e1e1e;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 14px;
+  border: 1px solid #333;
+  margin: 5px 0;
+  direction: ltr;
+  text-align: left;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.4;
+}
+
+/* 🔹 Step Card specific code styling */
+.step-content .coding {
+  background: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #333;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+}
+
+/* 🔹 Desktop View */
+@media (min-width: 769px) {
+  .coding {
+    font-size: 15px;
+    padding: 10px 16px;
+    margin: 8px 0;
+  }
+  
+  .step-content .coding {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}
+
+/* 🔹 Mobile View */
+@media (max-width: 768px) {
+  .coding {
+    font-size: 13px;
+    padding: 6px 10px;
+    margin: 4px 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  
+  .step-content .coding {
+    font-size: 14px;
+    padding: 8px 12px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}
+
+/* 🔹 Small Mobile View */
+@media (max-width: 430px) {
+  .coding {
+    font-size: 12px;
+    padding: 5px 8px;
+    margin: 3px 0;
+  }
+  
+  .step-content .coding {
+    font-size: 13px;
+    padding: 6px 10px;
+    min-height: 36px;
+  }
+}
+
+/* 🔹 Very Small Mobile View */
+@media (max-width: 375px) {
+  .coding {
+    font-size: 13px;
+    padding: 4px 6px;
+  }
+  
+  .step-content .coding {
+    font-size: 13px;
+    padding: 5px 8px;
+    min-height: 32px;
+  }
+}
+
+/* 🔹 Ensure proper text alignment for code */
+.coding {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+/* 🔹 Make sure it works well in step cards */
+.step-card .step-content code.coding {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  max-width: 100%;
 }
