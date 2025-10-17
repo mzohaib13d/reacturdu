@@ -337,7 +337,6 @@ function Chapter0() {
         "Real-world Authentication",
       ],
     },
-    // ========== UPDATED CHAPTER 25 ==========
     {
       id: 25,
       title: "Authentication & Protected Routes + SweetAlert2",
@@ -354,6 +353,25 @@ function Chapter0() {
         "Complete Code Examples",
         "Professional UI/UX",
         "Real-world Authentication",
+      ],
+    },
+    // ========== NEW CHAPTER 26 ==========
+    {
+      id: 26,
+      title: "⚡ Performance & Optimization - Lazy Loading + Environment Variables",
+      description: "React App کو تیز، ہلکا، اور محفوظ بنانا: Lazy Loading Components + Environment Variables + Weather Dashboard",
+      duration: "35 منٹ",
+      topics: [
+        "React.lazy + Suspense",
+        "Lazy Loading Components",
+        "Environment Variables (.env)",
+        "Code Splitting",
+        "Weather Dashboard Project",
+        "Performance Optimization",
+        "Security Best Practices",
+        "Live Demonstrations",
+        "Practical Examples",
+        "Professional App Development",
       ],
     },
   ];
@@ -409,16 +427,16 @@ function Chapter0() {
             <span className="stat-label">Chapters</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">680+</span>
+            <span className="stat-number">715+</span>
             <span className="stat-label">منٹ</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">250+</span>
+            <span className="stat-number">270+</span>
             <span className="stat-label">کوڈ مثالوں</span>
           </div>
         </div>
 
-        {/* Show All Chapters Button */}
+        {/* Quick Navigation Buttons */}
         <div className="toc-actions">
           <button onClick={showAllChapters} className="show-all-btn">
             📚 تمام Chapters دیکھیں
@@ -485,9 +503,74 @@ function Chapter0() {
           <li>✅ <strong style={{color: '#0078ff'}}>نئی: Custom Hook useLocalStorage + Protected Routes وضاحت</strong></li>
           <li>✅ <strong style={{color: '#0078ff'}}>نئی: Complete Logout Flow + SweetAlert2 Confirmation</strong></li>
           <li>✅ <strong style={{color: '#28a745'}}>🌟 نئی: Chapter 25 - Complete Authentication System + SweetAlert2 + Auto Login</strong></li>
+          <li>✅ <strong style={{color: '#ff6b35'}}>🔥 نئی: Chapter 26 - Performance & Optimization + Lazy Loading + Environment Variables</strong></li>
           <li>✅ Modern React tools (Vite) سے واقفیت</li>
           <li>✅ حقیقی پراجیکٹس بنانے کی صلاحیت</li>
         </ul>
+
+        {/* Chapter 26 Special Highlight */}
+        <div style={{ marginTop: '20px', padding: '20px', background: 'linear-gradient(135deg, #ff6b35 0%, #f7931e 100%)', borderRadius: '12px', border: '3px solid #ff6b35', color: 'white' }}>
+          <h4 style={{ color: 'white', marginBottom: '15px', fontSize: '22px', textAlign: 'center' }}>⚡🚀 Chapter 26: Performance & Optimization - Lazy Loading + Environment Variables</h4>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>⚡ Performance Optimization</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ React.lazy + Suspense</li>
+                <li>✅ Lazy Loading Components</li>
+                <li>✅ Code Splitting</li>
+                <li>✅ Faster Initial Load</li>
+              </ul>
+            </div>
+            
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🔐 Environment Variables</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ .env فائل استعمال</li>
+                <li>✅ API Keys Security</li>
+                <li>✅ VITE_ Prefix</li>
+                <li>✅ .gitignore Configuration</li>
+              </ul>
+            </div>
+            
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🌦 Weather Dashboard Project</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ Practical Application</li>
+                <li>✅ Real API Integration</li>
+                <li>✅ Live Demonstrations</li>
+                <li>✅ Complete Code Examples</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center', marginTop: '15px' }}>
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🎯 Live Features</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ Interactive Lazy Loading Demo</li>
+                <li>✅ Environment Variables Display</li>
+                <li>✅ Weather API Simulation</li>
+                <li>✅ Real-time Performance Benefits</li>
+              </ul>
+            </div>
+            
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🚀 Professional Development</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ Security Best Practices</li>
+                <li>✅ Performance Optimization</li>
+                <li>✅ Production Ready Code</li>
+                <li>✅ Modern React Patterns</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div style={{ textAlign: 'center', marginTop: '15px', padding: '10px', background: 'rgba(255,255,255,0.2)', borderRadius: '8px' }}>
+            <p style={{ margin: '0', fontSize: '16px', fontWeight: 'bold' }}>
+              ⏰ مدت: 35 منٹ | 📝 3 مکمل Sections | 🎯 Performance + Security + Live Demo
+            </p>
+          </div>
+        </div>
 
         {/* Chapter 25 Special Highlight */}
         <div style={{ marginTop: '20px', padding: '20px', background: 'linear-gradient(135deg, #28a745 0%, #20c997 100%)', borderRadius: '12px', border: '3px solid #28a745', color: 'white' }}>
@@ -520,28 +603,6 @@ function Chapter0() {
                 <li>✅ Auto Redirect on Refresh</li>
                 <li>✅ Persistent User Sessions</li>
                 <li>✅ Professional UX</li>
-              </ul>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center', marginTop: '15px' }}>
-            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
-              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🎯 Live Features</h5>
-              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
-                <li>✅ 6 Interactive Animation Buttons</li>
-                <li>✅ Real-time Demo Integration</li>
-                <li>✅ Copy-to-Clipboard Code</li>
-                <li>✅ Responsive Design</li>
-              </ul>
-            </div>
-            
-            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
-              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🌈 Animation Support</h5>
-              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
-                <li>✅ Animate.css Integration</li>
-                <li>✅ Zoom, Bounce, Flip Effects</li>
-                <li>✅ Shake, Wobble Animations</li>
-                <li>✅ Light Speed Transitions</li>
               </ul>
             </div>
           </div>
@@ -594,9 +655,6 @@ function Chapter0() {
             </p>
           </div>
         </div>
-
-        {/* باقی chapters کے highlights اسی طرح رہیں گے */}
-        {/* ... باقی کوڈ وہی رہے گا ... */}
       </div>
     </div>
   );
