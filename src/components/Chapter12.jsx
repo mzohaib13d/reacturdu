@@ -1741,7 +1741,7 @@ npm run dev
               </button>
             </div>
           </div>
-
+{/* new updates  made  */}
           <div className="code-section">
             <div className="code-header">
               <span>📁 src/index.css</span>
