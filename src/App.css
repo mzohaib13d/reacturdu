@@ -3082,3 +3082,9 @@ html {
   width: auto;
   max-width: 100%;
 }
+/* Quick fix for environment code blocks */
+.methods-grid .english-code,
+.methods-grid .english-code code {
+  direction: ltr !important;
+  text-align: left !important;
+}

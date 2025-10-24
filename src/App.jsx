@@ -27,6 +27,7 @@ import Chapter23 from "./components/Chapter23";
 import Chapter24 from "./components/Chapter24";
 import Chapter25 from "./components/Chapter25";
 import Chapter26 from "./components/Chapter26";
+import Chapter27 from "./components/Chapter27";
 
 function App() {
   const [copySuccess, setCopySuccess] = useState("");
@@ -236,6 +237,9 @@ function App() {
       </div>
       <div id="chapter-26" className="chapter-content">
         <Chapter26 />
+      </div>
+      <div id="chapter-27" className="chapter-content">
+        <Chapter27 />
       </div>
       {copySuccess && <p className="copy-msg">{copySuccess}</p>}
 

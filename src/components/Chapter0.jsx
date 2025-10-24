@@ -355,7 +355,6 @@ function Chapter0() {
         "Real-world Authentication",
       ],
     },
-    // ========== NEW CHAPTER 26 ==========
     {
       id: 26,
       title: "⚡ Performance & Optimization - Lazy Loading + Environment Variables",
@@ -372,6 +371,25 @@ function Chapter0() {
         "Live Demonstrations",
         "Practical Examples",
         "Professional App Development",
+      ],
+    },
+    // ========== NEW CHAPTER 27 ==========
+    {
+      id: 27,
+      title: "🌍 API Keys Security & Environment Mode (Development vs Production)",
+      description: "React + Vite Environment Practical Example: API Keys Security, Environment Variables, Development vs Production Modes",
+      duration: "40 منٹ",
+      topics: [
+        "Environment Variables (.env)",
+        "API Keys Security",
+        "Development vs Production Modes",
+        "Vite Environment Setup",
+        ".env.development & .env.production",
+        "Weather App Practical Example",
+        "Netlify/Vercel Deployment",
+        "Security Best Practices",
+        "GitHub Protection (.gitignore)",
+        "Professional App Security",
       ],
     },
   ];
@@ -427,11 +445,11 @@ function Chapter0() {
             <span className="stat-label">Chapters</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">715+</span>
+            <span className="stat-number">755+</span>
             <span className="stat-label">منٹ</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">270+</span>
+            <span className="stat-number">290+</span>
             <span className="stat-label">کوڈ مثالوں</span>
           </div>
         </div>
@@ -504,9 +522,74 @@ function Chapter0() {
           <li>✅ <strong style={{color: '#0078ff'}}>نئی: Complete Logout Flow + SweetAlert2 Confirmation</strong></li>
           <li>✅ <strong style={{color: '#28a745'}}>🌟 نئی: Chapter 25 - Complete Authentication System + SweetAlert2 + Auto Login</strong></li>
           <li>✅ <strong style={{color: '#ff6b35'}}>🔥 نئی: Chapter 26 - Performance & Optimization + Lazy Loading + Environment Variables</strong></li>
+          <li>✅ <strong style={{color: '#9c27b0'}}>🔐 نئی: Chapter 27 - API Keys Security & Environment Mode (Development vs Production)</strong></li>
           <li>✅ Modern React tools (Vite) سے واقفیت</li>
           <li>✅ حقیقی پراجیکٹس بنانے کی صلاحیت</li>
         </ul>
+
+        {/* Chapter 27 Special Highlight */}
+        <div style={{ marginTop: '20px', padding: '20px', background: 'linear-gradient(135deg, #9c27b0 0%, #673ab7 100%)', borderRadius: '12px', border: '3px solid #9c27b0', color: 'white' }}>
+          <h4 style={{ color: 'white', marginBottom: '15px', fontSize: '22px', textAlign: 'center' }}>🌍🔐 Chapter 27: API Keys Security & Environment Mode (Development vs Production)</h4>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🔐 API Keys Security</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ Environment Variables (.env)</li>
+                <li>✅ API Keys کو محفوظ رکھنا</li>
+                <li>✅ Hard-coding سے بچنا</li>
+                <li>✅ Security Best Practices</li>
+              </ul>
+            </div>
+            
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🌐 Environment Modes</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ Development vs Production</li>
+                <li>✅ .env.development & .env.production</li>
+                <li>✅ Vite Environment Setup</li>
+                <li>✅ Mode-specific Configuration</li>
+              </ul>
+            </div>
+            
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🌦 Weather App Practical Example</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ Live Weather Demo</li>
+                <li>✅ Real API Integration</li>
+                <li>✅ Environment Variables Display</li>
+                <li>✅ Complete Code Examples</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center', marginTop: '15px' }}>
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🚀 Deployment & Security</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ Netlify/Vercel Deployment</li>
+                <li>✅ Environment Variables Setup</li>
+                <li>✅ .gitignore Configuration</li>
+                <li>✅ GitHub Protection</li>
+              </ul>
+            </div>
+            
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🎯 Professional Development</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ Security Best Practices</li>
+                <li>✅ Production Ready Code</li>
+                <li>✅ Modern React Patterns</li>
+                <li>✅ Real-world Applications</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div style={{ textAlign: 'center', marginTop: '15px', padding: '10px', background: 'rgba(255,255,255,0.2)', borderRadius: '8px' }}>
+            <p style={{ margin: '0', fontSize: '16px', fontWeight: 'bold' }}>
+              ⏰ مدت: 40 منٹ | 📝 10 مکمل Sections | 🎯 Security + Environment + Live Demo
+            </p>
+          </div>
+        </div>
 
         {/* Chapter 26 Special Highlight */}
         <div style={{ marginTop: '20px', padding: '20px', background: 'linear-gradient(135deg, #ff6b35 0%, #f7931e 100%)', borderRadius: '12px', border: '3px solid #ff6b35', color: 'white' }}>
@@ -610,48 +693,6 @@ function Chapter0() {
           <div style={{ textAlign: 'center', marginTop: '15px', padding: '10px', background: 'rgba(255,255,255,0.2)', borderRadius: '8px' }}>
             <p style={{ margin: '0', fontSize: '16px', fontWeight: 'bold' }}>
               ⏰ مدت: 45 منٹ | 📝 10 مکمل Sections | 🎯 2 Authentication Systems + Live Demo
-            </p>
-          </div>
-        </div>
-
-        {/* Chapter 24 Special Highlight */}
-        <div style={{ marginTop: '20px', padding: '20px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', borderRadius: '12px', border: '3px solid #0078ff', color: 'white' }}>
-          <h4 style={{ color: 'white', marginBottom: '15px', fontSize: '22px', textAlign: 'center' }}>🚪🌸 Chapter 24: Complete Logout Flow + SweetAlert2</h4>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
-            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
-              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🔄 Complete Authentication Flow</h5>
-              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
-                <li>✅ Login → Persistent Data → Logout</li>
-                <li>✅ LocalStorage Clear on Logout</li>
-                <li>✅ AuthContext Enhancement</li>
-                <li>✅ Protected Routes Integration</li>
-              </ul>
-            </div>
-            
-            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
-              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🌸 SweetAlert2 Integration</h5>
-              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
-                <li>✅ Beautiful Confirmation Dialogs</li>
-                <li>✅ Professional UI/UX</li>
-                <li>✅ User Experience Enhancement</li>
-                <li>✅ Accidental Logout Prevention</li>
-              </ul>
-            </div>
-            
-            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
-              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🎯 Professional System</h5>
-              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
-                <li>✅ Real-world Authentication</li>
-                <li>✅ Production Ready Code</li>
-                <li>✅ Modern Web Standards</li>
-                <li>✅ Complete Code Examples</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div style={{ textAlign: 'center', marginTop: '15px', padding: '10px', background: 'rgba(255,255,255,0.2)', borderRadius: '8px' }}>
-            <p style={{ margin: '0', fontSize: '16px', fontWeight: 'bold' }}>
-              ⏰ مدت: 40 منٹ | 📝 2 مکمل Sections | 🎯 Professional Authentication System
             </p>
           </div>
         </div>
