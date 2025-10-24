@@ -10,8 +10,6 @@ const Chapter12 = () => {
     setTimeout(() => setCopiedCode(""), 2000);
   };
 
-  // ... (all your existing themeContextCode, languageContextCode variables remain exactly the same)
-
   // Theme Context Codes
   const themeContextCode = `// یہ فائل Context بنانے کے لیے ہے
 import { createContext } from "react";
@@ -48,17 +46,217 @@ function App() {
 
 export default App;`;
 
-  // ... (all your existing code remains exactly as it is)
+  const themeChildCode = `import React, { useContext } from "react";
+import { ThemeContext } from "./ThemeContext";
 
-  // NEW CONTENT STARTS HERE - User Context Example
-  const userContextIntro = `useContext() ری ایکٹ (React) کا ایک جدید اور طاقتور Hook ہے جو کسی بھی Context سے ڈیٹا حاصل کرنے کے لیے استعمال ہوتا ہے،
-بغیر اس کے کہ آپ کو وہ ڈیٹا ہر کمپوننٹ کے ذریعے "props" کی شکل میں نیچے بھیجنا پڑے۔
+function ChildComponent() {
+  // useContext سے وہی ڈیٹا نکال لیا جو اوپر سے آیا تھا
+  const { theme } = useContext(ThemeContext);
 
-🧠 useContext() کیا ہے؟
+  return (
+    <div className="child">
+      <h2>یہ Child Component ہے</h2>
+      <p>
+        ابھی Theme ہے: <b>{theme === "light" ? "🌞 Light Mode" : "🌙 Dark Mode"}</b>
+      </p>
+      <p>یہاں تک props نہیں بھیجے — Context نے خود پہنچایا!</p>
+    </div>
+  );
+}
 
-یہ React کا ایک Built-in Hook ہے
-جو آپ کو Context API کے ذریعے بنائے گئے ڈیٹا تک سیدھی رسائی دیتا ہے۔
-یعنی اگر ایک Component اوپر Context مہیا کر رہا ہے تو نیچے والا Component اسے براہِ راست لے سکتا ہے۔`;
+export default ChildComponent;`;
+
+  const themeCssCode = `.app {
+  font-family: "Noto Nastaliq Urdu", serif;
+  text-align: center;
+  padding: 30px;
+  transition: background 0.5s, color 0.5s;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+/* 🌞 Light Theme */
+.app.light {
+  background: #ffffff;
+  color: #222;
+}
+
+/* 🌙 Dark Theme */
+.app.dark {
+  background: #1a1a1a;
+  color: #f5f5f5;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.child {
+  margin-top: 20px;
+  border-top: 2px dashed #ccc;
+  padding-top: 15px;
+}`;
+
+  // Language Context Codes
+  const languageContextCode = `// یہاں ہم Context بنا رہے ہیں جو زبان کی معلومات رکھے گا
+import { createContext } from "react";
+
+export const LanguageContext = createContext(null);`;
+
+  const languageAppCode = `import React, { useState } from "react";
+import { LanguageContext } from "./LanguageContext";
+import Child from "./Child";
+import "./App.css";
+
+function App() {
+  const [language, setLanguage] = useState("urdu");
+
+  const toggleLanguage = () => {
+    setLanguage(language === "urdu" ? "english" : "urdu");
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, toggleLanguage }}>
+      <div className="app-container">
+        <h1>🌍 useContext Example — Language Switcher</h1>
+        <p>
+          اس مثال میں ہم دیکھیں گے کہ Context کے ذریعے پوری ایپ کی زبان کیسے بدلی جا سکتی ہے۔
+        </p>
+        <button onClick={toggleLanguage}>
+          {language === "urdu" ? "Switch to English" : "اردو میں بدلیں"}
+        </button>
+
+        <hr className="styled-hr" />
+
+        <Child />
+      </div>
+    </LanguageContext.Provider>
+  );
+}
+
+export default App;`;
+
+  const languageChildCode = `import React, { useContext } from "react";
+import { LanguageContext } from "./LanguageContext";
+
+function Child() {
+  const { language } = useContext(LanguageContext);
+
+  return (
+    <div className="child-box">
+      {language === "urdu" ? (
+        <>
+          <h2>👋 خوش آمدید!</h2>
+          <p>یہ صفحہ اردو زبان میں ہے۔</p>
+        </>
+      ) : (
+        <>
+          <h2>👋 Welcome!</h2>
+          <p>This page is in English.</p>
+        </>
+      )}
+    </div>
+  );
+}
+
+export default Child;`;
+
+  const languageCssCode = `body {
+  margin: 0;
+  font-family: "Noto Nastaliq Urdu", serif;
+  direction: rtl;
+  background: #f8f9fa;
+  color: #222;
+}
+
+.app-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s;
+}
+
+h1 {
+  color: #0d6efd;
+  text-align: center;
+}
+
+p {
+  text-align: right;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  background: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0b5ed7;
+}
+
+/* درمیان کا خوبصورت لائن */
+.styled-hr {
+  margin: 25px 0;
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #0d6efd, #6f42c1);
+  border-radius: 10px;
+}
+
+/* چائلڈ باکس */
+.child-box {
+  background: #f1f3f5;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.child-box:hover {
+  background: #e9ecef;
+}
+
+@media (max-width: 430px) {
+  .app-container {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}`;
+
+  // NEW USER CONTEXT CODES - Appended exactly as provided
+  const userContextIntro = `اب میں ایک مکمل، فائل در فائل React مثال تیار کرتا ہوں جس میں:
+• ایک Context فائل بنائی جائے گی
+• App.jsx میں وہ Context provide کیا جائے گا
+• دو Components (Header.jsx اور Footer.jsx) اس Context کے ڈیٹا کو useContext() سے استعمال کریں گے
+• Context میں ایک object پاس کیا جائے گا (جس میں مختلف entries ہوں گی)`;
 
   const userContextStructure = `🗂 مکمل فائل سٹرکچر
 src/
@@ -158,7 +356,329 @@ export default Footer;`;
 • React`;
 
   // Dynamic Context Example
-  const dynamicContextStructure = `🗂 React Project Structure (Complete)
+  const dynamicContextStructure = `🗂 نئی مثال کا فائل سٹرکچر
+src/
+ ┣ contexts/
+ ┃ ┗ UserContext2.jsx
+ ┣ components/
+ ┃ ┣ Profile.jsx
+ ┃ ┗ EditProfile.jsx
+ ┗ App2.jsx`;
+
+  const userContext2Code = `// UserContext2.jsx
+import { createContext } from "react";
+
+// نیا Context بنانا
+export const UserContext2 = createContext();`;
+
+  const dynamicAppCode = `// App2.jsx
+import React, { useState } from "react";
+import { UserContext2 } from "./contexts/UserContext2";
+import Profile from "./components/Profile";
+import EditProfile from "./components/EditProfile";
+
+function App2() {
+  // useState کے ذریعے ڈیٹا بنانا
+  const [user, setUser] = useState({
+    name: "زوہیب فاروق",
+    city: "لاہور",
+    age: 22,
+  });
+
+  return (
+    <UserContext2.Provider value={{ user, setUser }}>
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        <Profile />
+        <EditProfile />
+      </div>
+    </UserContext2.Provider>
+  );
+}
+
+export default App2;`;
+
+  const profileCode = `// Profile.jsx
+import React, { useContext } from "react";
+import { UserContext2 } from "../contexts/UserContext2";
+
+function Profile() {
+  const { user } = useContext(UserContext2);
+
+  return (
+    <div>
+      <h1>پروفائل کی معلومات</h1>
+      <p>نام: {user.name}</p>
+      <p>شہر: {user.city}</p>
+      <p>عمر: {user.age} سال</p>
+    </div>
+  );
+}
+
+export default Profile;`;
+
+  const editProfileCode = `// EditProfile.jsx
+import React, { useContext } from "react";
+import { UserContext2 } from "../contexts/UserContext2";
+
+function EditProfile() {
+  const { user, setUser } = useContext(UserContext2);
+
+  const changeCity = () => {
+    setUser({ ...user, city: "کراچی" });
+  };
+
+  const increaseAge = () => {
+    setUser({ ...user, age: user.age + 1 });
+  };
+
+  return (
+    <div style={{ marginTop: "30px" }}>
+      <h2>پروفائل میں تبدیلیاں</h2>
+      <button onClick={changeCity}>شہر بدلیں</button>
+      <button onClick={increaseAge} style={{ marginLeft: "10px" }}>
+        عمر بڑھائیں
+      </button>
+    </div>
+  );
+}
+
+export default EditProfile;`;
+
+  const dynamicOutput = `🖥 نتیجہ (Output)
+ایپ شروع کریں (npm run dev):
+پروفائل کی معلومات
+نام: زوہیب فاروق
+شہر: لاہور
+عمر: 22 سال
+
+[شہر بدلیں] [عمر بڑھائیں]
+• جب آپ "شہر بدلیں" پر کلک کریں گے → شہر کراچی ہو جائے گا
+• جب آپ "عمر بڑھائیں" پر کلک کریں گے → عمر 23، 24، 25... ہوتی جائے گی
+یہ سب کچھ Context کے ذریعے تمام Components میں ریئل ٹائم اپڈیٹ ہوگا۔`;
+
+  // Updated Static Context with larger object
+  const updatedStaticIntro = `بہت خوب 👏
+اب ہم پہلی static مثال (یعنی وہ جو صرف Context سے ڈیٹا دکھاتی ہے) کو مزید بہتر کریں گے —
+اس میں ہم userData کا object بڑا کریں گے اور دو نئی انٹریز شامل کریں گے۔
+یہ دونوں انٹریز ہوں گی:
+• profession (پیشہ)
+• hobbies (مشاغل – یعنی hobbies کی ایک array)`;
+
+  const updatedUserAppCode = `// App.jsx
+import React from "react";
+import { UserContext } from "./contexts/UserContext";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+function App() {
+  // بڑا object جس میں مزید انٹریز شامل کی گئیں
+  const userData = {
+    name: "زوہیب فاروق",
+    age: 22,
+    city: "لاہور",
+    profession: "فرنٹ اینڈ ویب ڈویلپر",
+    skills: ["HTML", "CSS", "JavaScript", "React"],
+    hobbies: ["کتابیں پڑھنا", "کوڈنگ کرنا", "گانے سننا", "سفر کرنا"]
+  };
+
+  return (
+    <UserContext.Provider value={userData}>
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        <Header />
+        <Footer />
+      </div>
+    </UserContext.Provider>
+  );
+}
+
+export default App;`;
+
+  const updatedHeaderCode = `// Header.jsx
+import React, { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
+
+function Header() {
+  const user = useContext(UserContext);
+
+  return (
+    <header>
+      <h1>خوش آمدید {user.name}!</h1>
+      <p>آپ کی عمر: {user.age} سال</p>
+      <p>شہر: {user.city}</p>
+      <p>پیشہ: {user.profession}</p>
+    </header>
+  );
+}
+
+export default Header;`;
+
+  const updatedFooterCode = `// Footer.jsx
+import React, { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
+
+function Footer() {
+  const user = useContext(UserContext);
+
+  return (
+    <footer style={{ marginTop: "30px" }}>
+      <h3>مہارتیں (Skills):</h3>
+      <ul>
+        {user.skills.map((skill, index) => (
+          <li key={index}>{skill}</li>
+        ))}
+      </ul>
+
+      <h3 style={{ marginTop: "20px" }}>مشاغل (Hobbies):</h3>
+      <ul>
+        {user.hobbies.map((hobby, index) => (
+          <li key={index}>{hobby}</li>
+        ))}
+      </ul>
+    </footer>
+  );
+}
+
+export default Footer;`;
+
+  const updatedStaticOutput = `🖥 نتیجہ (Output)
+خوش آمدید زوہیب فاروق!
+آپ کی عمر: 22 سال
+شہر: لاہور
+پیشہ: فرنٹ اینڈ ویب ڈویلپر
+
+مہارتیں:
+• HTML  
+• CSS  
+• JavaScript  
+• React  
+
+مشاغل:
+• کتابیں پڑھنا  
+• کوڈنگ کرنا  
+• گانے سننا  
+• سفر کرنا`;
+
+  // Updated Dynamic Context with larger object
+  const updatedDynamicAppCode = `// App2.jsx
+import React, { useState } from "react";
+import { UserContext2 } from "./contexts/UserContext2";
+import Profile from "./components/Profile";
+import EditProfile from "./components/EditProfile";
+
+function App2() {
+  // useState کے ساتھ بڑا object
+  const [user, setUser] = useState({
+    name: "زوہیب فاروق",
+    city: "لاہور",
+    age: 22,
+    profession: "فرنٹ اینڈ ویب ڈویلپر",
+    hobbies: ["کتابیں پڑھنا", "کوڈنگ کرنا", "سفر کرنا"],
+  });
+
+  return (
+    <UserContext2.Provider value={{ user, setUser }}>
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        <Profile />
+        <EditProfile />
+      </div>
+    </UserContext2.Provider>
+  );
+}
+
+export default App2;`;
+
+  const updatedProfileCode = `// Profile.jsx
+import React, { useContext } from "react";
+import { UserContext2 } from "../contexts/UserContext2";
+
+function Profile() {
+  const { user } = useContext(UserContext2);
+
+  return (
+    <div>
+      <h1>📋 پروفائل کی معلومات</h1>
+      <p>نام: {user.name}</p>
+      <p>شہر: {user.city}</p>
+      <p>عمر: {user.age} سال</p>
+      <p>پیشہ: {user.profession}</p>
+
+      <h3 style={{ marginTop: "20px" }}>مشاغل (Hobbies):</h3>
+      <ul>
+        {user.hobbies.map((hobby, index) => (
+          <li key={index}>{hobby}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default Profile;`;
+
+  const updatedEditProfileCode = `// EditProfile.jsx
+import React, { useContext } from "react";
+import { UserContext2 } from "../contexts/UserContext2";
+
+function EditProfile() {
+  const { user, setUser } = useContext(UserContext2);
+
+  const changeCity = () => {
+    setUser({ ...user, city: "کراچی" });
+  };
+
+  const increaseAge = () => {
+    setUser({ ...user, age: user.age + 1 });
+  };
+
+  const changeProfession = () => {
+    setUser({ ...user, profession: "فل اسٹیک ڈویلپر" });
+  };
+
+  const addHobby = () => {
+    setUser({
+      ...user,
+      hobbies: [...user.hobbies, "نئی زبان سیکھنا"],
+    });
+  };
+
+  return (
+    <div style={{ marginTop: "30px" }}>
+      <h2>⚙️ پروفائل میں تبدیلیاں</h2>
+      <button onClick={changeCity}>🏙 شہر بدلیں</button>
+      <button onClick={increaseAge} style={{ marginLeft: "10px" }}>
+        ⏳ عمر بڑھائیں
+      </button>
+      <button onClick={changeProfession} style={{ marginLeft: "10px" }}>
+        💼 پیشہ بدلیں
+      </button>
+      <button onClick={addHobby} style={{ marginLeft: "10px" }}>
+        🎨 نیا مشغلہ شامل کریں
+      </button>
+    </div>
+  );
+}
+
+export default EditProfile;`;
+
+  const updatedDynamicOutput = `🖥 نتیجہ (Output)
+شروع میں:
+📋 پروفائل کی معلومات
+نام: زوہیب فاروق
+شہر: لاہور
+عمر: 22 سال
+پیشہ: فرنٹ اینڈ ویب ڈویلپر
+
+مشاغل:
+• کتابیں پڑھنا
+• کوڈنگ کرنا
+• سفر کرنا
+بٹن دبانے پر:
+• 🏙 شہر بدلیں → شہر "کراچی" ہو جائے گا
+• ⏳ عمر بڑھائیں → عمر 23، 24، 25 ...
+• 💼 پیشہ بدلیں → پیشہ "فل اسٹیک ڈویلپر" ہو جائے گا
+• 🎨 نیا مشغلہ شامل کریں → "نئی زبان سیکھنا" آخری میں شامل ہو جائے گا`;
+
+  // Complete Project Structure
+  const completeStructure = `🗂 React Project Structure (Complete)
 my-react-app/
  ┣ src/
  ┃ ┣ components/
@@ -178,10 +698,91 @@ my-react-app/
  ┣ vite.config.js
  ┗ index.html`;
 
-  const userContext2Code = `import { createContext } from "react";
+  const finalUserContextCode = `// UserContext.jsx
+import { createContext } from "react";
+export const UserContext = createContext();`;
+
+  const finalStaticAppCode = `// App.jsx
+import React from "react";
+import { UserContext } from "./contexts/UserContext";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+function App() {
+  const userData = {
+    name: "زوہیب فاروق",
+    age: 22,
+    city: "لاہور",
+    profession: "فرنٹ اینڈ ویب ڈویلپر",
+    skills: ["HTML", "CSS", "JavaScript", "React"],
+    hobbies: ["کتابیں پڑھنا", "کوڈنگ کرنا", "گانے سننا", "سفر کرنا"],
+  };
+
+  return (
+    <UserContext.Provider value={userData}>
+      <div className="container">
+        <Header />
+        <Footer />
+      </div>
+    </UserContext.Provider>
+  );
+}
+
+export default App;`;
+
+  const finalHeaderCode = `// Header.jsx
+import React, { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
+
+function Header() {
+  const user = useContext(UserContext);
+
+  return (
+    <header>
+      <h1>خوش آمدید {user.name}!</h1>
+      <p>عمر: {user.age} سال</p>
+      <p>شہر: {user.city}</p>
+      <p>پیشہ: {user.profession}</p>
+    </header>
+  );
+}
+
+export default Header;`;
+
+  const finalFooterCode = `// Footer.jsx
+import React, { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
+
+function Footer() {
+  const user = useContext(UserContext);
+
+  return (
+    <footer>
+      <h3>مہارتیں (Skills):</h3>
+      <ul>
+        {user.skills.map((skill, index) => (
+          <li key={index}>{skill}</li>
+        ))}
+      </ul>
+
+      <h3>مشاغل (Hobbies):</h3>
+      <ul>
+        {user.hobbies.map((hobby, index) => (
+          <li key={index}>{hobby}</li>
+        ))}
+      </ul>
+    </footer>
+  );
+}
+
+export default Footer;`;
+
+  const finalUserContext2Code = `// UserContext2.jsx
+import { createContext } from "react";
 export const UserContext2 = createContext();`;
 
-  const dynamicAppCode = `import React, { useState } from "react";
+  const finalDynamicAppCode = `// App2.jsx
+import React, { useState } from "react";
 import { UserContext2 } from "./contexts/UserContext2";
 import Profile from "./components/Profile";
 import EditProfile from "./components/EditProfile";
@@ -207,7 +808,8 @@ function App2() {
 
 export default App2;`;
 
-  const profileCode = `import React, { useContext } from "react";
+  const finalProfileCode = `// Profile.jsx
+import React, { useContext } from "react";
 import { UserContext2 } from "../contexts/UserContext2";
 
 function Profile() {
@@ -233,7 +835,8 @@ function Profile() {
 
 export default Profile;`;
 
-  const editProfileCode = `import React, { useContext } from "react";
+  const finalEditProfileCode = `// EditProfile.jsx
+import React, { useContext } from "react";
 import { UserContext2 } from "../contexts/UserContext2";
 
 function EditProfile() {
@@ -259,7 +862,8 @@ function EditProfile() {
 
 export default EditProfile;`;
 
-  const appSwitcherCode = `import React, { useState } from "react";
+  const appSwitcherCode = `// AppSwitcher.jsx
+import React, { useState } from "react";
 import App from "./App";
 import App2 from "./App2";
 
@@ -285,7 +889,8 @@ function AppSwitcher() {
 
 export default AppSwitcher;`;
 
-  const mainJsxCode = `import React from "react";
+  const mainJsxCode = `// main.jsx
+import React from "react";
 import ReactDOM from "react-dom/client";
 import AppSwitcher from "./AppSwitcher";
 import "./index.css";
@@ -296,7 +901,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );`;
 
-  const dynamicCssCode = `body {
+  const indexCssCode = `/* index.css */
+body {
   font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", sans-serif;
   background-color: #f5f5f5;
   margin: 0;
@@ -346,6 +952,20 @@ li {
   padding: 8px;
   border-radius: 6px;
 }`;
+
+  const finalInstructions = `🟢 ایپ چلانے کا طریقہ
+npm install
+npm run dev
+
+پھر browser میں کھولیں:
+👉 http://localhost:5173/
+
+🧠 نتیجہ:
+1️⃣ پہلے Static Example چلے گا
+2️⃣ "Live موڈ پر جائیں" دبانے سے ایپ بدل جائے گی
+3️⃣ نیا عنوان دکھے گا:
+🔵 اب ہم ریکارڈ میں Live Update شامل کر رہے ہیں
+اور نیچے والے بٹن سے عمر، شہر، پیشہ، مشاغل Live اپڈیٹ ہوں گے۔`;
 
   return (
     <div className="chapter-container">
@@ -417,7 +1037,59 @@ li {
             <p className="urdu-text">یہ ایک "ڈبہ" ہے جو ہمارا theme (Light یا Dark) رکھے گا۔</p>
           </div>
 
-          {/* ... (all your existing theme example code sections remain exactly the same) */}
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 Step 2: App.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{themeAppCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(themeAppCode, "App.jsx - Theme")}
+              >
+                {copiedCode === "App.jsx - Theme" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 Step 3: ChildComponent.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{themeChildCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(themeChildCode, "ChildComponent.jsx")}
+              >
+                {copiedCode === "ChildComponent.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 Step 4: App.css</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="css-code">{themeCssCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(themeCssCode, "App.css - Theme")}
+              >
+                {copiedCode === "App.css - Theme" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Language Context Example */}
@@ -439,10 +1111,80 @@ li {
             👉 <strong>Context بنائیں گے اور useContext سے پوری ایپ میں زبان بانٹ دیں گے!</strong>
           </p>
 
-          {/* ... (all your existing language example code sections remain exactly the same) */}
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 Step 1: LanguageContext.js</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{languageContextCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(languageContextCode, "LanguageContext.js")}
+              >
+                {copiedCode === "LanguageContext.js" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 Step 2: App.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{languageAppCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(languageAppCode, "App.jsx - Language")}
+              >
+                {copiedCode === "App.jsx - Language" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 Step 3: Child.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{languageChildCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(languageChildCode, "Child.jsx - Language")}
+              >
+                {copiedCode === "Child.jsx - Language" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 Step 4: App.css</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="css-code">{languageCssCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(languageCssCode, "App.css - Language")}
+              >
+                {copiedCode === "App.css - Language" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* NEW CONTENT: User Context Example */}
+        {/* NEW CONTENT: User Context Example - Part 1 */}
         <div className="learning-outcomes">
           <h2 className="section-title">👤 useContext Hook (حصہ سوم) - User Context Example</h2>
           
@@ -463,16 +1205,16 @@ li {
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
-                onClick={() => copyToClipboard(userContextStructure, "File Structure")}
+                onClick={() => copyToClipboard(userContextStructure, "User Context Structure")}
               >
-                {copiedCode === "File Structure" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+                {copiedCode === "User Context Structure" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
               </button>
             </div>
           </div>
 
           <div className="code-section">
             <div className="code-header">
-              <span>📁 Step 1: UserContext.jsx</span>
+              <span>📁 src/contexts/UserContext.jsx</span>
             </div>
             <div className="code-block-wrapper">
               <pre className="english-code">{userContextCode}</pre>
@@ -490,7 +1232,7 @@ li {
 
           <div className="code-section">
             <div className="code-header">
-              <span>📁 Step 2: App.jsx</span>
+              <span>📁 src/App.jsx</span>
             </div>
             <div className="code-block-wrapper">
               <pre className="english-code">{userAppCode}</pre>
@@ -508,7 +1250,7 @@ li {
 
           <div className="code-section">
             <div className="code-header">
-              <span>📁 Step 3: Header.jsx</span>
+              <span>📁 src/components/Header.jsx</span>
             </div>
             <div className="code-block-wrapper">
               <pre className="english-code">{userHeaderCode}</pre>
@@ -526,7 +1268,7 @@ li {
 
           <div className="code-section">
             <div className="code-header">
-              <span>📁 Step 4: Footer.jsx</span>
+              <span>📁 src/components/Footer.jsx</span>
             </div>
             <div className="code-block-wrapper">
               <pre className="english-code">{userFooterCode}</pre>
@@ -548,7 +1290,7 @@ li {
           </div>
         </div>
 
-        {/* NEW CONTENT: Dynamic Context Example */}
+        {/* NEW CONTENT: Dynamic Context Example - Part 2 */}
         <div className="homework-section">
           <h2 className="section-title">🔄 useContext Hook (حصہ چہارم) - Dynamic Context Example</h2>
           
@@ -571,16 +1313,16 @@ li {
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
-                onClick={() => copyToClipboard(dynamicContextStructure, "Dynamic File Structure")}
+                onClick={() => copyToClipboard(dynamicContextStructure, "Dynamic Context Structure")}
               >
-                {copiedCode === "Dynamic File Structure" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+                {copiedCode === "Dynamic Context Structure" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
               </button>
             </div>
           </div>
 
           <div className="code-section">
             <div className="code-header">
-              <span>📁 UserContext2.jsx</span>
+              <span>📁 src/contexts/UserContext2.jsx</span>
             </div>
             <div className="code-block-wrapper">
               <pre className="english-code">{userContext2Code}</pre>
@@ -598,7 +1340,7 @@ li {
 
           <div className="code-section">
             <div className="code-header">
-              <span>📁 App2.jsx (Dynamic Example)</span>
+              <span>📁 src/App2.jsx</span>
             </div>
             <div className="code-block-wrapper">
               <pre className="english-code">{dynamicAppCode}</pre>
@@ -616,7 +1358,7 @@ li {
 
           <div className="code-section">
             <div className="code-header">
-              <span>📁 Profile.jsx</span>
+              <span>📁 src/components/Profile.jsx</span>
             </div>
             <div className="code-block-wrapper">
               <pre className="english-code">{profileCode}</pre>
@@ -634,7 +1376,7 @@ li {
 
           <div className="code-section">
             <div className="code-header">
-              <span>📁 EditProfile.jsx</span>
+              <span>📁 src/components/EditProfile.jsx</span>
             </div>
             <div className="code-block-wrapper">
               <pre className="english-code">{editProfileCode}</pre>
@@ -650,9 +1392,323 @@ li {
             </div>
           </div>
 
+          <div className="success-box">
+            <h3>🖥 نتیجہ (Output)</h3>
+            <pre className="urdu-text">{dynamicOutput}</pre>
+          </div>
+        </div>
+
+        {/* NEW CONTENT: Updated Static Context with Larger Object */}
+        <div className="learning-outcomes">
+          <h2 className="section-title">📈 useContext Hook (حصہ پنجم) - بڑا Object والی مثال</h2>
+          
+          <div className="info-box">
+            <p className="urdu-text">
+              {updatedStaticIntro}
+            </p>
+          </div>
+
           <div className="code-section">
             <div className="code-header">
-              <span>📁 AppSwitcher.jsx</span>
+              <span>📁 اپڈیٹ شدہ src/App.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{updatedUserAppCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(updatedUserAppCode, "Updated App.jsx")}
+              >
+                {copiedCode === "Updated App.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 اپڈیٹ شدہ src/components/Header.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{updatedHeaderCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(updatedHeaderCode, "Updated Header.jsx")}
+              >
+                {copiedCode === "Updated Header.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 اپڈیٹ شدہ src/components/Footer.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{updatedFooterCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(updatedFooterCode, "Updated Footer.jsx")}
+              >
+                {copiedCode === "Updated Footer.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="success-box">
+            <h3>🖥 نتیجہ (Output)</h3>
+            <pre className="urdu-text">{updatedStaticOutput}</pre>
+          </div>
+        </div>
+
+        {/* NEW CONTENT: Updated Dynamic Context with Larger Object */}
+        <div className="homework-section">
+          <h2 className="section-title">🎯 useContext Hook (حصہ ششم) - بڑا Object والی Dynamic مثال</h2>
+          
+          <p className="urdu-text">
+            <strong>🔹 مکمل اپڈیٹ شدہ Dynamic Context Example</strong>
+          </p>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 اپڈیٹ شدہ src/App2.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{updatedDynamicAppCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(updatedDynamicAppCode, "Updated App2.jsx")}
+              >
+                {copiedCode === "Updated App2.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 اپڈیٹ شدہ src/components/Profile.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{updatedProfileCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(updatedProfileCode, "Updated Profile.jsx")}
+              >
+                {copiedCode === "Updated Profile.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 اپڈیٹ شدہ src/components/EditProfile.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{updatedEditProfileCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(updatedEditProfileCode, "Updated EditProfile.jsx")}
+              >
+                {copiedCode === "Updated EditProfile.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="success-box">
+            <h3>🖥 نتیجہ (Output)</h3>
+            <pre className="urdu-text">{updatedDynamicOutput}</pre>
+          </div>
+        </div>
+
+        {/* NEW CONTENT: Complete Project Structure */}
+        <div className="learning-outcomes">
+          <h2 className="section-title">🏗️ useContext Hook (حصہ ہفتم) - مکمل پروجیکٹ سٹرکچر</h2>
+          
+          <p className="urdu-text">
+            <strong>🔹 React Project Structure (Complete)</strong>
+          </p>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 مکمل فائل سٹرکچر</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{completeStructure}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(completeStructure, "Complete Project Structure")}
+              >
+                {copiedCode === "Complete Project Structure" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 src/contexts/UserContext.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{finalUserContextCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(finalUserContextCode, "Final UserContext.jsx")}
+              >
+                {copiedCode === "Final UserContext.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 src/App.jsx (Static Example)</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{finalStaticAppCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(finalStaticAppCode, "Final App.jsx")}
+              >
+                {copiedCode === "Final App.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 src/components/Header.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{finalHeaderCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(finalHeaderCode, "Final Header.jsx")}
+              >
+                {copiedCode === "Final Header.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 src/components/Footer.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{finalFooterCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(finalFooterCode, "Final Footer.jsx")}
+              >
+                {copiedCode === "Final Footer.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 src/contexts/UserContext2.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{finalUserContext2Code}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(finalUserContext2Code, "Final UserContext2.jsx")}
+              >
+                {copiedCode === "Final UserContext2.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 src/App2.jsx (Dynamic Example)</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{finalDynamicAppCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(finalDynamicAppCode, "Final App2.jsx")}
+              >
+                {copiedCode === "Final App2.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 src/components/Profile.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{finalProfileCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(finalProfileCode, "Final Profile.jsx")}
+              >
+                {copiedCode === "Final Profile.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 src/components/EditProfile.jsx</span>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">{finalEditProfileCode}</pre>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">Please scroll → </div>
+              <button
+                className="copy-btn"
+                onClick={() => copyToClipboard(finalEditProfileCode, "Final EditProfile.jsx")}
+              >
+                {copiedCode === "Final EditProfile.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-section">
+            <div className="code-header">
+              <span>📁 src/AppSwitcher.jsx</span>
             </div>
             <div className="code-block-wrapper">
               <pre className="english-code">{appSwitcherCode}</pre>
@@ -670,7 +1726,7 @@ li {
 
           <div className="code-section">
             <div className="code-header">
-              <span>📁 main.jsx</span>
+              <span>📁 src/main.jsx</span>
             </div>
             <div className="code-block-wrapper">
               <pre className="english-code">{mainJsxCode}</pre>
@@ -688,46 +1744,25 @@ li {
 
           <div className="code-section">
             <div className="code-header">
-              <span>📁 index.css</span>
+              <span>📁 src/index.css</span>
             </div>
             <div className="code-block-wrapper">
-              <pre className="css-code">{dynamicCssCode}</pre>
+              <pre className="css-code">{indexCssCode}</pre>
             </div>
             <div className="code-scroll-notice-parent">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
-                onClick={() => copyToClipboard(dynamicCssCode, "index.css - Dynamic")}
+                onClick={() => copyToClipboard(indexCssCode, "index.css")}
               >
-                {copiedCode === "index.css - Dynamic" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+                {copiedCode === "index.css" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
               </button>
             </div>
           </div>
 
           <div className="success-box">
             <h3>🟢 ایپ چلانے کا طریقہ</h3>
-            <pre className="urdu-text">{`npm install
-npm run dev`}</pre>
-            <p className="urdu-text">
-              پھر browser میں کھولیں:
-              <br />
-              👉 http://localhost:5173/
-            </p>
-          </div>
-
-          <div className="info-box">
-            <h3>🧠 نتیجہ:</h3>
-            <p className="urdu-text">
-              1️⃣ پہلے Static Example چلے گا
-              <br />
-              2️⃣ "Live موڈ پر جائیں" دبانے سے ایپ بدل جائے گی
-              <br />
-              3️⃣ نیا عنوان دکھے گا:
-              <br />
-              <strong>"🔵 اب ہم ریکارڈ میں Live Update شامل کر رہے ہیں"</strong>
-              <br />
-              4️⃣ اور نیچے والے بٹن سے عمر، شہر، پیشہ، مشاغل Live اپڈیٹ ہوں گے۔
-            </p>
+            <pre className="urdu-text">{finalInstructions}</pre>
           </div>
         </div>
 
@@ -817,7 +1852,7 @@ const data = useContext(MyContext);`}</code>
         <div className="success-box">
           <h2 className="section-title">🌻 نتیجہ:</h2>
           <p className="urdu-text">
-            جب آپ بٹن دبائیں گی 👇
+          جب آپ بٹن دبائیں گے👇
             <br />
             → تو Light سے Dark یا Dark سے Light ہو جائے گا
             <br />
@@ -826,8 +1861,8 @@ const data = useContext(MyContext);`}</code>
             → بغیر کسی props کے آگے پیچھے دینے کے 🎉
           </p>
           <p className="urdu-text">
-            اب ہم useContext Hook کو اتنا آسان اور دلچسپ انداز میں سمجھیں گے
-            کہ ایک 14 سالہ طالبہ بھی بولے:
+            اب آپ useContext Hook اتنا آسان اور دلچسپ انداز میں سمجھے 
+            کہ بے اختیار بولیں کہ:
             <br />
             <strong>"اوہ! تو یہ اتنا آسان تھا؟ 😍"</strong>
           </p>
