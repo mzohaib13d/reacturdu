@@ -1723,7 +1723,7 @@ npm run dev
               </button>
             </div>
           </div>
-        {/* New examples updated */}
+        {/* New examples updated 3*/}
           <div className="code-section">
             <div className="code-header">
               <span>📁 src/main.jsx</span>
