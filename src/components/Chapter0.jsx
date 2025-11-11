@@ -392,6 +392,25 @@ function Chapter0() {
         "Professional App Security",
       ],
     },
+    // ========== NEW CHAPTER 28 ==========
+    {
+      id: 28,
+      title: "🎨 shadcn/ui - Modern UI Components Library",
+      description: "Complete Guide to shadcn/ui: Installation, Benefits, and Practical Usage with Tailwind CSS",
+      duration: "35 منٹ",
+      topics: [
+        "shadcn/ui Introduction",
+        "Benefits vs Ant Design & Material UI",
+        "Complete Installation Guide",
+        "Tailwind CSS Configuration",
+        "Teacher's Method Integration",
+        "File Structure Setup",
+        "Button & Navigation Components",
+        "Copy Code Functionality",
+        "Responsive Design",
+        "Professional UI Development",
+      ],
+    },
   ];
 
   // ✅ showAllChapters function کو component کے اندر define کریں
@@ -445,11 +464,11 @@ function Chapter0() {
             <span className="stat-label">Chapters</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">755+</span>
+            <span className="stat-number">790+</span>
             <span className="stat-label">منٹ</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">290+</span>
+            <span className="stat-number">300+</span>
             <span className="stat-label">کوڈ مثالوں</span>
           </div>
         </div>
@@ -523,9 +542,74 @@ function Chapter0() {
           <li>✅ <strong style={{color: '#28a745'}}>🌟 نئی: Chapter 25 - Complete Authentication System + SweetAlert2 + Auto Login</strong></li>
           <li>✅ <strong style={{color: '#ff6b35'}}>🔥 نئی: Chapter 26 - Performance & Optimization + Lazy Loading + Environment Variables</strong></li>
           <li>✅ <strong style={{color: '#9c27b0'}}>🔐 نئی: Chapter 27 - API Keys Security & Environment Mode (Development vs Production)</strong></li>
+          <li>✅ <strong style={{color: '#0078ff'}}>🎨 نئی: Chapter 28 - shadcn/ui Complete Guide - Modern UI Components Library</strong></li>
           <li>✅ Modern React tools (Vite) سے واقفیت</li>
           <li>✅ حقیقی پراجیکٹس بنانے کی صلاحیت</li>
         </ul>
+
+        {/* Chapter 28 Special Highlight */}
+        <div style={{ marginTop: '20px', padding: '20px', background: 'linear-gradient(135deg, #0078ff 0%, #00c6ff 100%)', borderRadius: '12px', border: '3px solid #0078ff', color: 'white' }}>
+          <h4 style={{ color: 'white', marginBottom: '15px', fontSize: '22px', textAlign: 'center' }}>🎨🚀 Chapter 28: shadcn/ui - Modern UI Components Library</h4>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🎯 Complete Installation Guide</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ Vite + React Setup</li>
+                <li>✅ Tailwind CSS Configuration</li>
+                <li>✅ Teacher's Method Integration</li>
+                <li>✅ File Structure Setup</li>
+              </ul>
+            </div>
+            
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>⚡ Benefits Comparison</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ vs Ant Design</li>
+                <li>✅ vs Material UI</li>
+                <li>✅ Performance Benefits</li>
+                <li>✅ Customization Control</li>
+              </ul>
+            </div>
+            
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🛠 Practical Usage</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ Button Components</li>
+                <li>✅ Navigation Menu</li>
+                <li>✅ Copy Code Functionality</li>
+                <li>✅ Responsive Design</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center', marginTop: '15px' }}>
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🎨 UI Features</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ Beautiful Components</li>
+                <li>✅ Accessibility Focused</li>
+                <li>✅ Tailwind CSS Styling</li>
+                <li>✅ Professional Design</li>
+              </ul>
+            </div>
+            
+            <div style={{ flex: '1', minWidth: '250px', background: 'rgba(255,255,255,0.1)', padding: '15px', borderRadius: '8px' }}>
+              <h5 style={{ color: '#ffd700', marginBottom: '10px' }}>🚀 Advanced Features</h5>
+              <ul style={{ margin: '0', paddingRight: '15px', fontSize: '14px' }}>
+                <li>✅ Copy Code Buttons</li>
+                <li>✅ Flying Notifications</li>
+                <li>✅ Responsive Breakpoints</li>
+                <li>✅ Real-world Examples</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div style={{ textAlign: 'center', marginTop: '15px', padding: '10px', background: 'rgba(255,255,255,0.2)', borderRadius: '8px' }}>
+            <p style={{ margin: '0', fontSize: '16px', fontWeight: 'bold' }}>
+              ⏰ مدت: 35 منٹ | 📝 7 مکمل Sections | 🎯 Installation + Comparison + Live Demo
+            </p>
+          </div>
+        </div>
 
         {/* Chapter 27 Special Highlight */}
         <div style={{ marginTop: '20px', padding: '20px', background: 'linear-gradient(135deg, #9c27b0 0%, #673ab7 100%)', borderRadius: '12px', border: '3px solid #9c27b0', color: 'white' }}>

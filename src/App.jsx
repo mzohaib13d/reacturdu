@@ -28,6 +28,7 @@ import Chapter24 from "./components/Chapter24";
 import Chapter25 from "./components/Chapter25";
 import Chapter26 from "./components/Chapter26";
 import Chapter27 from "./components/Chapter27";
+import CssShadcn from "./components/CssShadcn";
 
 function App() {
   const [copySuccess, setCopySuccess] = useState("");
@@ -39,28 +40,14 @@ function App() {
     });
   };
 
-  // Simple navigation function for chapter links
+  // Navigation function for all chapters
   const scrollToChapter = (chapterId) => {
     const element = document.getElementById(`chapter-${chapterId}`);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  // Show all chapters function
-  const showAllChapters = () => {
-    const chapters = document.querySelectorAll(".chapter-content");
-    chapters.forEach((chapter) => {
-      chapter.style.display = "block";
-    });
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  // Handle chapter click for navigation
-  const handleChapterClick = (chapterId) => {
-    const element = document.getElementById(`chapter-${chapterId}`);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ 
+        behavior: "smooth",
+        block: "start"
+      });
     }
   };
 
@@ -89,9 +76,9 @@ function App() {
             flexWrap: "wrap",
           }}
         >
-          {/* Chapter 11 Button - Matched dimensions with other buttons */}
+          {/* Chapter 11 Button */}
           <button
-            onClick={() => handleChapterClick(11)}
+            onClick={() => scrollToChapter(11)}
             className="interactive-btn"
             style={{
               background: "linear-gradient(135deg, #ff6b35 0%, #f7931e 100%)",
@@ -110,56 +97,91 @@ function App() {
               alignItems: "center",
               justifyContent: "center"
             }}
-            onMouseOver={(e) => {
-              e.target.style.background = "linear-gradient(135deg, #e55a2e 0%, #e08415 100%)";
-              e.target.style.transform = "translateY(-2px)";
-            }}
-            onMouseOut={(e) => {
-              e.target.style.background = "linear-gradient(135deg, #ff6b35 0%, #f7931e 100%)";
-              e.target.style.transform = "translateY(0)";
-            }}
           >
             🎨 Ch. 11 - Pick Color from Website
           </button>
 
+          {/* Chapter 25 Button */}
           <button
             onClick={() => scrollToChapter(25)}
             className="interactive-btn"
             style={{ 
               background: "#007bff",
+              color: "white",
+              border: "none",
               padding: "10px 16px",
               borderRadius: "6px",
               fontSize: "14px",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              fontFamily: "sans-serif",
+              fontWeight: "600",
               minHeight: "40px",
               display: "flex",
               alignItems: "center",
-              justifyContent: "center"
+              justifyContent: "center",
+              boxShadow: "0 2px 8px rgba(0, 123, 255, 0.3)"
             }}
           >
             🚀 Chapter 25 - SweetAlert2
           </button>
           
+          {/* Chapter 24 Button */}
           <button
             onClick={() => scrollToChapter(24)}
             className="interactive-btn"
             style={{ 
               background: "#6f42c1",
+              color: "white",
+              border: "none",
               padding: "10px 16px",
               borderRadius: "6px",
               fontSize: "14px",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              fontFamily: "sans-serif",
+              fontWeight: "600",
               minHeight: "40px",
               display: "flex",
               alignItems: "center",
-              justifyContent: "center"
+              justifyContent: "center",
+              boxShadow: "0 2px 8px rgba(111, 66, 193, 0.3)"
             }}
           >
             🔐 Chapter 24 - Logout System
           </button>
+
+          {/* Chapter 28 Button */}
+          <button
+            onClick={() => scrollToChapter(28)}
+            className="interactive-btn"
+            style={{ 
+              background: "linear-gradient(135deg, #0078ff 0%, #00c6ff 100%)",
+              color: "white",
+              border: "none",
+              padding: "10px 16px",
+              borderRadius: "6px",
+              fontSize: "14px",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              fontFamily: "sans-serif",
+              fontWeight: "600",
+              minHeight: "40px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0 2px 8px rgba(0, 120, 255, 0.3)"
+            }}
+          >
+            🎨 Chapter 28 - shadcn/ui Guide
+          </button>
         </div>
       </div>
 
+      {/* Render Chapter0 without props */}
       <Chapter0 />
 
+      {/* All other chapters */}
       <div id="chapter-1" className="chapter-content">
         <Chapter1 />
       </div>
@@ -241,6 +263,10 @@ function App() {
       <div id="chapter-27" className="chapter-content">
         <Chapter27 />
       </div>
+      <div id="chapter-28" className="chapter-content">
+        <CssShadcn />
+      </div>
+      
       {copySuccess && <p className="copy-msg">{copySuccess}</p>}
 
       {/* Back to Top Button */}
