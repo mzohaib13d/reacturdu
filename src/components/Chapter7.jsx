@@ -220,8 +220,60 @@ export default App;`;
 
   return (
     <div className="card urdu-text">
-      <h2>Chapter 7. ایونٹس ہینڈلنگ + Conditional Rendering</h2>
-      <p className="chapter-subtitle">(دو اہم concepts ایک ہی سبق میں)</p>
+      {/* FIXED: Changed from h2 to h1 with proper class */}
+      <div className="chapter-header" style={{
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        color: 'white',
+        padding: '30px',
+        borderRadius: '15px',
+        marginBottom: '30px',
+        textAlign: 'center'
+      }}>
+        <h1 className="chapter-title2" style={{
+          color: 'white !important',
+          fontSize: '2rem',
+          lineHeight: '1.9',
+          marginBottom: '15px',
+          textShadow: '0 2px 4px rgba(0, 0, 0, 0.2)'
+        }}>
+          Chapter 7. ایونٹس ہینڈلنگ + Conditional Rendering
+        </h1>
+        <p className="chapter-subtitle" style={{
+          color: 'white',
+          fontSize: '1.3rem',
+          fontWeight: '450',
+          marginTop: '-10px',
+          marginBottom: '20px',
+          fontStyle: 'italic',
+          opacity: '0.9'
+        }}>
+          (دو اہم concepts ایک ہی سبق میں)
+        </p>
+        <div style={{
+          background: 'rgba(255, 255, 255, 0.2)',
+          display: 'inline-block',
+          padding: '8px 16px',
+          borderRadius: '20px',
+          fontSize: '14px',
+          margin: '10px 0',
+          color: 'white'
+        }}>
+          ⏱️ تخمینی وقت: 40-50 منٹ
+        </div>
+        <div style={{
+          background: 'rgba(255, 255, 255, 0.3)',
+          color: 'white',
+          padding: '6px 14px',
+          borderRadius: '20px',
+          fontSize: '16px',
+          fontWeight: 'bold',
+          display: 'inline-block',
+          marginTop: '10px',
+          border: '2px solid rgba(255, 255, 255, 0.5)'
+        }}>
+          🔖 باب نمبر 7
+        </div>
+      </div>
 
       <div className="lesson-section">
         <h3>📝 ۱۔ ایونٹس ہینڈلنگ (Event Handling)</h3>
@@ -240,9 +292,19 @@ export default App;`;
         <p>
           <strong>📁 src/App.jsx</strong>
         </p>
-        <pre className="english-code">
-          <code>{eventHandlingCode}</code>
-        </pre>
+        
+        {/* FIXED: Added proper code-block-container wrapper */}
+        <div className="code-block-container">
+          <div className="code-header">
+            <span>Event Handling Form Code</span>
+          </div>
+          <div className="code-block-wrapper">
+            <pre className="english-code">
+              <code>{eventHandlingCode}</code>
+            </pre>
+          </div>
+        </div>
+        
         <div className="code-scroll-notice-parent">
           <div className="code-scroll-noice">Please scroll →</div>
           <button
@@ -259,9 +321,19 @@ export default App;`;
         <p className="mt-3">
           <strong>📁 src/App.css میں فارم کے لئے کلاسیں:</strong>
         </p>
-        <pre className="english-code">
-          <code>{formCssCode}</code>
-        </pre>
+        
+        {/* FIXED: Added proper code-block-container wrapper */}
+        <div className="code-block-container">
+          <div className="code-header">
+            <span>Form CSS Styles</span>
+          </div>
+          <div className="code-block-wrapper">
+            <pre className="css-code">
+              <code>{formCssCode}</code>
+            </pre>
+          </div>
+        </div>
+        
         <button
           className="copy-btn"
           onClick={() => copyToClipboard(formCssCode, "Form CSS")}
@@ -304,9 +376,19 @@ export default App;`;
         <p>
           <strong>📁 src/ConditionalExample.jsx</strong>
         </p>
-        <pre className="english-code">
-          <code>{conditionalRenderingCode}</code>
-        </pre>
+        
+        {/* FIXED: Added proper code-block-container wrapper */}
+        <div className="code-block-container">
+          <div className="code-header">
+            <span>Conditional Rendering Code</span>
+          </div>
+          <div className="code-block-wrapper">
+            <pre className="english-code">
+              <code>{conditionalRenderingCode}</code>
+            </pre>
+          </div>
+        </div>
+        
         <div className="code-scroll-notice-parent">
           <div className="code-scroll-noice"> Please scroll → </div>
           <button
@@ -323,9 +405,19 @@ export default App;`;
         <p className="mt-3">
           <strong>📁 src/App.jsx میں اس کو استعمال کریں:</strong>
         </p>
-        <pre className="english-code">
-          <code>{appUsageCode}</code>
-        </pre>
+        
+        {/* FIXED: Added proper code-block-container wrapper */}
+        <div className="code-block-container">
+          <div className="code-header">
+            <span>App Usage Code</span>
+          </div>
+          <div className="code-block-wrapper">
+            <pre className="english-code">
+              <code>{appUsageCode}</code>
+            </pre>
+          </div>
+        </div>
+        
         <button
           className="copy-btn"
           onClick={() => copyToClipboard(appUsageCode, "App Usage")}
@@ -336,9 +428,19 @@ export default App;`;
         <p className="mt-3">
           <strong>📁 src/App.css میں کلاسیں:</strong>
         </p>
-        <pre className="english-code">
-          <code>{conditionalCssCode}</code>
-        </pre>
+        
+        {/* FIXED: Added proper code-block-container wrapper */}
+        <div className="code-block-container">
+          <div className="code-header">
+            <span>Conditional CSS Styles</span>
+          </div>
+          <div className="code-block-wrapper">
+            <pre className="css-code">
+              <code>{conditionalCssCode}</code>
+            </pre>
+          </div>
+        </div>
+        
         <div className="code-scroll-notice-parent">
           <div className="code-scroll-noice"> → Please scroll </div>
           <button

@@ -1,14 +1,50 @@
 <!DOCTYPE html>
-<html lang="ur">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/favico.ico" />
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="icon" type="image/x-icon" href="/favico.ico" />
     <title>React زوہیب فاروق - اردو ٹیوٹوریل</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <!-- React یہاں رینڈر ہو گا -->
+  
+  <!-- Urdu Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Local Urdu Font Fallback -->
+  <style>
+    @font-face {
+      font-family: 'Jameel Noori Nastaleeq';
+      src: url('/fonts/JameelNooriNastaleeq.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Jameel Noori Nastaleeq';
+      src: url('/fonts/JameelNooriNastaleeq-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+    }
+    
+    /* Urdu Typography Base */
+    body {
+      font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+      direction: rtl;
+      text-align: right;
+      line-height: 1.8;
+      letter-spacing: -0.3px;
+    }
+    
+    /* Improve Urdu rendering */
+    * {
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+   <!-- React یہاں رینڈر ہو گا -->
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+</body>
 </html>

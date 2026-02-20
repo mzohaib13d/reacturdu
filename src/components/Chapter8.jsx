@@ -115,21 +115,25 @@ export default MyComponent;`,
         </p>
 
         <div className="code-section">
-          <div className="code-header" style={{ marginBottom: "15px" }}>
-            <h3>✍️ Basic List Example:</h3>
+          <div className="code-block-container">
+            <div className="code-header">
+              <h3>✍️ Basic List Example:</h3>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">
+                <code>{codeBlocks.basicList}</code>
+              </pre>
+            </div>
           </div>
-          <pre className="english-code">
-            <code>{codeBlocks.basicList}</code>
-          </pre>
           <div className="code-scroll-notice-parent">
             <div className="code-scroll-notice">Please scroll → </div>
             <button
               className="copy-btn"
               onClick={() =>
-                copyToClipboard(codeBlocks.inlineStyle, "Inline Style")
+                copyToClipboard(codeBlocks.basicList, "Basic List Example")
               }
             >
-              {copiedCode === "Inline Style" ? "✅ Copied!" : "📋 Copy Code"}
+              {copiedCode === "Basic List Example" ? "✅ Copied!" : "📋 Copy Code"}
             </button>
           </div>
         </div>
@@ -197,12 +201,16 @@ export default MyComponent;`,
 
         {/* Inline Style Example */}
         <div className="code-section">
-          <div className="code-header">
-            <h3>1. Inline Style Example:</h3>
+          <div className="code-block-container">
+            <div className="code-header">
+              <h3>1. Inline Style Example:</h3>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">
+                <code>{codeBlocks.inlineStyle}</code>
+              </pre>
+            </div>
           </div>
-          <pre className="english-code">
-            <code>{codeBlocks.inlineStyle}</code>
-          </pre>
           <div className="code-scroll-notice-parent">
             <div className="code-scroll-notice">Please scroll → </div>
             <button
@@ -241,8 +249,18 @@ export default MyComponent;`,
 
         {/* Separate CSS File Example */}
         <div className="code-section">
-          <div className="code-header">
-            <h3>2. Separate CSS File Example:</h3>
+          <div className="code-block-container">
+            <div className="code-header">
+              <h3>2. Separate CSS File Example:</h3>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">
+                <code>{codeBlocks.separateCSS}</code>
+              </pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">Please scroll → </div>
             <button
               className="copy-btn"
               onClick={() =>
@@ -252,9 +270,6 @@ export default MyComponent;`,
               {copiedCode === "Separate CSS" ? "✅ Copied!" : "📋 Copy Code"}
             </button>
           </div>
-          <pre className="english-code">
-            <code>{codeBlocks.separateCSS}</code>
-          </pre>
         </div>
 
         <div className="explanation-box">
@@ -271,21 +286,25 @@ export default MyComponent;`,
 
         {/* CSS Modules Example */}
         <div className="code-section">
-          <div className="code-header">
-            <h3>3. CSS Modules Example:</h3>
+          <div className="code-block-container">
+            <div className="code-header">
+              <h3>3. CSS Modules Example:</h3>
+            </div>
+            <div className="code-block-wrapper">
+              <pre className="english-code">
+                <code>{codeBlocks.cssModules}</code>
+              </pre>
+            </div>
           </div>
-          <pre className="english-code">
-            <code>{codeBlocks.cssModules}</code>
-          </pre>
           <div className="code-scroll-notice-parent">
             <div className="code-scroll-notice">Please scroll → </div>
             <button
               className="copy-btn"
               onClick={() =>
-                copyToClipboard(codeBlocks.inlineStyle, "Inline Style")
+                copyToClipboard(codeBlocks.cssModules, "CSS Modules")
               }
             >
-              {copiedCode === "Inline Style" ? "✅ Copied!" : "📋 Copy Code"}
+              {copiedCode === "CSS Modules" ? "✅ Copied!" : "📋 Copy Code"}
             </button>
           </div>
         </div>

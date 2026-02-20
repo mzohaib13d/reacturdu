@@ -34,7 +34,8 @@ function App() {
       <div className={\`app \${theme}\`}>
         <h1>🌸 useContext Example — Theme Switcher</h1>
         <p>
-          یہ مثال دکھاتی ہے کہ Context کے ذریعے کیسے Light/Dark Mode پورے ایپ میں بانٹا جا سکتا ہے۔
+          یہ مثال دکھاتی ہے کہ Context کے ذریعے کیسے Light/Dark Mode 
+          پورے ایپ میں بانٹا جا سکتا ہے۔
         </p>
         <button onClick={toggleTheme}>موڈ بدلیں</button>
 
@@ -1022,10 +1023,10 @@ npm run dev
             <div className="code-header">
               <span>📁 Step 1: ThemeContext.js (نیا فائل)</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{themeContextCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1041,10 +1042,10 @@ npm run dev
             <div className="code-header">
               <span>📁 Step 2: App.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{themeAppCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1059,10 +1060,10 @@ npm run dev
             <div className="code-header">
               <span>📁 Step 3: ChildComponent.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{themeChildCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1077,10 +1078,10 @@ npm run dev
             <div className="code-header">
               <span>📁 Step 4: App.css</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="css-code">{themeCssCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1115,10 +1116,10 @@ npm run dev
             <div className="code-header">
               <span>📁 Step 1: LanguageContext.js</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{languageContextCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1133,10 +1134,10 @@ npm run dev
             <div className="code-header">
               <span>📁 Step 2: App.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{languageAppCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1151,10 +1152,10 @@ npm run dev
             <div className="code-header">
               <span>📁 Step 3: Child.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{languageChildCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1169,10 +1170,10 @@ npm run dev
             <div className="code-header">
               <span>📁 Step 4: App.css</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="css-code">{languageCssCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1198,10 +1199,10 @@ npm run dev
             <div className="code-header">
               <span>📁 فائل سٹرکچر</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{userContextStructure}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1216,10 +1217,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/contexts/UserContext.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{userContextCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1234,10 +1235,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/App.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{userAppCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1252,10 +1253,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/components/Header.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{userHeaderCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1270,10 +1271,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/components/Footer.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{userFooterCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1306,10 +1307,10 @@ npm run dev
             <div className="code-header">
               <span>📁 فائل سٹرکچر</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{dynamicContextStructure}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1324,10 +1325,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/contexts/UserContext2.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{userContext2Code}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1342,10 +1343,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/App2.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{dynamicAppCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1360,10 +1361,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/components/Profile.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{profileCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1378,10 +1379,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/components/EditProfile.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{editProfileCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1412,10 +1413,10 @@ npm run dev
             <div className="code-header">
               <span>📁 اپڈیٹ شدہ src/App.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{updatedUserAppCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1430,10 +1431,10 @@ npm run dev
             <div className="code-header">
               <span>📁 اپڈیٹ شدہ src/components/Header.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{updatedHeaderCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1448,10 +1449,10 @@ npm run dev
             <div className="code-header">
               <span>📁 اپڈیٹ شدہ src/components/Footer.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{updatedFooterCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1480,10 +1481,10 @@ npm run dev
             <div className="code-header">
               <span>📁 اپڈیٹ شدہ src/App2.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{updatedDynamicAppCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1498,10 +1499,10 @@ npm run dev
             <div className="code-header">
               <span>📁 اپڈیٹ شدہ src/components/Profile.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{updatedProfileCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1516,10 +1517,10 @@ npm run dev
             <div className="code-header">
               <span>📁 اپڈیٹ شدہ src/components/EditProfile.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{updatedEditProfileCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1548,10 +1549,10 @@ npm run dev
             <div className="code-header">
               <span>📁 مکمل فائل سٹرکچر</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{completeStructure}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1566,10 +1567,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/contexts/UserContext.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{finalUserContextCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1584,10 +1585,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/App.jsx (Static Example)</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{finalStaticAppCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1602,10 +1603,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/components/Header.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{finalHeaderCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1620,10 +1621,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/components/Footer.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{finalFooterCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1638,10 +1639,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/contexts/UserContext2.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{finalUserContext2Code}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1656,10 +1657,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/App2.jsx (Dynamic Example)</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{finalDynamicAppCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1674,10 +1675,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/components/Profile.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{finalProfileCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1692,10 +1693,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/components/EditProfile.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{finalEditProfileCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1710,10 +1711,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/AppSwitcher.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{appSwitcherCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1728,10 +1729,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/main.jsx</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="english-code">{mainJsxCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"
@@ -1746,10 +1747,10 @@ npm run dev
             <div className="code-header">
               <span>📁 src/index.css</span>
             </div>
-            <div className="code-block-wrapper">
+            <div className="code-block-wrapper2">
               <pre className="css-code">{indexCssCode}</pre>
             </div>
-            <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice-parent2">
               <div className="code-scroll-notice">Please scroll → </div>
               <button
                 className="copy-btn"

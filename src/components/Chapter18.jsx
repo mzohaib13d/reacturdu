@@ -1,5 +1,5 @@
-// Chapter18.jsx
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "../App.css";
 
 function Chapter18() {
@@ -9,6 +9,17 @@ function Chapter18() {
     navigator.clipboard.writeText(code);
     setCopiedCode(title);
     setTimeout(() => setCopiedCode(""), 2000);
+  };
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
   };
 
   // تمام کوڈز
@@ -261,65 +272,120 @@ body {
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* 📱 Responsive for small devices */
-@media (max-width: 430px), (max-width: 390px), (max-width: 375px) {
-  .navbar {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .navbar ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .logo {
-    font-size: 1.2rem;
-  }
-
-  .page {
-    padding: 10px;
-  }
 }`;
 
   return (
-    <div className="card urdu-text">
-      <h2># *Chapter 18 — React Router (Single Page Application in Action)*</h2>
-      
-      <div className="lesson-section">
-        <h3>موضوع: 💻 *Laptop Store SPA (React Router Demo)*</h3>
-        <h4>زبان: آسان اردو + خوبصورت مثالیں + کوڈ کے ساتھ وضاحت</h4>
+    <div className="chapter-container">
+      <motion.header
+        className="guide-header chapter-header"
+        variants={itemVariants}
+        style={{
+          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+          color: "white",
+        }}
+      >
+        <div className="container">
+          <motion.h1
+            className="section-title2"
+            initial={{ scale: 0.5 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 100 }}
+            style={{
+              fontSize: "clamp(1.8rem, 5vw, 3.5rem)",
+              fontWeight: "bold",
+              marginBottom: "20px",
+              textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+              letterSpacing: "0.1em",
+              wordSpacing: "0.3rem",
+              lineHeight: "1.4",
+              padding: "0 15px",
+            }}
+          >
+            Chapter 18 — React Router (Single Page Application in Action)
+          </motion.h1>
+          <motion.p
+            className="chapter-subtitle2"
+            variants={itemVariants}
+            style={{
+              fontSize: "clamp(0.95rem, 3vw, 1.4rem)",
+              lineHeight: "1.8",
+              opacity: 0.95,
+              maxWidth: "800px",
+              margin: "0 auto",
+              letterSpacing: "0.005em",
+              wordSpacing: "0.4rem",
+              textShadow: "1px 1px 2px rgba(0,0,0,0.2)",
+              fontWeight: "400",
+              padding: "0 15px",
+            }}
+          >
+            (React App Router: Fast, Powerful, Modern) <br />
+            "ری ایکٹ ایپ روٹر: تیز، طاقتور، جدید"
+          </motion.p>
+        </div>
+      </motion.header>
+
+      <div className="card section-card">
+        <h3 className="section-title">موضوع: 💻 Laptop Store SPA (React Router Demo)</h3>
+        <h4 className="chapter-subtitle">زبان: آسان اردو + خوبصورت مثالیں + کوڈ کے ساتھ وضاحت</h4>
         <hr className="styled-hr" />
-        
-        <h4>## ⚙ *React Router کا مقصد*</h4>
-        <p>
-          React Router ہمیں *Single Page App (SPA)* میں
-          مختلف صفحات جیسے *Home, **About, **Products, **Contact*
-          الگ الگ دکھانے کی سہولت دیتا ہے —
-          بغیر پورا صفحہ دوبارہ لوڈ کیے۔
+
+        <h4 className="chapter-subtitle">⚙ React Router کا مقصد</h4>
+        <p className="section-text urdu-text">
+          React Router ہمیں Single Page App (SPA) میں مختلف صفحات جیسے Home,
+          About, Products, Contact الگ الگ دکھانے کی سہولت دیتا ہے — بغیر
+          پورا صفحہ دوبارہ لوڈ کیے۔
         </p>
 
         <hr className="styled-hr" />
 
-        <h4>## 🧩 *Step 1: React Router انسٹال کریں*</h4>
-        <p>پروجیکٹ کی روٹ ڈائریکٹری میں یہ کمانڈ چلائیں:</p>
-        <div className="english-code">
-          <code>npm install react-router-dom</code>
+        <h4 className="chapter-subtitle">🧩 Step 1: React Router انسٹال کریں</h4>
+        <p className="section-text urdu-text">پروجیکٹ کی روٹ ڈائریکٹری میں یہ کمانڈ چلائیں:</p>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>npm command</span>
+            <button
+              className="copy-btn"
+              onClick={() =>
+                copyToClipboard("npm install react-router-dom", "Install Command")
+              }
+            >
+              {copiedCode === "Install Command" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+            </button>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">npm install react-router-dom</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
-        <button
-          className="copy-btn"
-          onClick={() => copyToClipboard("npm install react-router-dom", "Install Command")}
-        >
-          {copiedCode === "Install Command" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-        </button>
 
         <hr className="styled-hr" />
 
-        <h4>## 🗂 *Step 2: فولڈر اسٹرکچر*</h4>
-        <div className="english-code">
-          <code>{`src/
+        <h4 className="chapter-subtitle">🗂 Step 2: فولڈر اسٹرکچر</h4>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>Folder Structure</span>
+            <button
+              className="copy-btn"
+              onClick={() =>
+                copyToClipboard(
+                  `src/\n ┣ components/\n ┃ ┗ Navbar.jsx\n ┣ pages/\n ┃ ┣ Home.jsx\n ┃ ┣ About.jsx\n ┃ ┣ Products.jsx\n ┃ ┗ Contact.jsx\n ┣ App.jsx\n ┣ App.css\n ┗ main.jsx`,
+                  "Folder Structure",
+                )
+              }
+            >
+              {copiedCode === "Folder Structure" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+            </button>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{`src/
  ┣ components/
  ┃ ┗ Navbar.jsx
  ┣ pages/
@@ -329,204 +395,302 @@ body {
  ┃ ┗ Contact.jsx
  ┣ App.jsx
  ┣ App.css
- ┗ main.jsx`}</code>
-        </div>
-        <button
-          className="copy-btn"
-          onClick={() => copyToClipboard(`src/
- ┣ components/
- ┃ ┗ Navbar.jsx
- ┣ pages/
- ┃ ┣ Home.jsx
- ┃ ┣ About.jsx
- ┃ ┣ Products.jsx
- ┃ ┗ Contact.jsx
- ┣ App.jsx
- ┣ App.css
- ┗ main.jsx`, "Folder Structure")}
-        >
-          {copiedCode === "Folder Structure" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-        </button>
-
-        <hr className="styled-hr" />
-
-        <h4>## 💻 *main.jsx — Router setup*</h4>
-        <p><strong>📁 src/main.jsx</strong></p>
-        <pre className="english-code">
-          <code>{mainJsxCode}</code>
-        </pre>
-        <div className="code-scroll-notice-parent">
-          <div className="code-scroll-notice">Please scroll → </div>
-          <button
-            className="copy-btn"
-            onClick={() => copyToClipboard(mainJsxCode, "main.jsx")}
-          >
-            {copiedCode === "main.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-          </button>
+ ┗ main.jsx`}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
 
         <hr className="styled-hr" />
 
-        <h4>## 🧭 *Navbar.jsx — نیویگیشن بار*</h4>
-        <p><strong>📁 src/components/Navbar.jsx</strong></p>
-        <pre className="english-code">
-          <code>{navbarCode}</code>
-        </pre>
-        <div className="code-scroll-notice-parent">
-          <div className="code-scroll-notice">Please scroll → </div>
-          <button
-            className="copy-btn"
-            onClick={() => copyToClipboard(navbarCode, "Navbar.jsx")}
-          >
-            {copiedCode === "Navbar.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-          </button>
+        <h4 className="chapter-subtitle">💻 main.jsx — Router setup</h4>
+        <p className="section-text urdu-text">
+          <strong>📁 src/main.jsx</strong>
+        </p>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>main.jsx</span>
+            <button
+              className="copy-btn"
+              onClick={() => copyToClipboard(mainJsxCode, "main.jsx")}
+            >
+              {copiedCode === "main.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+            </button>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{mainJsxCode}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
 
         <hr className="styled-hr" />
 
-        <h4>## 🏠 *Home.jsx*</h4>
-        <p><strong>📁 src/pages/Home.jsx</strong></p>
-        <pre className="english-code">
-          <code>{homeCode}</code>
-        </pre>
-        <div className="code-scroll-notice-parent">
-          <div className="code-scroll-notice">Please scroll → </div>
-          <button
-            className="copy-btn"
-            onClick={() => copyToClipboard(homeCode, "Home.jsx")}
-          >
-            {copiedCode === "Home.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-          </button>
+        <h4 className="chapter-subtitle">🧭 Navbar.jsx — نیویگیشن بار</h4>
+        <p className="section-text urdu-text">
+          <strong>📁 src/components/Navbar.jsx</strong>
+        </p>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>Navbar.jsx</span>
+            <button
+              className="copy-btn"
+              onClick={() => copyToClipboard(navbarCode, "Navbar.jsx")}
+            >
+              {copiedCode === "Navbar.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+            </button>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{navbarCode}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
 
         <hr className="styled-hr" />
 
-        <h4>## ℹ *About.jsx*</h4>
-        <p><strong>📁 src/pages/About.jsx</strong></p>
-        <pre className="english-code">
-          <code>{aboutCode}</code>
-        </pre>
-        <div className="code-scroll-notice-parent">
-          <div className="code-scroll-notice">Please scroll → </div>
-          <button
-            className="copy-btn"
-            onClick={() => copyToClipboard(aboutCode, "About.jsx")}
-          >
-            {copiedCode === "About.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-          </button>
+        <h4 className="chapter-subtitle">🏠 Home.jsx</h4>
+        <p className="section-text urdu-text">
+          <strong>📁 src/pages/Home.jsx</strong>
+        </p>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>Home.jsx</span>
+            <button
+              className="copy-btn"
+              onClick={() => copyToClipboard(homeCode, "Home.jsx")}
+            >
+              {copiedCode === "Home.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+            </button>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{homeCode}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
 
         <hr className="styled-hr" />
 
-        <h4>## 🛍 *Products.jsx*</h4>
-        <p><strong>📁 src/pages/Products.jsx</strong></p>
-        <pre className="english-code">
-          <code>{productsCode}</code>
-        </pre>
-        <div className="code-scroll-notice-parent">
-          <div className="code-scroll-notice">Please scroll → </div>
-          <button
-            className="copy-btn"
-            onClick={() => copyToClipboard(productsCode, "Products.jsx")}
-          >
-            {copiedCode === "Products.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-          </button>
+        <h4 className="chapter-subtitle">ℹ About.jsx</h4>
+        <p className="section-text urdu-text">
+          <strong>📁 src/pages/About.jsx</strong>
+        </p>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>About.jsx</span>
+            <button
+              className="copy-btn"
+              onClick={() => copyToClipboard(aboutCode, "About.jsx")}
+            >
+              {copiedCode === "About.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+            </button>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{aboutCode}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
 
         <hr className="styled-hr" />
 
-        <h4>## ☎ *Contact.jsx*</h4>
-        <p><strong>📁 src/pages/Contact.jsx</strong></p>
-        <pre className="english-code">
-          <code>{contactCode}</code>
-        </pre>
-        <div className="code-scroll-notice-parent">
-          <div className="code-scroll-notice">Please scroll → </div>
-          <button
-            className="copy-btn"
-            onClick={() => copyToClipboard(contactCode, "Contact.jsx")}
-          >
-            {copiedCode === "Contact.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-          </button>
+        <h4 className="chapter-subtitle">🛍 Products.jsx</h4>
+        <p className="section-text urdu-text">
+          <strong>📁 src/pages/Products.jsx</strong>
+        </p>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>Products.jsx</span>
+            <button
+              className="copy-btn"
+              onClick={() => copyToClipboard(productsCode, "Products.jsx")}
+            >
+              {copiedCode === "Products.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+            </button>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{productsCode}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
 
         <hr className="styled-hr" />
 
-        <h4>## ⚛ *App.jsx — Router Setup*</h4>
-        <p><strong>📁 src/App.jsx</strong></p>
-        <pre className="english-code">
-          <code>{appCode}</code>
-        </pre>
-        <div className="code-scroll-notice-parent">
-          <div className="code-scroll-notice">Please scroll → </div>
-          <button
-            className="copy-btn"
-            onClick={() => copyToClipboard(appCode, "App.jsx")}
-          >
-            {copiedCode === "App.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-          </button>
+        <h4 className="chapter-subtitle">☎ Contact.jsx</h4>
+        <p className="section-text urdu-text">
+          <strong>📁 src/pages/Contact.jsx</strong>
+        </p>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>Contact.jsx</span>
+            <button
+              className="copy-btn"
+              onClick={() => copyToClipboard(contactCode, "Contact.jsx")}
+            >
+              {copiedCode === "Contact.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+            </button>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{contactCode}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
 
         <hr className="styled-hr" />
 
-        <h4>## 🎨 *App.css — خوبصورت اسٹائل اور Responsive Design*</h4>
-        <p><strong>📁 src/App.css</strong></p>
-        <pre className="css-code">
-          <code>{cssCode}</code>
-        </pre>
-        <div className="code-scroll-notice-parent">
-          <div className="code-scroll-notice">Please scroll → </div>
-          <button
-            className="copy-btn"
-            onClick={() => copyToClipboard(cssCode, "CSS Styles")}
-          >
-            {copiedCode === "CSS Styles" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-          </button>
+        <h4 className="chapter-subtitle">⚛ App.jsx — Router Setup</h4>
+        <p className="section-text urdu-text">
+          <strong>📁 src/App.jsx</strong>
+        </p>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>App.jsx</span>
+            <button
+              className="copy-btn"
+              onClick={() => copyToClipboard(appCode, "App.jsx")}
+            >
+              {copiedCode === "App.jsx" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+            </button>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{appCode}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
 
         <hr className="styled-hr" />
 
-        <h4>## 🧠 *خلاصہ (Summary Box)*</h4>
+        <h4 className="chapter-subtitle">🎨 App.css — خوبصورت اسٹائل اور Responsive Design</h4>
+        <p className="section-text urdu-text">
+          <strong>📁 src/App.css</strong>
+        </p>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>App.css</span>
+            <button
+              className="copy-btn"
+              onClick={() => copyToClipboard(cssCode, "CSS Styles")}
+            >
+              {copiedCode === "CSS Styles" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+            </button>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{cssCode}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
+        </div>
+
+        <hr className="styled-hr" />
+
+        <h4 className="chapter-subtitle">🧠 خلاصہ (Summary Box)</h4>
         <div className="info-box">
-          <blockquote>
-            🔹 React Router ہمیں ایک ہی صفحے پر مختلف *views* دکھانے دیتا ہے۔<br/>
-            🔹 پورا صفحہ دوبارہ لوڈ نہیں ہوتا، صرف کمپوننٹ بدلتا ہے۔<br/>
-            🔹 ایپ تیز، smooth، اور modern بنتی ہے۔<br/>
-            🔹 جیسے ہمارا "Laptop Store" — جہاں Home، About، Products، Contact سب ایک ہی ایپ میں ہیں۔
+          <blockquote className="section-text urdu-text">
+            🔹 React Router ہمیں ایک ہی صفحے پر مختلف views دکھانے دیتا ہے۔
+            <br />
+            🔹 پورا صفحہ دوبارہ لوڈ نہیں ہوتا، صرف کمپوننٹ بدلتا ہے۔
+            <br />
+            🔹 ایپ تیز، smooth، اور modern بنتی ہے۔
+            <br />
+            🔹 جیسے ہمارا "Laptop Store" — جہاں Home، About، Products، Contact
+            سب ایک ہی ایپ میں ہیں۔
           </blockquote>
         </div>
 
         <hr className="styled-hr" />
 
-        <h4>## 📦 *React میں main.jsx کا کردار*</h4>
-        <p>
-          main.jsx React ایپ کا *داخلہ دروازہ (Entry Point)* ہوتا ہے۔
-          یہ وہ جگہ ہے جہاں:
+        <h4 className="chapter-subtitle">📦 React میں main.jsx کا کردار</h4>
+        <p className="section-text urdu-text">
+          main.jsx React ایپ کا داخلہ دروازہ (Entry Point) ہوتا ہے۔ یہ وہ جگہ
+          ہے جہاں:
         </p>
-        <ol>
-          <li>*App.jsx* کو DOM (یعنی HTML فائل کے اندر root element) میں لگایا جاتا ہے،</li>
-          <li>اور بعض اوقات یہاں *wrappers* (جیسے BrowserRouter, Context Provider, وغیرہ) بھی شامل کیے جاتے ہیں۔</li>
+        <ol className="section-text urdu-text">
+          <li>
+            App.jsx کو DOM (یعنی HTML فائل کے اندر root element) میں لگایا
+            جاتا ہے،
+          </li>
+          <li>
+            اور بعض اوقات یہاں wrappers (جیسے BrowserRouter, Context Provider,
+            وغیرہ) بھی شامل کیے جاتے ہیں۔
+          </li>
         </ol>
 
         <hr className="styled-hr" />
 
-        <h4>## ⚛ *⿡ React Router استعمال کرتے وقت*</h4>
-        <p>
-          جب آپ React Router استعمال کرتے ہیں،
-          تو عام طور پر **BrowserRouter** کو *App.jsx* کے اندر رکھنا یا
-          *main.jsx* میں لپیٹنا — دونوں ممکن ہیں۔
+        <h4 className="chapter-subtitle">⚛ React Router استعمال کرتے وقت</h4>
+        <p className="section-text urdu-text">
+          جب آپ React Router استعمال کرتے ہیں، تو عام طور پر BrowserRouter
+          کو App.jsx کے اندر رکھنا یا main.jsx میں لپیٹنا — دونوں ممکن ہیں۔
         </p>
-        <p>آپ نے دیکھا تھا کہ میں نے App.jsx میں یہ شامل کیا تھا 👇</p>
-        <div className="english-code">
-          <code>{`<Router>
+        <p className="section-text urdu-text">آپ نے دیکھا تھا کہ میں نے App.jsx میں یہ شامل کیا تھا 👇</p>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>Router in App.jsx</span>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{`<Router>
   <Navbar />
   <Routes>...</Routes>
-</Router>`}</code>
+</Router>`}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
-        <p>یہ بالکل درست طریقہ ہے۔</p>
-        <p>لیکن ہم چاہیں تو main.jsx میں بھی BrowserRouter لپیٹ سکتے ہیں، جیسے 👇</p>
-        <div className="english-code">
-          <code>{`// main.jsx
+        
+        <p className="section-text urdu-text">یہ بالکل درست طریقہ ہے۔</p>
+        <p className="section-text urdu-text">
+          لیکن ہم چاہیں تو main.jsx میں بھی BrowserRouter لپیٹ سکتے ہیں، جیسے 👇
+        </p>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>Router in main.jsx</span>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{`// main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
@@ -537,30 +701,62 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <App />
   </BrowserRouter>
-);`}</code>
+);`}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
+        
         <div className="success-box">
-          <p>🟢 مطلب:<br/>
-          BrowserRouter آپ چاہیں App.jsx میں رکھیں یا main.jsx میں، دونوں درست ہیں۔<br/>
-          فرق صرف *ساختی (structural)* ہے، نتیجہ ایک ہی۔</p>
+          <p className="section-text urdu-text">
+            🟢 مطلب:
+            <br />
+            BrowserRouter آپ چاہیں App.jsx میں رکھیں یا main.jsx میں، دونوں درست
+            ہیں۔
+            <br />
+            فرق صرف ساختی (structural) ہے، نتیجہ ایک ہی۔
+          </p>
         </div>
 
         <hr className="styled-hr" />
 
-        <h4>## 🌐 *⿢ useContext (Context API) استعمال کرتے وقت*</h4>
-        <p>
-          جب آپ *Context API* بناتے ہیں —
-          یعنی آپ نے کوئی Context بنایا، مثال کے طور پر:
+        <h4 className="chapter-subtitle">🌐 useContext (Context API) استعمال کرتے وقت</h4>
+        <p className="section-text urdu-text">
+          جب آپ Context API بناتے ہیں — یعنی آپ نے کوئی Context بنایا، مثال کے
+          طور پر:
         </p>
-        <div className="english-code">
-          <code>{`// ThemeContext.jsx
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>ThemeContext.jsx</span>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{`// ThemeContext.jsx
 import { createContext } from "react";
-export const ThemeContext = createContext();`}</code>
+export const ThemeContext = createContext();`}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
-        <p>تو اسے *پوری ایپ میں دستیاب* کرنے کے لیے آپ کو Provider سے App کو لپیٹنا پڑتا ہے۔</p>
-        <p>یہ *main.jsx* میں کیا جاتا ہے 👇</p>
-        <div className="english-code">
-          <code>{`// main.jsx
+        
+        <p className="section-text urdu-text">
+          تو اسے پوری ایپ میں دستیاب کرنے کے لیے آپ کو Provider سے App کو
+          لپیٹنا پڑتا ہے۔
+        </p>
+        <p className="section-text urdu-text">یہ main.jsx میں کیا جاتا ہے 👇</p>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>main.jsx with Context</span>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{`// main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
@@ -570,72 +766,83 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <ThemeProvider>
     <App />
   </ThemeProvider>
-);`}</code>
+);`}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
+        
         <div className="success-box">
-          <p>🟢 مطلب:<br/>
-          Router یا Context دونوں "wrapper components" ہیں —<br/>
-          جو پوری App کے باہر لپیٹے جاتے ہیں تاکہ اندر کے ہر component کو access مل سکے۔</p>
+          <p className="section-text urdu-text">
+            🟢 مطلب:
+            <br />
+            Router یا Context دونوں "wrapper components" ہیں —<br />
+            جو پوری App کے باہر لپیٹے جاتے ہیں تاکہ اندر کے ہر component کو
+            access مل سکے۔
+          </p>
         </div>
 
         <hr className="styled-hr" />
 
-        <h4>## ✨ *📘 Summary Box — Chapter 18: React Router & main.jsx Concepts*</h4>
-        <table className="file-table">
-          <thead>
-            <tr>
-              <th>🔹 موضوع</th>
-              <th>🔍 وضاحت</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Single Page Application (SPA)</strong></td>
-              <td>صرف ایک HTML صفحہ، لیکن React مختلف components دکھا کر pages کا احساس دیتا ہے۔</td>
-            </tr>
-            <tr>
-              <td><strong>React Router</strong></td>
-              <td>URL کے مطابق component بدلتا ہے، بغیر صفحہ reload کیے۔</td>
-            </tr>
-            <tr>
-              <td><strong>BrowserRouter</strong></td>
-              <td>React کو بتاتا ہے کہ ہم SPA routing استعمال کر رہے ہیں۔</td>
-            </tr>
-            <tr>
-              <td><strong>App.jsx میں Router</strong></td>
-              <td>چھوٹی ایپس کے لیے بہتر، جلدی setup۔</td>
-            </tr>
-            <tr>
-              <td><strong>main.jsx میں Router</strong></td>
-              <td>بڑی ایپس کے لیے بہتر، structure صاف رہتا ہے۔</td>
-            </tr>
-            <tr>
-              <td><strong>Context API</strong></td>
-              <td>props drilling سے بچنے کے لیے global data system۔</td>
-            </tr>
-            <tr>
-              <td><strong>Context Provider</strong></td>
-              <td>پوری App کو wrap کر کے تمام components میں data پہنچاتا ہے۔</td>
-            </tr>
-            <tr>
-              <td><strong>main.jsx کا کام</strong></td>
-              <td>App کو render کرنا اور اسے BrowserRouter یا Context Provider میں لپیٹنا۔</td>
-            </tr>
-          </tbody>
-        </table>
+        <h4 className="chapter-subtitle">✨ Summary Box — Chapter 18: React Router & main.jsx Concepts</h4>
+        
+        <div className="file-table">
+          <table>
+            <thead>
+              <tr>
+                <th>🔹 موضوع</th>
+                <th>🔍 وضاحت</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Single Page Application (SPA)</strong></td>
+                <td>صرف ایک HTML صفحہ، لیکن React مختلف components دکھا کر pages کا احساس دیتا ہے۔</td>
+              </tr>
+              <tr>
+                <td><strong>React Router</strong></td>
+                <td>URL کے مطابق component بدلتا ہے، بغیر صفحہ reload کیے۔</td>
+              </tr>
+              <tr>
+                <td><strong>BrowserRouter</strong></td>
+                <td>React کو بتاتا ہے کہ ہم SPA routing استعمال کر رہے ہیں۔</td>
+              </tr>
+              <tr>
+                <td><strong>App.jsx میں Router</strong></td>
+                <td>چھوٹی ایپس کے لیے بہتر، جلدی setup۔</td>
+              </tr>
+              <tr>
+                <td><strong>main.jsx میں Router</strong></td>
+                <td>بڑی ایپس کے لیے بہتر، structure صاف رہتا ہے۔</td>
+              </tr>
+              <tr>
+                <td><strong>Context API</strong></td>
+                <td>props drilling سے بچنے کے لیے global data system۔</td>
+              </tr>
+              <tr>
+                <td><strong>Context Provider</strong></td>
+                <td>پوری App کو wrap کر کے تمام components میں data پہنچاتا ہے۔</td>
+              </tr>
+              <tr>
+                <td><strong>main.jsx کا کام</strong></td>
+                <td>App کو render کرنا اور اسے BrowserRouter یا Context Provider میں لپیٹنا۔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <hr className="styled-hr" />
 
-        <h4>اب تک میں نے جتنے بھی چیپٹرز (1 سے 15 تک) آپ کے لیے بنائے ہیں ان میں **main.jsx کا کوڈ شامل نہیں کیا گیا** تھا۔</h4>
+        <h4 className="chapter-subtitle">اب تک میں نے جتنے بھی چیپٹرز (1 سے 15 تک) آپ کے لیے بنائے ہیں ان میں main.jsx کا کوڈ شامل نہیں کیا گیا تھا۔</h4>
 
-        <hr className="styled-hr" />
-
-        <h4>## 💡 وجہ یہ ہے:</h4>
-        <p>
-          شروع کے تمام چیپٹرز میں ہم نے *React کے بنیادی concepts* سکھائے تھے —
+        <h4 className="chapter-subtitle">💡 وجہ یہ ہے:</h4>
+        <p className="section-text urdu-text">
+          شروع کے تمام چیپٹرز میں ہم نے React کے بنیادی concepts سکھائے تھے —
           مثلاً:
         </p>
-        <ul>
+        <ul className="section-text urdu-text">
           <li>Functional Components</li>
           <li>JSX</li>
           <li>Props</li>
@@ -645,29 +852,35 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <li>useReducer</li>
           <li>Router وغیرہ</li>
         </ul>
-        <p>
-          یہ سب سمجھانے کے لیے ہم نے **صرف App.jsx** اور متعلقہ components استعمال کیے
-          تاکہ طلبہ کو React کے "core concepts" آسانی سے سمجھ آ سکیں،
-          بغیر شروع میں فائل اسٹرکچر سے الجھے۔
+        <p className="section-text urdu-text">
+          یہ سب سمجھانے کے لیے ہم نے صرف App.jsx اور متعلقہ components
+          استعمال کیے تاکہ طلبہ کو React کے "core concepts" آسانی سے سمجھ آ
+          سکیں، بغیر شروع میں فائل اسٹرکچر سے الجھے۔
         </p>
 
         <hr className="styled-hr" />
 
-        <h4>## ⚙ لیکن حقیقت میں:</h4>
-        <p>
-          ہر React project میں ایک **main.jsx** لازمی ہوتا ہے
-          جو *پوری ایپ کا "Root" یا "Entry Point"* ہوتا ہے۔
+        <h4 className="chapter-subtitle">⚙ لیکن حقیقت میں:</h4>
+        <p className="section-text urdu-text">
+          ہر React project میں ایک main.jsx لازمی ہوتا ہے جو پوری ایپ کا
+          "Root" یا "Entry Point" ہوتا ہے۔
         </p>
-        <p>
-          یہاں ReactDOM App کو *index.html* کے اندر موجود &lt;div id="root"&gt;&lt;/div&gt;
-          میں attach کرتا ہے۔
+        <p className="section-text urdu-text">
+          یہاں ReactDOM App کو index.html کے اندر موجود &lt;div
+          id="root"&gt;&lt;/div&gt; میں attach کرتا ہے۔
         </p>
 
         <hr className="styled-hr" />
 
-        <h4>## 🧩 مثال: main.jsx (اصل شکل میں)</h4>
-        <div className="english-code">
-          <code>{`// main.jsx
+        <h4 className="chapter-subtitle">🧩 مثال: main.jsx (اصل شکل میں)</h4>
+        
+        <div className="code-section">
+          <div className="code-header">
+            <span>main.jsx default</span>
+          </div>
+          <div className="code-block-container">
+            <div className="code-block-wrapper">
+              <pre className="english-code">{`// main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
@@ -677,77 +890,92 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
-);`}</code>
+);`}</pre>
+            </div>
+          </div>
+          <div className="code-scroll-notice-parent">
+            <div className="code-scroll-notice">← → سکرول کریں</div>
+          </div>
         </div>
+        
         <div className="success-box">
-          <p>🟢 یہ React کی بنیادی "entry file" ہے<br/>
-          جو ہر Vite + React project میں خود بخود بن جاتی ہے۔</p>
+          <p className="section-text urdu-text">
+            🟢 یہ React کی بنیادی "entry file" ہے
+            <br />
+            جو ہر Vite + React project میں خود بخود بن جاتی ہے۔
+          </p>
         </div>
 
         <hr className="styled-hr" />
 
-        <h4>## 🔄 کب کب main.jsx میں تبدیلی آتی ہے؟</h4>
-        <table className="file-table">
-          <thead>
-            <tr>
-              <th>موقع</th>
-              <th>کیا تبدیلی کرنی ہوتی ہے</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>React Router استعمال کرتے وقت</strong></td>
-              <td>&lt;BrowserRouter&gt; کے اندر &lt;App /&gt; کو لپیٹنا ہوتا ہے</td>
-            </tr>
-            <tr>
-              <td><strong>Context API استعمال کرتے وقت</strong></td>
-              <td>&lt;App /&gt; کو &lt;MyContext.Provider&gt; کے اندر لپیٹنا ہوتا ہے</td>
-            </tr>
-            <tr>
-              <td><strong>Redux / ThemeProvider وغیرہ</strong></td>
-              <td>ان سب providers کو بھی main.jsx میں wrap کیا جاتا ہے</td>
-            </tr>
-          </tbody>
-        </table>
+        <h4 className="chapter-subtitle">🔄 کب کب main.jsx میں تبدیلی آتی ہے؟</h4>
+        
+        <div className="file-table">
+          <table>
+            <thead>
+              <tr>
+                <th>موقع</th>
+                <th>کیا تبدیلی کرنی ہوتی ہے</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>React Router استعمال کرتے وقت</strong></td>
+                <td>&lt;BrowserRouter&gt; کے اندر &lt;App /&gt; کو لپیٹنا ہوتا ہے</td>
+              </tr>
+              <tr>
+                <td><strong>Context API استعمال کرتے وقت</strong></td>
+                <td>&lt;App /&gt; کو &lt;MyContext.Provider&gt; کے اندر لپیٹنا ہوتا ہے</td>
+              </tr>
+              <tr>
+                <td><strong>Redux / ThemeProvider وغیرہ</strong></td>
+                <td>ان سب providers کو بھی main.jsx میں wrap کیا جاتا ہے</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <hr className="styled-hr" />
 
-        <h4>## ✨ مختصر خلاصہ (Summary Box)</h4>
-        <table className="file-table">
-          <thead>
-            <tr>
-              <th>🔹 پوائنٹ</th>
-              <th>🔍 وضاحت</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>main.jsx</strong></td>
-              <td>React ایپ کا آغاز، App کو render کرنے کی جگہ</td>
-            </tr>
-            <tr>
-              <td><strong>کہاں ملے گی؟</strong></td>
-              <td>src/ فولڈر میں (Vite خود بناتا ہے)</td>
-            </tr>
-            <tr>
-              <td><strong>کام</strong></td>
-              <td>&lt;App /&gt; کو HTML کے root div میں لگانا</td>
-            </tr>
-            <tr>
-              <td><strong>کب اپڈیٹ ہوتی ہے؟</strong></td>
-              <td>جب Router یا Context جیسے wrappers شامل کیے جائیں</td>
-            </tr>
-            <tr>
-              <td><strong>اگر کچھ خاص نہ ہو؟</strong></td>
-              <td>default حالت میں کوئی تبدیلی کی ضرورت نہیں</td>
-            </tr>
-          </tbody>
-        </table>
+        <h4 className="chapter-subtitle">✨ مختصر خلاصہ (Summary Box)</h4>
+        
+        <div className="file-table">
+          <table>
+            <thead>
+              <tr>
+                <th>🔹 پوائنٹ</th>
+                <th>🔍 وضاحت</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>main.jsx</strong></td>
+                <td>React ایپ کا آغاز، App کو render کرنے کی جگہ</td>
+              </tr>
+              <tr>
+                <td><strong>کہاں ملے گی؟</strong></td>
+                <td>src/ فولڈر میں (Vite خود بناتا ہے)</td>
+              </tr>
+              <tr>
+                <td><strong>کام</strong></td>
+                <td>&lt;App /&gt; کو HTML کے root div میں لگانا</td>
+              </tr>
+              <tr>
+                <td><strong>کب اپڈیٹ ہوتی ہے؟</strong></td>
+                <td>جب Router یا Context جیسے wrappers شامل کیے جائیں</td>
+              </tr>
+              <tr>
+                <td><strong>اگر کچھ خاص نہ ہو؟</strong></td>
+                <td>default حالت میں کوئی تبدیلی کی ضرورت نہیں</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {copiedCode && (
         <div className="copy-notification">
-          ✅ {copiedCode} code copied to clipboard!
+          ✅ {copiedCode} کوڈ کاپی ہوگیا!
         </div>
       )}
     </div>

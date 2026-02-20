@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "../App.css";
 
 function Chapter4() {
   const [copiedCode, setCopiedCode] = useState("");
@@ -68,110 +69,290 @@ body {
 }`;
 
   return (
-    <div className="card urdu-text">
-      <h2>Chapter 4.React ایپ کی بنیادی فائلیں اور ان کا کردار</h2>
-      <p>
-        اب میں یہ بتاؤں گا کہ جو فائلیں عموماً React پروجیکٹ میں ہوتی ہیں (خاص
-        طور پر CRA یا Vite بیسڈ) — ان کا مقصد کیا ہے، اور آپ کا "Hello World"
-        کیسے دکھایا جائے۔
-      </p>
-      
-      <h3>ذیل میں وہ عام فائلیں ہیں:</h3>
-      
-      <div className="file-table">
-        <table style={{width: '100%', borderCollapse: 'collapse', margin: '15px 0'}}>
-          <thead>
-            <tr style={{backgroundColor: '#f0f4ff'}}>
-              <th style={{padding: '10px', border: '1px solid #ddd', textAlign: 'right'}}>فائل / فولڈر</th>
-              <th style={{padding: '10px', border: '1px solid #ddd', textAlign: 'right'}}>مقام</th>
-              <th style={{padding: '10px', border: '1px solid #ddd', textAlign: 'right'}}>مقصد / وضاحت</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>public/index.html</td>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>عمومی HTML ٹیمپلیٹ</td>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>یہ وہ HTML صفحہ ہے جو براؤزر میں سب سے پہلے لوڈ ہوتا ہے۔ اس میں <code>&lt;div id="root"&gt;&lt;/div&gt;</code> رکھا جاتا ہے، جہاں React اپنا کام کرے گی۔</td>
-            </tr>
-            <tr>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>src/index.js یا src/main.jsx</td>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>انٹری پوائنٹ JS/JSX</td>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>یہ وہ فائل ہے جو React ایپ کو start کرتی ہے — یہ root div کو تلاش کرتی ہے اور React component کو وہاں رینڈر کرتی ہے۔</td>
-            </tr>
-            <tr>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>src/App.js یا src/App.jsx</td>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>مرکزی Component</td>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>یہ آپ کا بنیادی React component ہے جہاں آپ UI logic لکھتے ہیں۔ آپ اسے چھوٹے components کی شکل میں تقسیم کریں گے۔</td>
-            </tr>
-            <tr>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>src/index.css</td>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>گلوبل CSS</td>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>یہ CSS وہ اسٹائل ہیں جو پوری ایپ پر لاگو ہوتے ہیں — عام اسٹائلز، reset styles وغیرہ۔</td>
-            </tr>
-            <tr>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>src/App.css</td>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>Component-specific CSS</td>
-              <td style={{padding: '10px', border: '1px solid #ddd'}}>یہ وہ اسٹائل ہے جو App component کے لیے مخصوص ہوتی ہے۔</td>
-            </tr>
-          </tbody>
-        </table>
+    <div className="chapter-container">
+      {/* Chapter Header */}
+      <div className="chapter-header">
+        <h1 className="chapter-title urdu-heading">Chapter 4. React ایپ کی بنیادی فائلیں اور ان کا کردار</h1>
+        <div className="chapter-duration">⏱️ تخمینی وقت: 15 منٹ</div>
+        <div className="chapter-number">باب 4</div>
       </div>
 
-      <p><strong>نوٹ:</strong> اگر آپ Vite پر جائیں گے، serviceWorker.js وغیرہ ڈیفالٹ میں نہ ہوں گے (وہ CRA-specific چیزیں ہیں)۔</p>
+      {/* Learning Outcomes */}
+      <div className="learning-outcomes urdu-text">
+        <h3 className="chapter-subtitle">📚 اس باب میں آپ سیکھیں گے:</h3>
+        <ul>
+          <li>React پروجیکٹ میں اہم فائلوں کا کردار</li>
+          <li>public/index.html کی اہمیت</li>
+          <li>entry point (main.jsx/index.js) کا کام</li>
+          <li>App.jsx component کی ساخت</li>
+          <li>CSS فائلوں کا انتظام</li>
+        </ul>
+      </div>
 
-      <h3>Hello World مثال — Vite + React سیٹ اپ</h3>
-      <p>نیچے ایک سادہ مثال ہے جسے آپ اپنا tutorial کا حصہ بنا سکتے ہیں:</p>
+      {/* Main Content Card */}
+      <div className="card section-card">
+        <h3 className="section-title">React پروجیکٹ کی بنیادی فائلیں</h3>
+        
+        <div className="section-text urdu-text">
+          <p>
+            اب میں یہ بتاؤں گا کہ جو فائلیں عموماً React پروجیکٹ میں ہوتی ہیں (خاص طور پر CRA یا Vite بیسڈ) — ان کا مقصد کیا ہے، اور آپ کا "Hello World" کیسے دکھایا جائے۔
+          </p>
+          
+          <div className="info-box">
+            <p>
+              <strong>نوٹ:</strong> ذیل میں وہ عام فائلیں ہیں جو ہر React پروجیکٹ میں ضروری ہوتی ہیں۔
+            </p>
+          </div>
+        </div>
 
-      <h4>public/index.html</h4>
-      <pre className="english-code">
-        <code>{htmlCode}</code>
-      </pre>
-      <button 
-        className="copy-btn"
-        onClick={() => copyToClipboard(htmlCode, "HTML Template")}
-      >
-        {copiedCode === "HTML Template" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-      </button>
+        {/* File Structure Table */}
+        <div className="file-table">
+          <h4 className="chapter-subtitle2">📁 React پروجیکٹ فائل اسٹرکچر</h4>
+          <div className="code-section">
+            <div className="code-header">
+              <span>فائل سٹرکچر</span>
+              <button 
+                className="copy-btn"
+                onClick={() => copyToClipboard(fileStructureCode, "File Structure")}
+              >
+                {copiedCode === "File Structure" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+            <div className="code-block-container">
+              <div className="code-block-wrapper">
+                <pre className="english-code">{fileStructureCode}</pre>
+              </div>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">← → سکرول کریں</div>
+            </div>
+          </div>
 
-      <h4>src/main.jsx (یا index.jsx)</h4>
-      <pre className="english-code">
-        <code>{mainJsxCode}</code>
-      </pre>
-      <button 
-        className="copy-btn"
-        onClick={() => copyToClipboard(mainJsxCode, "Main JSX")}
-      >
-        {copiedCode === "Main JSX" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-      </button>
+          {/* Detailed Table */}
+          <h4 className="chapter-subtitle2 mt-20">📋 فائلوں کا تفصیلی تعارف</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>فائل / فولڈر</th>
+                <th>مقام</th>
+                <th>مقصد / وضاحت</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>public/index.html</code></td>
+                <td>عمومی HTML ٹیمپلیٹ</td>
+                <td>یہ وہ HTML صفحہ ہے جو براؤزر میں سب سے پہلے لوڈ ہوتا ہے۔ اس میں <code>{"<div id=\"root\"></div>"}</code> رکھا جاتا ہے، جہاں React اپنا کام کرے گی۔</td>
+              </tr>
+              <tr>
+                <td><code>src/index.js</code> یا <code>src/main.jsx</code></td>
+                <td>انٹری پوائنٹ JS/JSX</td>
+                <td>یہ وہ فائل ہے جو React ایپ کو start کرتی ہے — یہ root div کو تلاش کرتی ہے اور React component کو وہاں رینڈر کرتی ہے۔</td>
+              </tr>
+              <tr>
+                <td><code>src/App.js</code> یا <code>src/App.jsx</code></td>
+                <td>مرکزی Component</td>
+                <td>یہ آپ کا بنیادی React component ہے جہاں آپ UI logic لکھتے ہیں۔ آپ اسے چھوٹے components کی شکل میں تقسیم کریں گے۔</td>
+              </tr>
+              <tr>
+                <td><code>src/index.css</code></td>
+                <td>گلوبل CSS</td>
+                <td>یہ CSS وہ اسٹائل ہیں جو پوری ایپ پر لاگو ہوتے ہیں — عام اسٹائلز، reset styles وغیرہ۔</td>
+              </tr>
+              <tr>
+                <td><code>src/App.css</code></td>
+                <td>Component-specific CSS</td>
+                <td>یہ وہ اسٹائل ہے جو App component کے لیے مخصوص ہوتی ہے۔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      <h4>src/App.jsx</h4>
-      <pre className="english-code">
-        <code>{appJsxCode}</code>
-      </pre>
-      <button 
-        className="copy-btn"
-        onClick={() => copyToClipboard(appJsxCode, "App JSX")}
-      >
-        {copiedCode === "App JSX" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-      </button>
+        <div className="success-box mt-3">
+          <p>
+            <strong>نوٹ:</strong> اگر آپ Vite پر جائیں گے، serviceWorker.js وغیرہ ڈیفالٹ میں نہ ہوں گے (وہ CRA-specific چیزیں ہیں)۔
+          </p>
+        </div>
 
-      <h4>src/index.css + src/App.css</h4>
-      <pre className="english-code">
-        <code>{cssCode}</code>
-      </pre>
-      <button 
-        className="copy-btn"
-        onClick={() => copyToClipboard(cssCode, "CSS Styles")}
-      >
-        {copiedCode === "CSS Styles" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
-      </button>
+        {/* Hello World Example */}
+        <div className="lesson-section urdu-text">
+          <h4 className="section-title">🔹 Hello World مثال — Vite + React سیٹ اپ</h4>
+          
+          <div className="section-text">
+            <p>
+              نیچے ایک سادہ مثال ہے جسے آپ اپنا tutorial کا حصہ بنا سکتے ہیں:
+            </p>
+          </div>
 
-      <p>اگر آپ یہ تمام فائلیں صحیح ترتیب میں رکھیں اور <code>npm run dev</code> کریں، تو آپ براؤزر میں جاکر دیکھیں گے: <strong>ہیلو ورلڈ!</strong></p>
-      <p>یہ وہ بنیادی ترتیب ہے۔</p>
-      
+          {/* HTML Example */}
+          <div className="code-section">
+            <div className="code-header">
+              <span>public/index.html</span>
+              <button 
+                className="copy-btn"
+                onClick={() => copyToClipboard(htmlCode, "HTML Template")}
+              >
+                {copiedCode === "HTML Template" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+            <div className="code-block-container">
+              <div className="code-block-wrapper">
+                <pre className="english-code">{htmlCode}</pre>
+              </div>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">← → سکرول کریں</div>
+            </div>
+          </div>
+
+          {/* Main.jsx Example */}
+          <div className="code-section">
+            <div className="code-header">
+              <span>src/main.jsx (یا index.jsx)</span>
+              <button 
+                className="copy-btn"
+                onClick={() => copyToClipboard(mainJsxCode, "Main JSX")}
+              >
+                {copiedCode === "Main JSX" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+            <div className="code-block-container">
+              <div className="code-block-wrapper">
+                <pre className="english-code">{mainJsxCode}</pre>
+              </div>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">← → سکرول کریں</div>
+            </div>
+          </div>
+
+          {/* App.jsx Example */}
+          <div className="code-section">
+            <div className="code-header">
+              <span>src/App.jsx</span>
+              <button 
+                className="copy-btn"
+                onClick={() => copyToClipboard(appJsxCode, "App JSX")}
+              >
+                {copiedCode === "App JSX" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+            <div className="code-block-container">
+              <div className="code-block-wrapper">
+                <pre className="english-code">{appJsxCode}</pre>
+              </div>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">← → سکرول کریں</div>
+            </div>
+          </div>
+
+          {/* CSS Example */}
+          <div className="code-section">
+            <div className="code-header">
+              <span>src/index.css + src/App.css</span>
+              <button 
+                className="copy-btn"
+                onClick={() => copyToClipboard(cssCode, "CSS Styles")}
+              >
+                {copiedCode === "CSS Styles" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+              </button>
+            </div>
+            <div className="code-block-container">
+              <div className="code-block-wrapper">
+                <pre className="english-code">{cssCode}</pre>
+              </div>
+            </div>
+            <div className="code-scroll-notice-parent">
+              <div className="code-scroll-notice">← → سکرول کریں</div>
+            </div>
+          </div>
+
+          <div className="explanation-box mt-3">
+            <h5>یہ مثال کیا کرتی ہے؟</h5>
+            <ul>
+              <li><code>index.html</code> میں root container بناتا ہے</li>
+              <li><code>main.jsx</code> React کو start کرتا ہے</li>
+              <li><code>App.jsx</code> بنیادی component ہے جو "ہیلو ورلڈ!" دکھاتا ہے</li>
+              <li>CSS فائلیں UI کو سجانے کے لیے استعمال ہوتی ہیں</li>
+            </ul>
+          </div>
+
+          <p className="mt-3">
+            اگر آپ یہ تمام فائلیں صحیح ترتیب میں رکھیں اور <span className="coding">npm run dev</span> کریں، تو آپ براؤزر میں جاکر دیکھیں گے: <strong>ہیلو ورلڈ!</strong>
+          </p>
+          
+          <p>
+            یہ وہ بنیادی ترتیب ہے جس پر آپ مزید components اور فیچرز build کریں گے۔
+          </p>
+        </div>
+
+        {/* Key Points */}
+        <div className="methods-grid">
+          <div className="method-card">
+            <h3>📄 HTML</h3>
+            <p>Root container اور metadata</p>
+          </div>
+          <div className="method-card">
+            <h3>🚀 Entry Point</h3>
+            <p>React ایپ شروع کرنے والی فائل</p>
+          </div>
+          <div className="method-card">
+            <h3>⚛️ App Component</h3>
+            <p>مرکزی UI component</p>
+          </div>
+          <div className="method-card">
+            <h3>🎨 CSS</h3>
+            <p>اسٹائلنگ اور ڈیزائن</p>
+          </div>
+        </div>
+
+        {/* Homework Section */}
+        <div className="homework-section urdu-text">
+          <h4>📝 ہوم ورک:</h4>
+          <ol>
+            <li>Vite یا CRA استعمال کرتے ہوئے ایک نیا React پروجیکٹ بنائیں</li>
+            <li>اوپر دی گئی تمام فائلوں کو اپنے پروجیکٹ میں ڈھونڈیں</li>
+            <li>App.jsx میں "ہیلو ورلڈ!" کو اپنا نام تبدیل کریں</li>
+            <li>App.css میں نئے اسٹائلز شامل کریں (رنگ، فونٹ سائز، margins)</li>
+            <li>index.html میں صفحے کا title تبدیل کریں</li>
+          </ol>
+        </div>
+
+        {/* Summary */}
+        <div className="summary-card">
+          <h3 className="section-title">📖 خلاصہ</h3>
+          <div className="summary-content2">
+            <p>ہر React پروجیکٹ کی کچھ بنیادی فائلیں ہوتی ہیں جو اس کے کام کرنے کے لیے ضروری ہیں۔</p>
+            <p><strong>index.html</strong> وہ صفحہ ہے جسے براؤزر دیکھتا ہے اور اس میں React کا root container ہوتا ہے۔</p>
+            <p><strong>main.jsx/index.js</strong> React ایپ کو start کرتا ہے اور component کو root میں رینڈر کرتا ہے۔</p>
+            <p><strong>App.jsx</strong> آپ کا مرکزی component ہے جہاں سے آپ UI development شروع کرتے ہیں۔</p>
+          </div>
+          <div className="summary-points">
+            <div className="summary-item">
+              <div className="summary-icon">📄</div>
+              <div>HTML ٹیمپلیٹ</div>
+            </div>
+            <div className="summary-item">
+              <div className="summary-icon">🚀</div>
+              <div>Entry Point</div>
+            </div>
+            <div className="summary-item">
+              <div className="summary-icon">⚛️</div>
+              <div>مرکزی Component</div>
+            </div>
+            <div className="summary-item">
+              <div className="summary-icon">🎨</div>
+              <div>CSS اسٹائلنگ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Copy Notification */}
       {copiedCode && (
         <div className="copy-notification">
-          ✅ {copiedCode} code copied to clipboard!
+          ✅ {copiedCode} کوڈ کاپی ہوگیا!
         </div>
       )}
     </div>

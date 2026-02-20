@@ -1,297 +1,236 @@
-import React, { useState } from "react";
-import "./App.css";
-import Chapter0 from "./components/Chapter0";
-import Chapter1 from "./components/Chapter1";
-import Chapter2 from "./components/Chapter2";
-import Chapter3 from "./components/Chapter3";
-import Chapter4 from "./components/Chapter4";
-import Chapter5 from "./components/Chapter5";
-import Chapter6 from "./components/Chapter6";
-import Chapter7 from "./components/Chapter7";
-import Chapter8 from "./components/Chapter8";
-import Chapter9 from "./components/Chapter9";
-import Chapter10 from "./components/Chapter10";
-import ColorZillaChapter from "./components/ColorZillaChapter";
-import Chapter12 from "./components/Chapter12";
-import Chapter13 from "./components/Chapter13";
-import Chapter14 from "./components/Chapter14";
-import Chapter15 from "./components/Chapter15";
-import Chapter16 from "./components/Chapter16";
-import Chapter17 from "./components/Chapter17";
-import Chapter18 from "./components/Chapter18";
-import Chapter19 from "./components/Chapter19";
-import Chapter20 from "./components/Chapter20";
-import Chapter21 from "./components/Chapter21";
-import Chapter22 from "./components/Chapter22";
-import Chapter23 from "./components/Chapter23";
-import Chapter24 from "./components/Chapter24";
-import Chapter25 from "./components/Chapter25";
-import Chapter26 from "./components/Chapter26";
-import Chapter27 from "./components/Chapter27";
-import CssShadcn from "./components/CssShadcn";
+import React, { Suspense, lazy, useEffect, useRef } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import './App.css';
+import './App9211.css';
+
+// Layout Components
+import Navbar from './components/Layout/Navbar';
+// import Footer from './components/Layout/Footer';
+
+// Lazy load all components
+const HomePage = lazy(() => import('./components/Home/HomePage'));
+const LoadingSpinner = lazy(() => import('./components/common/LoadingSpinner'));
+
+// Lazy load all chapters - آپ کے اصل imports کے مطابق
+const Chapter0 = lazy(() => import('./components/Chapter0'));
+const Chapter1 = lazy(() => import('./components/Chapter1'));
+const Chapter2 = lazy(() => import('./components/Chapter2'));
+const Chapter3 = lazy(() => import('./components/Chapter3'));
+const Chapter4 = lazy(() => import('./components/Chapter4'));
+const Chapter5 = lazy(() => import('./components/Chapter5'));
+const Chapter6 = lazy(() => import('./components/Chapter6'));
+const Chapter7 = lazy(() => import('./components/Chapter7'));
+const Chapter8 = lazy(() => import('./components/Chapter8'));
+const Chapter9 = lazy(() => import('./components/Chapter9'));
+const Chapter10 = lazy(() => import('./components/Chapter10'));
+const ColorZillaChapter = lazy(() => import('./components/ColorZillaChapter')); // Chapter 11
+const Chapter12 = lazy(() => import('./components/Chapter12'));
+const Chapter13 = lazy(() => import('./components/Chapter13'));
+const Chapter14 = lazy(() => import('./components/Chapter14'));
+const Chapter15 = lazy(() => import('./components/Chapter15'));
+const Chapter16 = lazy(() => import('./components/Chapter16'));
+const Chapter17 = lazy(() => import('./components/Chapter17'));
+const Chapter18 = lazy(() => import('./components/Chapter18'));
+const Chapter19 = lazy(() => import('./components/Chapter19'));
+const Chapter20 = lazy(() => import('./components/Chapter20'));
+const Chapter21 = lazy(() => import('./components/Chapter21'));
+const Chapter22 = lazy(() => import('./components/Chapter22'));
+const Chapter23 = lazy(() => import('./components/Chapter23'));
+const Chapter24 = lazy(() => import('./components/Chapter24'));
+const Chapter25 = lazy(() => import('./components/Chapter25'));
+const Chapter26 = lazy(() => import('./components/Chapter26'));
+const Chapter27 = lazy(() => import('./components/Chapter27'));
+const CssShadcn = lazy(() => import('./components/CssShadcn')); // Chapter 28
+const Chapter29 = lazy(() => import('./components/Chapter29'));
+const Chapter30 = lazy(() => import('./components/Chapter30'));
+const Chapter31 = lazy(() => import('./components/Chapter31'));
+const Chapter32 = lazy(() => import('./components/Chapter32'));
+const Chapter33 = lazy(() => import('./components/Chapter33'));
+const Chapter34 = lazy(() => import('./components/Chapter34'));
+const Chapter35 = lazy(() => import('./components/Chapter35'));
+const Chapter36 = lazy(() => import('./components/Chapter36'));
+const Chapter37 = lazy(() => import('./components/Chapter37'));
+const Chapter38 = lazy(() => import('./components/Chapter38'));
+const Chapter39 = lazy(() => import('./components/Chapter39'));
 
 function App() {
-  const [copySuccess, setCopySuccess] = useState("");
+   const trailRef = useRef([]);
+  const animationFrameRef = useRef();
 
-  const handleCopy = (code) => {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopySuccess("کاپی ہوگیا ✅");
-      setTimeout(() => setCopySuccess(""), 2000);
-    });
-  };
+  useEffect(() => {
+    const MAX_TRAIL_LENGTH = 30; // Adjust this for longer/shorter trail
+    
+    const handleMouseMove = (event) => {
+      const trail = document.createElement('div');
+      trail.className = 'trail';
+      
+      // Random slight variation for more natural look
+      const xOffset = (Math.random() - 0.5) * 4;
+      const yOffset = (Math.random() - 0.5) * 4;
+      
+      trail.style.left = `${event.pageX - 5 + xOffset}px`;
+      trail.style.top = `${event.pageY - 5 + yOffset}px`;
+      
+      // Random size variation
+      const size = 8 + Math.random() * 6;
+      trail.style.width = `${size}px`;
+      trail.style.height = `${size}px`;
+      
+      // Random opacity
+      trail.style.opacity = 0.7 + Math.random() * 0.3;
+      
+      document.body.appendChild(trail);
+      
+      // Add to trail array and manage length
+      trailRef.current.push(trail);
+      
+      if (trailRef.current.length > MAX_TRAIL_LENGTH) {
+        const oldestTrail = trailRef.current.shift();
+        if (oldestTrail && oldestTrail.parentNode) {
+          oldestTrail.remove();
+        }
+      }
+      
+      // Remove after animation
+      setTimeout(() => {
+        if (trail && trail.parentNode) {
+          trail.remove();
+          // Remove from array if still there
+          const index = trailRef.current.indexOf(trail);
+          if (index > -1) {
+            trailRef.current.splice(index, 1);
+          }
+        }
+      }, 800);
+    };
 
-  // Navigation function for all chapters
-  const scrollToChapter = (chapterId) => {
-    const element = document.getElementById(`chapter-${chapterId}`);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: "smooth",
-        block: "start"
+    // Use throttled mousemove for better performance
+    let ticking = false;
+    const throttledMouseMove = (event) => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleMouseMove(event);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    document.addEventListener('mousemove', throttledMouseMove);
+
+    // Cleanup
+    return () => {
+      document.removeEventListener('mousemove', throttledMouseMove);
+      
+      // Remove all trail elements
+      trailRef.current.forEach(trail => {
+        if (trail && trail.parentNode) {
+          trail.remove();
+        }
       });
-    }
-  };
+      trailRef.current = [];
+      
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <div className="app-container">
-      {/* Navigation Header */}
-      <div
-        className="chapter-navigation"
-        style={{
-          marginBottom: "20px",
-          padding: "15px",
-          background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-          borderRadius: "12px",
-          color: "white",
-          textAlign: "center",
-        }}
-      >
-        <h2 style={{ margin: "0 0 10px 0", color: "white" }}>
-          ReactUrdu — ری ایکٹ ٹیوٹوریل
-        </h2>
-        <div
-          style={{
-            display: "flex",
-            gap: "10px",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          {/* Chapter 11 Button */}
-          <button
-            onClick={() => scrollToChapter(11)}
-            className="interactive-btn"
-            style={{
-              background: "linear-gradient(135deg, #ff6b35 0%, #f7931e 100%)",
-              color: "white",
-              border: "none",
-              padding: "10px 16px",
-              borderRadius: "6px",
-              fontSize: "14px",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              fontFamily: "sans-serif",
-              fontWeight: "600",
-              boxShadow: "0 2px 8px rgba(255, 107, 53, 0.3)",
-              minHeight: "40px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}
-          >
-            🎨 Ch. 11 - Pick Color from Website
-          </button>
-
-          {/* Chapter 25 Button */}
-          <button
-            onClick={() => scrollToChapter(25)}
-            className="interactive-btn"
-            style={{ 
-              background: "#007bff",
-              color: "white",
-              border: "none",
-              padding: "10px 16px",
-              borderRadius: "6px",
-              fontSize: "14px",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              fontFamily: "sans-serif",
-              fontWeight: "600",
-              minHeight: "40px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "0 2px 8px rgba(0, 123, 255, 0.3)"
-            }}
-          >
-            🚀 Chapter 25 - SweetAlert2
-          </button>
-          
-          {/* Chapter 24 Button */}
-          <button
-            onClick={() => scrollToChapter(24)}
-            className="interactive-btn"
-            style={{ 
-              background: "#6f42c1",
-              color: "white",
-              border: "none",
-              padding: "10px 16px",
-              borderRadius: "6px",
-              fontSize: "14px",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              fontFamily: "sans-serif",
-              fontWeight: "600",
-              minHeight: "40px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "0 2px 8px rgba(111, 66, 193, 0.3)"
-            }}
-          >
-            🔐 Chapter 24 - Logout System
-          </button>
-
-          {/* Chapter 28 Button */}
-          <button
-            onClick={() => scrollToChapter(28)}
-            className="interactive-btn"
-            style={{ 
-              background: "linear-gradient(135deg, #0078ff 0%, #00c6ff 100%)",
-              color: "white",
-              border: "none",
-              padding: "10px 16px",
-              borderRadius: "6px",
-              fontSize: "14px",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              fontFamily: "sans-serif",
-              fontWeight: "600",
-              minHeight: "40px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "0 2px 8px rgba(0, 120, 255, 0.3)"
-            }}
-          >
-            🎨 Chapter 28 - shadcn/ui Guide
-          </button>
-        </div>
-      </div>
-
-      {/* Render Chapter0 without props */}
-      <Chapter0 />
-
-      {/* All other chapters */}
-      <div id="chapter-1" className="chapter-content">
-        <Chapter1 />
-      </div>
-      <div id="chapter-2" className="chapter-content">
-        <Chapter2 />
-      </div>
-      <div id="chapter-3" className="chapter-content">
-        <Chapter3 />
-      </div>
-      <div id="chapter-4" className="chapter-content">
-        <Chapter4 />
-      </div>
-      <div id="chapter-5" className="chapter-content">
-        <Chapter5 />
-      </div>
-      <div id="chapter-6" className="chapter-content">
-        <Chapter6 />
-      </div>
-      <div id="chapter-7" className="chapter-content">
-        <Chapter7 />
-      </div>
-      <div id="chapter-8" className="chapter-content">
-        <Chapter8 />
-      </div>
-      <div id="chapter-9" className="chapter-content">
-        <Chapter9 />
-      </div>
-      <div id="chapter-10" className="chapter-content">
-        <Chapter10 />
-      </div>
-      <div id="chapter-11" className="chapter-content">
-        <ColorZillaChapter />
-      </div>
-      <div id="chapter-12" className="chapter-content">
-        <Chapter12 />
-      </div>
-      <div id="chapter-13" className="chapter-content">
-        <Chapter13 />
-      </div>
-      <div id="chapter-14" className="chapter-content">
-        <Chapter14 />
-      </div>
-      <div id="chapter-15" className="chapter-content">
-        <Chapter15 />
-      </div>
-      <div id="chapter-16" className="chapter-content">
-        <Chapter16 />
-      </div>
-      <div id="chapter-17" className="chapter-content">
-        <Chapter17 />
-      </div>
-      <div id="chapter-18" className="chapter-content">
-        <Chapter18 />
-      </div>
-      <div id="chapter-19" className="chapter-content">
-        <Chapter19 />
-      </div>
-      <div id="chapter-20" className="chapter-content">
-        <Chapter20 />
-      </div>
-      <div id="chapter-21" className="chapter-content">
-        <Chapter21 />
-      </div>
-      <div id="chapter-22" className="chapter-content">
-        <Chapter22 />
-      </div>
-      <div id="chapter-23" className="chapter-content">
-        <Chapter23 />
-      </div>
-      <div id="chapter-24" className="chapter-content">
-        <Chapter24 />
-      </div>
-      <div id="chapter-25" className="chapter-content">
-        <Chapter25 />
-      </div>
-      <div id="chapter-26" className="chapter-content">
-        <Chapter26 />
-      </div>
-      <div id="chapter-27" className="chapter-content">
-        <Chapter27 />
-      </div>
-      <div id="chapter-28" className="chapter-content">
-        <CssShadcn />
-      </div>
+    <div className="app-container" dir="rtl">
+      <Navbar />
       
-      {copySuccess && <p className="copy-msg">{copySuccess}</p>}
-
-      {/* Back to Top Button */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          background: "#0078ff",
-          color: "white",
-          border: "none",
-          borderRadius: "50%",
-          width: "50px",
-          height: "50px",
-          fontSize: "20px",
-          cursor: "pointer",
-          boxShadow: "0 4px 12px rgba(0, 120, 255, 0.3)",
-          zIndex: 1000,
-        }}
-      >
-        ↑
-      </button>
+      {/* Spacer for fixed navbar */}
+      <div style={{ height: '60px' }} />
+      
+      <main style={{ minHeight: '80vh' }}>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            {/* Home Page */}
+            <Route path="/" element={<HomePage />} />
+            
+            {/* Chapter 0 - Table of Contents */}
+            <Route path="/chapter/0" element={<Chapter0 />} />
+            
+            {/* Chapters 1-10 */}
+            <Route path="/chapter/1" element={<Chapter1 />} />
+            <Route path="/chapter/2" element={<Chapter2 />} />
+            <Route path="/chapter/3" element={<Chapter3 />} />
+            <Route path="/chapter/4" element={<Chapter4 />} />
+            <Route path="/chapter/5" element={<Chapter5 />} />
+            <Route path="/chapter/6" element={<Chapter6 />} />
+            <Route path="/chapter/7" element={<Chapter7 />} />
+            <Route path="/chapter/8" element={<Chapter8 />} />
+            <Route path="/chapter/9" element={<Chapter9 />} />
+            <Route path="/chapter/10" element={<Chapter10 />} />
+            
+            {/* Chapter 11 - ColorZillaChapter */}
+            <Route path="/chapter/11" element={<ColorZillaChapter />} />
+            
+            {/* Chapters 12-27 */}
+            <Route path="/chapter/12" element={<Chapter12 />} />
+            <Route path="/chapter/13" element={<Chapter13 />} />
+            <Route path="/chapter/14" element={<Chapter14 />} />
+            <Route path="/chapter/15" element={<Chapter15 />} />
+            <Route path="/chapter/16" element={<Chapter16 />} />
+            <Route path="/chapter/17" element={<Chapter17 />} />
+            <Route path="/chapter/18" element={<Chapter18 />} />
+            <Route path="/chapter/19" element={<Chapter19 />} />
+            <Route path="/chapter/20" element={<Chapter20 />} />
+            <Route path="/chapter/21" element={<Chapter21 />} />
+            <Route path="/chapter/22" element={<Chapter22 />} />
+            <Route path="/chapter/23" element={<Chapter23 />} />
+            <Route path="/chapter/24" element={<Chapter24 />} />
+            <Route path="/chapter/25" element={<Chapter25 />} />
+            <Route path="/chapter/26" element={<Chapter26 />} />
+            <Route path="/chapter/27" element={<Chapter27 />} />
+            
+            {/* Chapter 28 - CssShadcn */}
+            <Route path="/chapter/28" element={<CssShadcn />} />
+            
+            {/* Chapters 29-38 */}
+            <Route path="/chapter/29" element={<Chapter29 />} />
+            <Route path="/chapter/30" element={<Chapter30 />} />
+            <Route path="/chapter/31" element={<Chapter31 />} />
+            <Route path="/chapter/32" element={<Chapter32 />} />
+            <Route path="/chapter/33" element={<Chapter33 />} />
+            <Route path="/chapter/34" element={<Chapter34 />} />
+            <Route path="/chapter/35" element={<Chapter35 />} />
+            <Route path="/chapter/36" element={<Chapter36 />} />
+            <Route path="/chapter/37" element={<Chapter37 />} />
+            <Route path="/chapter/38" element={<Chapter38 />} />
+            <Route path="/chapter/39" element={<Chapter39 />} />
+           
+            
+            {/* 404 Page */}
+            <Route path="*" element={
+              <div style={{ 
+                textAlign: 'center', 
+                padding: '100px 20px',
+                fontFamily: "'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif"
+              }}>
+                <h1 style={{ fontSize: '48px', color: '#dc3545' }}>404</h1>
+                <p style={{ fontSize: '24px', marginBottom: '30px' }}>صفحہ نہیں ملا</p>
+                <Link to="/" style={{
+                  padding: '12px 24px',
+                  backgroundColor: '#1a237e',
+                  color: 'white',
+                  textDecoration: 'none',
+                  borderRadius: '8px',
+                  fontSize: '16px'
+                }}>
+                  ہوم پیج پر واپس جائیں
+                </Link>
+              </div>
+            } />
+          </Routes>
+        </Suspense>
+      </main>
+      
+      {/* <Footer /> */}
     </div>
   );
-}
+  }
+
 
 export default App;

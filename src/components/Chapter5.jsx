@@ -1207,7 +1207,719 @@ function Greeting({ name, message }) {
           </ul>
         </div>
       </div>
+{/* 🔹 Props Drilling - مسئلہ اور حل */}
+<div className="section-card">
+  <h2 className="section-title text-break">
+    🚨 Props Drilling - مسئلہ اور حل
+  </h2>
+  
+  <div className="explanation-box">
+    <h3 className="text-break">❓ مسئلہ کیا ہے؟</h3>
+    <p className="section-text text-break">
+      <strong>Props Drilling</strong> ایسی صورت حال ہے جب ہمیں کسی data کو parent component سے child component تک پہنچانا ہو، لیکن درمیان کے components کو اس data کی ضرورت نہ ہو۔
+    </p>
+    
+    <div className="info-box">
+      <h4 className="text-break">📖 مثال کے طور پر:</h4>
+      <p className="text-break">
+        دادی 👵 ➡️ امی 👩 ➡️ بیٹی 👧<br/>
+        دادی نے بیٹی کے لیے چاکلیٹ 🍫 دی، لیکن امی کو چاکلیٹ کی ضرورت نہیں، وہ صرف پاس کر رہی ہے۔
+      </p>
+    </div>
+    
+    <div className="practice-example">
+      <h3 className="text-break">1. آن لائن شاپنگ کارٹ سسٹم</h3>
+      <h4 className="text-break">📋 مسئلہ:</h4>
+      <p className="text-break">
+        ہمارے پاس ایک shopping app ہے جہاں:<br/>
+        • Main App میں cart کی state ہے<br/>
+        • ProductItem کو addToCart function چاہیے<br/>
+        • درمیان میں 2-3 components ہیں جو اس function کو صرف پاس کر رہے ہیں
+      </p>
+      
+      <div className="code-block-container">
+        <div className="code-header">
+          <span className="text-break">📁 Props Drilling کا مسئلہ</span>
+          <button
+            className="copy-btn"
+            onClick={() => copyToClipboard(`// Main App (دکان والا)
+const App = () => {
+  const [cart, setCart] = useState([]); // یہاں cart ہے
+  
+  return <Shop cart={cart} setCart={setCart} />;
+};
 
+// Shop (دکان)
+const Shop = ({ cart, setCart }) => {
+  // Shop کو cart کی ضرورت نہیں، صرف پاس کر رہا ہے
+  return <ProductSection cart={cart} setCart={setCart} />;
+};
+
+// ProductSection (پرڈکٹ کا سیکشن)
+const ProductSection = ({ cart, setCart }) => {
+  // اسے بھی ضرورت نہیں، صرف پاس کر رہا ہے
+  return <ProductItem cart={cart} setCart={setCart} />;
+};
+
+// ProductItem (آخری component)
+const ProductItem = ({ cart, setCart }) => {
+  // صرف یہاں function استعمال ہوگا
+  const addToCart = () => {
+    setCart([...cart, "نئی پرڈکٹ"]);
+  };
+  
+  return <button onClick={addToCart}>خریدیں</button>;
+};`, "Props Drilling Example")}
+          >
+            {copiedCode === "Props Drilling Example" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+          </button>
+        </div>
+        <div className="code-block-wrapper">
+          <pre className="english-code">
+            <code>{`// Main App (دکان والا)
+const App = () => {
+  const [cart, setCart] = useState([]); // یہاں cart ہے
+  
+  return <Shop cart={cart} setCart={setCart} />;
+};
+
+// Shop (دکان)
+const Shop = ({ cart, setCart }) => {
+  // Shop کو cart کی ضرورت نہیں، صرف پاس کر رہا ہے
+  return <ProductSection cart={cart} setCart={setCart} />;
+};
+
+// ProductSection (پرڈکٹ کا سیکشن)
+const ProductSection = ({ cart, setCart }) => {
+  // اسے بھی ضرورت نہیں، صرف پاس کر رہا ہے
+  return <ProductItem cart={cart} setCart={setCart} />;
+};
+
+// ProductItem (آخری component)
+const ProductItem = ({ cart, setCart }) => {
+  // صرف یہاں function استعمال ہوگا
+  const addToCart = () => {
+    setCart([...cart, "نئی پرڈکٹ"]);
+  };
+  
+  return <button onClick={addToCart}>خریدیں</button>;
+};`}</code>
+          </pre>
+        </div>
+      </div>
+      
+      <div className="problem-list">
+        <h4 className="text-break">🚨 مسائل:</h4>
+        <ul className="text-break">
+          <li>Shop اور ProductSection کو cart/setCart کی ضرورت نہیں</li>
+          <li>وہ صرف messenger کا کام کر رہے ہیں</li>
+          <li>اگر بعد میں 10 اور components ہوں، تو سب کو یہ props پاس کرنی پڑیں گی</li>
+        </ul>
+      </div>
+      
+      <h4 className="text-break">✅ حل - Context API:</h4>
+      <div className="code-block-container">
+        <div className="code-header">
+          <span className="text-break">📁 Context API سے حل</span>
+          <button
+            className="copy-btn"
+            onClick={() => copyToClipboard(`import React, { createContext, useState, useContext } from 'react';
+
+// 1. Context بنائیں (ایک بکس جہاں data رکھیں)
+const CartContext = createContext();
+
+// 2. App میں Provider استعمال کریں
+const App = () => {
+  const [cart, setCart] = useState([]);
+  
+  return (
+    <CartContext.Provider value={{ cart, setCart }}>
+      <Shop /> {/* اب props پاس نہیں کرنی */}
+    </CartContext.Provider>
+  );
+};
+
+// 3. جہاں ضرورت ہو، وہاں useContext استعمال کریں
+const ProductItem = () => {
+  const { cart, setCart } = useContext(CartContext); // Direct access
+  
+  const addToCart = () => {
+    setCart([...cart, "نئی پرڈکٹ"]);
+  };
+  
+  return <button onClick={addToCart}>خریدیں</button>;
+};`, "Context API Solution")}
+          >
+            {copiedCode === "Context API Solution" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+          </button>
+        </div>
+        <div className="code-block-wrapper">
+          <pre className="english-code">
+            <code>{`import React, { createContext, useState, useContext } from 'react';
+
+// 1. Context بنائیں (ایک بکس جہاں data رکھیں)
+const CartContext = createContext();
+
+// 2. App میں Provider استعمال کریں
+const App = () => {
+  const [cart, setCart] = useState([]);
+  
+  return (
+    <CartContext.Provider value={{ cart, setCart }}>
+      <Shop /> {/* اب props پاس نہیں کرنی */}
+    </CartContext.Provider>
+  );
+};
+
+// 3. جہاں ضرورت ہو، وہاں useContext استعمال کریں
+const ProductItem = () => {
+  const { cart, setCart } = useContext(CartContext); // Direct access
+  
+  const addToCart = () => {
+    setCart([...cart, "نئی پرڈکٹ"]);
+  };
+  
+  return <button onClick={addToCart}>خریدیں</button>;
+};`}</code>
+          </pre>
+        </div>
+      </div>
+    </div>
+    
+    <div className="practice-example">
+      <h3 className="text-break">2. اسکول مینجمنٹ سسٹم</h3>
+      <h4 className="text-break">📋 مسئلہ:</h4>
+      <p className="text-break">
+        پرنسپل سے طالب علم تک marks پہنچانے میں:
+      </p>
+      
+      <div className="code-block-container">
+        <div className="code-header">
+          <span className="text-break">📁 اسکول سسٹم میں Props Drilling</span>
+          <button
+            className="copy-btn"
+            onClick={() => copyToClipboard(`// Principal (پرنسپل)
+const Principal = () => {
+  const [marks, setMarks] = useState({ علی: 85 });
+  
+  return <HeadTeacher marks={marks} setMarks={setMarks} />;
+};
+
+// HeadTeacher (ہیڈ ٹیچر)
+const HeadTeacher = ({ marks, setMarks }) => {
+  // کوئی استعمال نہیں، صرف پاس کر رہا ہے
+  return <ClassTeacher marks={marks} setMarks={setMarks} />;
+};
+
+// ClassTeacher (کلاس ٹیچر)
+const ClassTeacher = ({ marks, setMarks }) => {
+  // کوئی استعمال نہیں، صرف پاس کر رہا ہے
+  return <Student marks={marks} setMarks={setMarks} />;
+};
+
+// Student (طالب علم)
+const Student = ({ marks, setMarks }) => {
+  // صرف یہاں استعمال ہوگا
+  return <div>میرے نمبر: {marks.علی}</div>;
+};`, "School Problem Example")}
+          >
+            {copiedCode === "School Problem Example" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+          </button>
+        </div>
+        <div className="code-block-wrapper">
+          <pre className="english-code">
+            <code>{`// Principal (پرنسپل)
+const Principal = () => {
+  const [marks, setMarks] = useState({ علی: 85 });
+  
+  return <HeadTeacher marks={marks} setMarks={setMarks} />;
+};
+
+// HeadTeacher (ہیڈ ٹیچر)
+const HeadTeacher = ({ marks, setMarks }) => {
+  // کوئی استعمال نہیں، صرف پاس کر رہا ہے
+  return <ClassTeacher marks={marks} setMarks={setMarks} />;
+};
+
+// ClassTeacher (کلاس ٹیچر)
+const ClassTeacher = ({ marks, setMarks }) => {
+  // کوئی استعمال نہیں، صرف پاس کر رہا ہے
+  return <Student marks={marks} setMarks={setMarks} />;
+};
+
+// Student (طالب علم)
+const Student = ({ marks, setMarks }) => {
+  // صرف یہاں استعمال ہوگا
+  return <div>میرے نمبر: {marks.علی}</div>;
+};`}</code>
+          </pre>
+        </div>
+      </div>
+      
+      <h4 className="text-break">✅ حل:</h4>
+      <div className="code-block-container">
+        <div className="code-header">
+          <span className="text-break">📁 Context سے حل</span>
+          <button
+            className="copy-btn"
+            onClick={() => copyToClipboard(`// MarksContext بنائیں
+const MarksContext = createContext();
+
+const Principal = () => {
+  const [marks, setMarks] = useState({ علی: 85 });
+  
+  return (
+    <MarksContext.Provider value={{ marks, setMarks }}>
+      <HeadTeacher />
+      <ClassTeacher />
+      <Student />
+    </MarksContext.Provider>
+  );
+};
+
+// Student direct access کر سکتا ہے
+const Student = () => {
+  const { marks } = useContext(MarksContext);
+  return <div>میرے نمبر: {marks.علی}</div>;
+};`, "School Solution")}
+          >
+            {copiedCode === "School Solution" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+          </button>
+        </div>
+        <div className="code-block-wrapper">
+          <pre className="english-code">
+            <code>{`// MarksContext بنائیں
+const MarksContext = createContext();
+
+const Principal = () => {
+  const [marks, setMarks] = useState({ علی: 85 });
+  
+  return (
+    <MarksContext.Provider value={{ marks, setMarks }}>
+      <HeadTeacher />
+      <ClassTeacher />
+      <Student />
+    </MarksContext.Provider>
+  );
+};
+
+// Student direct access کر سکتا ہے
+const Student = () => {
+  const { marks } = useContext(MarksContext);
+  return <div>میرے نمبر: {marks.علی}</div>;
+};`}</code>
+          </pre>
+        </div>
+      </div>
+    </div>
+    
+    <div className="practice-example">
+      <h3 className="text-break">3. گیم اسکور بورڈ</h3>
+      <h4 className="text-break">📋 مسئلہ:</h4>
+      <p className="text-break">
+        Game میں score update کرنا:
+      </p>
+      
+      <div className="code-block-container">
+        <div className="code-header">
+          <span className="text-break">📁 گیم سسٹم میں Props Drilling</span>
+          <button
+            className="copy-btn"
+            onClick={() => copyToClipboard(`// Game (مین گیم)
+const Game = () => {
+  const [score, setScore] = useState(0);
+  
+  return <TeamA score={score} setScore={setScore} />;
+};
+
+// TeamA (پہلی ٹیم)
+const TeamA = ({ score, setScore }) => {
+  return <Player1 score={score} setScore={setScore} />;
+};
+
+// Player1 (کھلاڑی 1)
+const Player1 = ({ score, setScore }) => {
+  const addScore = () => {
+    setScore(score + 10); // صرف یہاں استعمال
+  };
+  
+  return <button onClick={addScore}>سکور کریں</button>;
+};`, "Game Problem Example")}
+          >
+            {copiedCode === "Game Problem Example" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+          </button>
+        </div>
+        <div className="code-block-wrapper">
+          <pre className="english-code">
+            <code>{`// Game (مین گیم)
+const Game = () => {
+  const [score, setScore] = useState(0);
+  
+  return <TeamA score={score} setScore={setScore} />;
+};
+
+// TeamA (پہلی ٹیم)
+const TeamA = ({ score, setScore }) => {
+  return <Player1 score={score} setScore={setScore} />;
+};
+
+// Player1 (کھلاڑی 1)
+const Player1 = ({ score, setScore }) => {
+  const addScore = () => {
+    setScore(score + 10); // صرف یہاں استعمال
+  };
+  
+  return <button onClick={addScore}>سکور کریں</button>;
+};`}</code>
+          </pre>
+        </div>
+      </div>
+      
+      <div className="problem-list">
+        <h4 className="text-break">🚨 مسائل:</h4>
+        <ul className="text-break">
+          <li>TeamA کو score/setScore کی ضرورت نہیں</li>
+          <li>وہ صرف پاس کر رہا ہے</li>
+        </ul>
+      </div>
+      
+      <h4 className="text-break">✅ حل:</h4>
+      <div className="code-block-container">
+        <div className="code-header">
+          <span className="text-break">📁 Context سے حل</span>
+          <button
+            className="copy-btn"
+            onClick={() => copyToClipboard(`// ScoreContext
+const ScoreContext = createContext();
+
+const Game = () => {
+  const [score, setScore] = useState(0);
+  
+  return (
+    <ScoreContext.Provider value={{ score, setScore }}>
+      <TeamA />
+      <TeamB />
+    </ScoreContext.Provider>
+  );
+};
+
+// Player1 direct access
+const Player1 = () => {
+  const { score, setScore } = useContext(ScoreContext);
+  
+  const addScore = () => {
+    setScore(score + 10);
+  };
+  
+  return <button onClick={addScore}>سکور کریں</button>;
+};`, "Game Solution")}
+          >
+            {copiedCode === "Game Solution" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+          </button>
+        </div>
+        <div className="code-block-wrapper">
+          <pre className="english-code">
+            <code>{`// ScoreContext
+const ScoreContext = createContext();
+
+const Game = () => {
+  const [score, setScore] = useState(0);
+  
+  return (
+    <ScoreContext.Provider value={{ score, setScore }}>
+      <TeamA />
+      <TeamB />
+    </ScoreContext.Provider>
+  );
+};
+
+// Player1 direct access
+const Player1 = () => {
+  const { score, setScore } = useContext(ScoreContext);
+  
+  const addScore = () => {
+    setScore(score + 10);
+  };
+  
+  return <button onClick={addScore}>سکور کریں</button>;
+};`}</code>
+          </pre>
+        </div>
+      </div>
+    </div>
+    
+    <div className="practice-example">
+      <h3 className="text-break">4. حقیقی مسئلہ اور حل (Refactoring)</h3>
+      <h4 className="text-break">📋 اصل مسئلہ:</h4>
+      
+      <div className="code-block-container">
+        <div className="code-header">
+          <span className="text-break">📁 BEFORE - Props Drilling کا مسئلہ</span>
+          <button
+            className="copy-btn"
+            onClick={() => copyToClipboard(`// BEFORE - Props Drilling کا مسئلہ
+const App = () => {
+  const [user, setUser] = useState({ name: "احمد" });
+  const [theme, setTheme] = useState("light");
+  const [language, setLanguage] = useState("urdu");
+  
+  // ہر component کو سارے props پاس کرنے پڑ رہے ہیں
+  return (
+    <Header 
+      user={user}
+      theme={theme}
+      language={language}
+      setUser={setUser}
+      setTheme={setTheme}
+      setLanguage={setLanguage}
+    />
+    <Sidebar 
+      user={user}
+      theme={theme}
+      language={language}
+    />
+    <Content 
+      user={user}
+      theme={theme}
+      language={language}
+      setUser={setUser}
+    />
+  );
+};`, "Refactoring Problem")}
+          >
+            {copiedCode === "Refactoring Problem" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+          </button>
+        </div>
+        <div className="code-block-wrapper">
+          <pre className="english-code">
+            <code>{`// BEFORE - Props Drilling کا مسئلہ
+const App = () => {
+  const [user, setUser] = useState({ name: "احمد" });
+  const [theme, setTheme] = useState("light");
+  const [language, setLanguage] = useState("urdu");
+  
+  // ہر component کو سارے props پاس کرنے پڑ رہے ہیں
+  return (
+    <Header 
+      user={user}
+      theme={theme}
+      language={language}
+      setUser={setUser}
+      setTheme={setTheme}
+      setLanguage={setLanguage}
+    />
+    <Sidebar 
+      user={user}
+      theme={theme}
+      language={language}
+    />
+    <Content 
+      user={user}
+      theme={theme}
+      language={language}
+      setUser={setUser}
+    />
+  );
+};`}</code>
+          </pre>
+        </div>
+      </div>
+      
+      <div className="problem-list">
+        <h4 className="text-break">🚨 مسائل:</h4>
+        <ul className="text-break">
+          <li>Code بہت لمبا ہو جاتا ہے</li>
+          <li>اگر ایک prop تبدیل ہو، تو سب جگہ update کرنا پڑتا ہے</li>
+          <li>Debugging مشکل ہوتی ہے</li>
+          <li>Performance متاثر ہوتی ہے</li>
+        </ul>
+      </div>
+      
+      <h4 className="text-break">✅ حل - Contexts بنائیں:</h4>
+      <div className="code-block-container">
+        <div className="code-header">
+          <span className="text-break">📁 AFTER - Context API سے حل</span>
+          <button
+            className="copy-btn"
+            onClick={() => copyToClipboard(`// مختلف Contexts بنائیں
+const UserContext = createContext();
+const ThemeContext = createContext();
+const LanguageContext = createContext();
+
+const App = () => {
+  const [user, setUser] = useState({ name: "احمد" });
+  const [theme, setTheme] = useState("light");
+  const [language, setLanguage] = useState("urdu");
+  
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <LanguageContext.Provider value={{ language, setLanguage }}>
+          <Header />
+          <Sidebar />
+          <Content />
+        </LanguageContext.Provider>
+      </ThemeContext.Provider>
+    </UserContext.Provider>
+  );
+};
+
+// اب ہر component صرف اپنی ضرورت کا context لے سکتا ہے
+const Header = () => {
+  const { user } = useContext(UserContext);
+  const { theme } = useContext(ThemeContext);
+  
+  return <div className={\`header-\${theme}\`}>{user.name}</div>;
+};
+
+const Content = () => {
+  const { setUser } = useContext(UserContext);
+  const { language } = useContext(LanguageContext);
+  
+  return (
+    <div>
+      <button onClick={() => setUser({ name: "نئی نام" })}>
+        {language === "urdu" ? "نام تبدیل کریں" : "Change Name"}
+      </button>
+    </div>
+  );
+};`, "Refactoring Solution")}
+          >
+            {copiedCode === "Refactoring Solution" ? "کاپی ہوگیا ✅" : "📋 کاپی کریں"}
+          </button>
+        </div>
+        <div className="code-block-wrapper">
+          <pre className="english-code">
+            <code>{`// مختلف Contexts بنائیں
+const UserContext = createContext();
+const ThemeContext = createContext();
+const LanguageContext = createContext();
+
+const App = () => {
+  const [user, setUser] = useState({ name: "احمد" });
+  const [theme, setTheme] = useState("light");
+  const [language, setLanguage] = useState("urdu");
+  
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <LanguageContext.Provider value={{ language, setLanguage }}>
+          <Header />
+          <Sidebar />
+          <Content />
+        </LanguageContext.Provider>
+      </ThemeContext.Provider>
+    </UserContext.Provider>
+  );
+};
+
+// اب ہر component صرف اپنی ضرورت کا context لے سکتا ہے
+const Header = () => {
+  const { user } = useContext(UserContext);
+  const { theme } = useContext(ThemeContext);
+  
+  return <div className={\`header-\${theme}\`}>{user.name}</div>;
+};
+
+const Content = () => {
+  const { setUser } = useContext(UserContext);
+  const { language } = useContext(LanguageContext);
+  
+  return (
+    <div>
+      <button onClick={() => setUser({ name: "نئی نام" })}>
+        {language === "urdu" ? "نام تبدیل کریں" : "Change Name"}
+      </button>
+    </div>
+  );
+};`}</code>
+          </pre>
+        </div>
+      </div>
+    </div>
+    
+    <div className="decision-guide">
+      <h3 className="text-break">🎯 آسان قاعدہ:</h3>
+      
+      <div className="methods-grid">
+        <div className="method-card">
+          <h3 className="text-break">✅ Props Drilling کب استعمال کریں؟</h3>
+          <ul className="text-break">
+            <li>جب 1-2 levels ہوں</li>
+            <li>جب data صرف parent-child میں ہو</li>
+            <li>چھوٹے projects کے لیے</li>
+          </ul>
+        </div>
+        
+        <div className="method-card">
+          <h3 className="text-break">✅ Context API کب استعمال کریں؟</h3>
+          <ul className="text-break">
+            <li>جب 3+ levels ہوں</li>
+            <li>جب بہت سے components کو ایک ہی data چاہیے</li>
+            <li>بڑے projects کے لیے</li>
+            <li>جب data بار بار پاس کرنی پڑ رہی ہو</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div className="info-box">
+        <h4 className="text-break">💡 عملی مثال:</h4>
+        <p className="text-break">
+          پہلے کی طرح سوچیں:<br/>
+          <strong>"کیا درمیان والے components اس data کو استعمال کر رہے ہیں؟"</strong><br/>
+          اگر نہیں، تو Context استعمال کریں۔
+        </p>
+        <p className="text-break">
+          جیسے:<br/>
+          دکان 👉 شیلف 👉 پرڈکٹ<br/>
+          اگر شیلف کو cart کی ضرورت نہیں، تو Context استعمال کریں۔
+        </p>
+      </div>
+      
+      <div className="comparison-table">
+        <h4 className="text-break">📊 خلاصہ:</h4>
+        <table className="urdu-table">
+          <thead>
+            <tr>
+              <th className="text-break">Props Drilling</th>
+              <th className="text-break">Context API</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="text-break">Data کو ہر level پر پاس کریں</td>
+              <td className="text-break">Data central location میں رکھیں</td>
+            </tr>
+            <tr>
+              <td className="text-break">چھوٹے apps کے لیے</td>
+              <td className="text-break">بڑے apps کے لیے</td>
+            </tr>
+            <tr>
+              <td className="text-break">سیدھا راستہ</td>
+              <td className="text-break">لیکن complex ہو سکتا ہے</td>
+            </tr>
+            <tr>
+              <td className="text-break">سمجھنے میں آسان</td>
+              <td className="text-break">طاقتور solution</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div className="final-note">
+        <p className="text-break" style={{
+          textAlign: 'center',
+          fontWeight: 'bold',
+          color: '#0078ff',
+          fontSize: '18px',
+          marginTop: '20px'
+        }}>
+          آخری بات: Props Drilling بری نہیں ہے، لیکن جب بہت زیادہ levels ہوں، تو Context API بہتر ہے!
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
       {/* Global Copy Notification */}
       {copiedCode && (
         <div className="copy-notification">
@@ -1215,6 +1927,7 @@ function Greeting({ name, message }) {
         </div>
       )}
     </div>
+    
   );
 }
 

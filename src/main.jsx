@@ -1,10 +1,12 @@
 // src/main.jsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
+import './index.css'
 
 // Direct implementation in main.jsx
-// document.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("contextmenu", e => e.preventDefault());
 document.addEventListener("keydown", e => {
   const key = e.key.toLowerCase();
   if (
@@ -18,6 +20,8 @@ document.addEventListener("keydown", e => {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
 )

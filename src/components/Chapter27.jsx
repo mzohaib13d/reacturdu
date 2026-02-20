@@ -866,7 +866,7 @@ npm run preview`}</code>
 
           {/* Live Demo - UPDATED */}
           <div className="section-card">
-            <h2 className="section-title">🌤️ لائیو ویڈر ایپ ڈیمو</h2>
+            <h2 className="section-title">🌤️ لائیو ویدر ایپ ڈیمو</h2>
             
             <div className="info-box">
               <p><strong>✨ ڈیمو فیچر:</strong></p>

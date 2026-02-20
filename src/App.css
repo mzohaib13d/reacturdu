@@ -1,9 +1,360 @@
 /* Global styles in App.css*/
+/* Global Urdu Typography */
+:root {
+  --urdu-font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+  --urdu-line-height: 1.8;
+  --urdu-letter-spacing: -0.3px;
+}
+/* Chapter 1 Specific Styles */
+.chapter-1 .chapter-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.chapter-number-large {
+  font-size: 1.6rem;
+}
+.chapter-1 .chapter-title {
+  color: white !important;
+  font-size: 2.2rem !important;
+  margin-bottom: 15px !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
+.chapter-1 .chapter-duration {
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.chapter-1 .chapter-number {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.chapter-1 .section-card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.chapter-1 .section-title {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #0078ff;
+}
+
+.chapter-1 .section-text p {
+  margin-bottom: 20px;
+  line-height: 1.9;
+  font-size: 1.1rem;
+  color: #4a5568;
+}
+
+.chapter-1 .section-text strong {
+  color: #0078ff;
+  font-weight: 700;
+}
+
+.chapter-1 .color-blue {
+  color: #0078ff;
+  font-weight: 600;
+}
+
+.chapter-1 .coding {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+  border: 1px solid #4a5568;
+  margin: 0 4px;
+}
+/* Chapter 2 Specific Styles */
+.chapter-2 .info-box {
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.chapter-2 .info-box h3 {
+  color: #856404;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ffc107;
+  padding-bottom: 8px;
+}
+
+.chapter-2 .success-box {
+  background: #e8f5e8;
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.chapter-2 .success-box p {
+  margin: 0;
+  color: #155724;
+}
+
+.chapter-2 .step-card {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.chapter-2 .step-card:hover {
+  border-color: #0078ff;
+  transform: translateX(-5px);
+  box-shadow: 0 4px 12px rgba(0, 120, 255, 0.1);
+}
+
+.chapter-2 .step-number {
+  background: #0078ff;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.chapter-2 .step-content {
+  flex: 1;
+}
+
+.chapter-2 .step-title {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 8px;
+}
+
+/* Table styling for Chapter 2 */
+.chapter-2 .file-table table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.chapter-2 .file-table th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  text-align: right;
+}
+
+.chapter-2 .file-table td {
+  padding: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.chapter-2 .file-table tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.chapter-2 .file-table code {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+}
+
+/* Code block specific for Chapter 2 */
+.chapter-2 .english-code2 {
+  direction: rtl !important;
+  text-align: right !important;
+  font-family: "Fira Code", "Courier New", monospace;
+  unicode-bidi: plaintext;
+}
+
+.chapter-2 .code-header2 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Responsive adjustments for Chapter 2 */
+@media (max-width: 768px) {
+  .chapter-2 .step-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .chapter-2 .step-number {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .chapter-2 .file-table {
+    font-size: 14px;
+  }
+
+  .chapter-2 .file-table th,
+  .chapter-2 .file-table td {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 430px) {
+  .chapter-2 .step-title {
+    font-size: 1.1rem;
+  }
+
+  .chapter-2 .coding {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .chapter-2 .info-box,
+  .chapter-2 .success-box {
+    padding: 12px;
+  }
+  .section-title2 {
+    font-size: 1.6rem !important;
+    line-height: 2 !important;
+  }
+}
+/* Responsive adjustments for Chapter 1 */
+@media (max-width: 768px) {
+  .chapter-1 .chapter-header {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .chapter-1 .chapter-title {
+    font-size: 1.8rem !important;
+  }
+
+  .chapter-1 .section-card {
+    padding: 20px;
+  }
+
+  .chapter-1 .section-title {
+    font-size: 1.5rem;
+  }
+
+  .chapter-1 .section-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .chapter-1 .chapter-title {
+    font-size: 1.5rem !important;
+    line-height: 1.4;
+  }
+
+  .chapter-1 .chapter-duration,
+  .chapter-1 .chapter-number {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .chapter-1 .section-card {
+    padding: 15px;
+  }
+}
+/* Urdu Text Elements */
+.urdu-text {
+  font-family: var(--urdu-font-family);
+  direction: rtl;
+  text-align: right;
+  line-height: var(--urdu-line-height);
+  letter-spacing: var(--urdu-letter-spacing);
+}
+
+/* Headings in Urdu */
+h1.urdu-heading {
+  font-family: var(--urdu-font-family);
+  font-weight: 700;
+  line-height: 1.6;
+  color: blue;
+  letter-spacing: -0.5px;
+}
+
+h2.urdu-heading {
+  font-family: var(--urdu-font-family);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.4px;
+}
+
+h3.urdu-heading {
+  font-family: var(--urdu-font-family);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+}
+
+/* Paragraphs in Urdu */
+p.urdu-paragraph {
+  font-family: var(--urdu-font-family);
+  line-height: 1.8;
+  text-align: justify;
+  text-align-last: right;
+}
+
+/* Lists in Urdu */
+ul.urdu-list,
+ol.urdu-list {
+  font-family: var(--urdu-font-family);
+  direction: rtl;
+  text-align: right;
+  line-height: 1.6;
+}
+
+li.urdu-list-item {
+  font-family: var(--urdu-font-family);
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Buttons in Urdu */
+button.urdu-btn {
+  font-family: var(--urdu-font-family);
+  font-weight: 600;
+  line-height: 1.4;
+}
 body {
   margin: 0;
-  font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", Verdana, Tahoma,
-    sans-serif;
+  font-family:
+    "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", Verdana, Tahoma, sans-serif;
   background: #fdfdfd;
   color: #222;
 }
@@ -53,7 +404,483 @@ p strong {
   margin-bottom: 25px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
 }
+/* Ensure proper container structure */
+.code-section {
+  margin: 25px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
+/* Main container for scrolling */
+.code-block-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #1e1e1e;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: block;
+}
+
+/* Wrapper that holds the code */
+.code-block-wrapper {
+  min-width: min-content;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+/* Actual code styling - CRITICAL FIXES */
+.english-code {
+  overflow-x: auto;
+  min-width: min-content;
+  display: block;
+  margin: 0;
+  background: #1e1e1e !important; /* Ensure dark background */
+  color: #ffd700 !important; /* Golden color */
+  padding: 15px;
+  border-radius: 8px;
+  direction: ltr;
+  font-family: "Fira Code", monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1e1e1e;
+}
+
+.css-code {
+  overflow-x: auto;
+  white-space: pre;
+  min-width: min-content;
+  display: block;
+  margin: 0;
+  background: #1e1e1e !important; /* Changed from #2d3748 to #1e1e1e */
+  color: #ffd700 !important; /* Golden color */
+  padding: 15px;
+  border-radius: 8px;
+  direction: ltr;
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1e1e1e;
+}
+/* Chapter 4 Specific Styles */
+.chapter-4 .chapter-header {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.chapter-4 .chapter-title {
+  color: white !important;
+  font-size: 2.2rem !important;
+  margin-bottom: 15px !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.chapter-4 .chapter-duration {
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.chapter-4 .chapter-number {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.chapter-4 .section-card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.chapter-4 .section-title {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #f5576c;
+  text-align: right;
+}
+
+.chapter-4 .info-box {
+  background: #f3e5f5;
+  border: 2px solid #9c27b0;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.chapter-4 .info-box p {
+  margin: 0;
+  color: #6a1b9a;
+}
+
+.chapter-4 .success-box {
+  background: #f1f8e9;
+  border: 2px solid #7cb342;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.chapter-4 .success-box p {
+  margin: 0;
+  color: #33691e;
+}
+
+/* Table styling for Chapter 4 */
+.chapter-4 .file-table table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.chapter-4 .file-table th {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  text-align: right;
+}
+
+.chapter-4 .file-table td {
+  padding: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.chapter-4 .file-table tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.chapter-4 .file-table code {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+}
+
+/* File structure code block */
+.chapter-4 .file-structure-code {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 15px 0;
+  overflow-x: auto;
+}
+/* Force horizontal scrolling on mobile */
+@media (max-width: 768px) {
+  .chapter-4 .chapter-header {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .chapter-4 .chapter-title {
+    font-size: 1.8rem !important;
+  }
+
+  .chapter-4 .section-card {
+    padding: 20px;
+  }
+
+  .chapter-4 .section-title {
+    font-size: 1.5rem;
+  }
+
+  .chapter-4 .file-table {
+    font-size: 14px;
+  }
+
+  .chapter-4 .file-table th,
+  .chapter-4 .file-table td {
+    padding: 8px;
+  }
+  .english-code {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: pre !important;
+    min-width: 600px !important;
+  }
+
+  .code-block-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .chapter-4 .chapter-title {
+    font-size: 1.5rem !important;
+    line-height: 1.4;
+  }
+
+  .chapter-4 .chapter-duration,
+  .chapter-4 .chapter-number {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .chapter-4 .section-card {
+    padding: 15px;
+  }
+
+  .chapter-4 .section-title {
+    font-size: 1.3rem;
+  }
+
+  .chapter-4 .file-table {
+    font-size: 12px;
+  }
+  .english-code {
+    font-size: 14px !important;
+    padding: 12px !important;
+    min-width: 500px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .english-code {
+    min-width: 450px !important;
+    font-size: 13px !important;
+    padding: 10px !important;
+  }
+}
+
+/* Remove any max-width constraints */
+.english-code,
+.css-code,
+.code-block-container,
+.code-block-wrapper {
+  max-width: none !important;
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .english-code {
+    -webkit-overflow-scrolling: touch !important;
+    overflow-x: auto !important;
+  }
+}
+
+/* Make scrollbars more visible */
+.english-code::-webkit-scrollbar {
+  height: 14px;
+}
+
+.english-code::-webkit-scrollbar-track {
+  background: #2d3748;
+  border-radius: 8px;
+  margin: 4px;
+}
+
+.english-code::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #0078ff, #00c6ff);
+  border-radius: 8px;
+  border: 3px solid #2d3748;
+  min-height: 40px;
+}
+
+.english-code::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #005fcc, #0099cc);
+}
+
+/* Fix code header alignment */
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0078ff;
+  color: white;
+  padding: 15px 20px;
+  direction: ltr;
+  text-align: left;
+}
+
+/* Fix copy button text */
+.copy-btn {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+/* Fix scroll notice */
+.code-scroll-notice {
+  font-family: "Fira Code", monospace;
+  direction: ltr;
+  text-align: left;
+}
+
+/* ===== CHAPTER 2 SPECIFIC STYLES ===== */
+
+.chapter-2 .info-box {
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.chapter-2 .info-box h3 {
+  color: #856404;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ffc107;
+  padding-bottom: 8px;
+}
+
+.chapter-2 .success-box {
+  background: #e8f5e8;
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.chapter-2 .success-box p {
+  margin: 0;
+  color: #155724;
+}
+
+.chapter-2 .step-card {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+}
+
+.chapter-2 .step-card:hover {
+  border-color: #0078ff;
+  transform: translateX(-5px);
+  box-shadow: 0 4px 12px rgba(0, 120, 255, 0.1);
+}
+
+.chapter-2 .step-number {
+  background: #0078ff;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: 15px;
+  flex-shrink: 0;
+}
+
+.chapter-2 .step-content {
+  flex: 1;
+}
+
+.chapter-2 .step-title {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 8px;
+}
+
+/* Table styling */
+.chapter-2 .file-table table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.chapter-2 .file-table th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  text-align: right;
+}
+
+.chapter-2 .file-table td {
+  padding: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.chapter-2 .file-table tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.chapter-2 .file-table code {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chapter-2 .step-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .chapter-2 .step-number {
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+
+  .chapter-2 .file-table {
+    font-size: 14px;
+  }
+
+  .chapter-2 .file-table th,
+  .chapter-2 .file-table td {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 430px) {
+  .chapter-2 .step-title {
+    font-size: 1.1rem;
+  }
+
+  .chapter-2 .coding {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .chapter-2 .info-box,
+  .chapter-2 .success-box {
+    padding: 12px;
+  }
+}
 /* 🔹 Ensure proper scrolling */
 .chapter-container {
   min-height: 100vh;
@@ -77,6 +904,10 @@ html {
   direction: rtl;
   line-height: 1.9;
   font-size: 18px;
+}
+.color-blue {
+  color: #7c85e0;
+  font-size: 1.2rem;
 }
 
 /* English quotes */
@@ -112,9 +943,9 @@ html {
 }
 
 /* ---------- CSS Code Block - Desktop View ---------- */
-.css-code {
+/* .css-code {
   overflow-x: auto;
-  white-space: pre; /* keeps indentation if you want */
+  white-space: pre; /* keeps indentation if you want 
   min-width: min-content;
   display: block;
   margin: 0;
@@ -130,7 +961,7 @@ html {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: #555 #2d3748;
-}
+} */
 /* 🔧 This part fixes text alignment on desktop */
 .css-code code {
   display: inline-block; /* allows text alignment */
@@ -236,8 +1067,8 @@ html {
   padding: 20px 30px;
   font-size: 26px;
   font-weight: 450;
-  margin-top: -10px;
-  margin-bottom: 20px;
+  margin-top: -4px;
+  margin-bottom: 14px;
   font-style: italic;
   opacity: 0.9;
 }
@@ -514,6 +1345,7 @@ html {
 .chapter-duration {
   color: #666;
   font-size: 14px;
+  margin-right: 20px;
 }
 
 .chapter-title {
@@ -652,7 +1484,16 @@ html {
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
+.code-header2 {
+  display: flex;
+  direction: rtl !important;
+  text-align: right !important;
+  justify-content: space-between;
+  align-items: center;
+  background: #0078ff;
+  color: white;
+  padding: 15px 20px;
+}
 .code-header {
   display: flex;
   direction: ltr !important;
@@ -1162,6 +2003,8 @@ html {
 
 .chapter-number {
   background: #0078ff;
+  font-size: 1.8rem;
+  margin-right: 20px;
   color: white;
   padding: 4px 12px;
   border-radius: 20px;
@@ -1656,6 +2499,17 @@ html {
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+.step-card2 {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
 .step-card:hover {
   border-color: #0078ff;
@@ -1718,7 +2572,9 @@ html {
   max-width: 650px;
   line-height: 1.9;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .summary-box:hover {
@@ -2058,6 +2914,316 @@ html {
 .chapter22-sidebar .sidebar-btn.active {
   background: linear-gradient(135deg, #0078ff 0%, #00c6ff 100%) !important;
   box-shadow: 0 4px 12px rgba(0, 120, 255, 0.3) !important;
+}
+
+/* Force left alignment for all code blocks */
+.code-block-container {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+.code-block-wrapper {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+.english-code2 {
+  overflow-x: auto;
+  text-align: left !important;
+  white-space: pre;
+  direction: ltr !important;
+  min-width: min-content;
+  display: block;
+  margin: 0;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: "Fira Code", monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1e1e1e;
+  unicode-bidi: plaintext !important;
+}
+.english-code {
+  overflow-x: auto;
+  text-align: left !important;
+  white-space: pre;
+  direction: ltr !important;
+  min-width: min-content;
+  display: block;
+  margin: 0;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: "Fira Code", monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1e1e1e;
+  unicode-bidi: plaintext !important;
+}
+
+/* Ensure all child elements also follow left alignment */
+.english-code * {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: plaintext !important;
+}
+
+/* Specifically target pre elements */
+.english-code pre {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: plaintext !important;
+  margin: 0;
+  padding: 0;
+}
+
+.css-code {
+  overflow-x: auto;
+  text-align: left !important;
+  white-space: pre;
+  direction: ltr !important;
+  min-width: min-content;
+  display: block;
+  margin: 0;
+  background: #1e1e1e;
+  /* color: #d4d4d4; */
+  padding: 15px;
+  border-radius: 8px;
+  font-family: "Fira Code", monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1e1e1e;
+  unicode-bidi: plaintext !important;
+}
+
+/* Ensure all child elements also follow left alignment */
+.css-code * {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: plaintext !important;
+}
+
+/* Chapter 3 Specific Styles */
+.chapter-3 .chapter-header {
+  background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.chapter-3 .chapter-title {
+  color: white !important;
+  font-size: 2.2rem !important;
+  margin-bottom: 15px !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.chapter-3 .chapter-duration {
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.chapter-3 .chapter-number {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.chapter-3 .section-card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.chapter-3 .section-title {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #00c6ff;
+  text-align: right;
+}
+
+.chapter-3 .info-box {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.chapter-3 .info-box p {
+  margin: 0;
+  color: #1565c0;
+}
+
+.chapter-3 .success-box {
+  background: #e8f5e8;
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.chapter-3 .success-box p {
+  margin: 0;
+  color: #155724;
+}
+
+/* Table styling for Chapter 3 */
+.chapter-3 .file-table table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.chapter-3 .file-table th {
+  background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  text-align: right;
+}
+
+.chapter-3 .file-table td {
+  padding: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.chapter-3 .file-table tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.chapter-3 .file-table code {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chapter-3 .chapter-header {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .chapter-3 .chapter-title {
+    font-size: 1.8rem !important;
+  }
+
+  .chapter-3 .section-card {
+    padding: 20px;
+  }
+
+  .chapter-3 .section-title {
+    font-size: 1.5rem;
+  }
+
+  .chapter-3 .file-table {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 430px) {
+  .chapter-3 .chapter-title {
+    font-size: 1.5rem !important;
+    line-height: 1.4;
+  }
+
+  .chapter-3 .chapter-duration,
+  .chapter-3 .chapter-number {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .chapter-3 .section-card {
+    padding: 15px;
+  }
+
+  .chapter-3 .section-title {
+    font-size: 1.3rem;
+  }
+
+  .chapter-3 .section-text {
+    font-size: 1rem;
+  }
+
+  .chapter-3 .file-table {
+    font-size: 14px;
+  }
+
+  .chapter-3 .chapter-title {
+    font-size: 1.5rem !important;
+    line-height: 1.4;
+  }
+
+  .chapter-3 .chapter-duration,
+  .chapter-3 .chapter-number {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .chapter-3 .section-card {
+    padding: 15px;
+  }
+
+  .chapter-3 .section-title {
+    font-size: 1.3rem;
+  }
+
+  .chapter-3 .coding {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 375px) {
+  .chapter-3 .chapter-title {
+    font-size: 1.4rem !important;
+  }
+
+  .chapter-3 .section-text {
+    font-size: 0.95rem;
+  }
+
+  .chapter-3 .file-table {
+    font-size: 12px;
+  }
+
+  .chapter-3 .file-table th,
+  .chapter-3 .file-table td {
+    padding: 6px;
+  }
 }
 /* 🔹 Responsive Breakpoints */
 @media (max-width: 768px) {
@@ -2514,6 +3680,27 @@ html {
 
 /* Max-width: 390px */
 @media (max-width: 390px) {
+  .example-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .example-list li {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Make the 5th button span full width */
+  .example-list li:nth-child(5) {
+    grid-column: 1 / span 2 !important;
+  }
+
+  .sidebar-btn {
+    padding: 10px 6px;
+    font-size: 0.85rem;
+    min-height: 42px !important;
+  }
   .english-code,
   .css-code {
     font-size: 13px;
@@ -2978,7 +4165,7 @@ html {
   color: #ffffff;
   padding: 8px 12px;
   border-radius: 6px;
-  font-family: 'Fira Code', 'Courier New', monospace;
+  font-family: "Fira Code", "Courier New", monospace;
   font-size: 14px;
   border: 1px solid #333;
   margin: 5px 0;
@@ -3009,7 +4196,7 @@ html {
     padding: 10px 16px;
     margin: 8px 0;
   }
-  
+
   .step-content .coding {
     font-size: 16px;
     padding: 12px 20px;
@@ -3027,7 +4214,7 @@ html {
     overflow-x: auto;
     max-width: 100%;
   }
-  
+
   .step-content .coding {
     font-size: 14px;
     padding: 8px 12px;
@@ -3041,12 +4228,44 @@ html {
 
 /* 🔹 Small Mobile View */
 @media (max-width: 430px) {
+  .example-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 columns */
+    gap: 10px !important;
+  }
+
+  .example-list li {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Remove the old rule that hid the 4th button */
+  .example-list li:nth-child(4) {
+    grid-column: auto !important; /* Reset to default */
+    margin-top: 0 !important;
+  }
+
+  /* Make the 5th button span full width on last row */
+  .example-list li:nth-child(5) {
+    grid-column: 1 / span 2 !important; /* Span across both columns */
+  }
+
+  .sidebar-btn {
+    padding: 12px 8px;
+    font-size: 0.9rem;
+    width: 100% !important;
+    text-align: center;
+    min-height: 44px; /* Ensure touch-friendly size */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
   .coding {
     font-size: 12px;
     padding: 5px 8px;
     margin: 3px 0;
   }
-  
+
   .step-content .coding {
     font-size: 13px;
     padding: 6px 10px;
@@ -3056,15 +4275,43 @@ html {
 
 /* 🔹 Very Small Mobile View */
 @media (max-width: 375px) {
+  .chapter-4 .chapter-title {
+    font-size: 1.4rem !important;
+  }
+
+  .chapter-4 .section-text {
+    font-size: 0.95rem;
+  }
   .coding {
     font-size: 13px;
     padding: 4px 6px;
   }
-  
+
   .step-content .coding {
     font-size: 13px;
     padding: 5px 8px;
     min-height: 32px;
+  }
+  .example-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  .example-list li {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* Make the 5th button span full width */
+  .example-list li:nth-child(5) {
+    grid-column: 1 / span 2 !important;
+  }
+
+  .sidebar-btn {
+    padding: 8px 4px;
+    font-size: 0.9rem;
+    min-height: 40px !important;
   }
 }
 
@@ -3088,3 +4335,714 @@ html {
   direction: ltr !important;
   text-align: left !important;
 }
+
+/* Add this to your App.css file */
+
+/* Bouncing React Logo Animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(-10px) scale(1.1);
+  }
+  50% {
+    transform: translateY(0) scale(1);
+  }
+  75% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+.logo-emoji {
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite;
+  font-size: 1.5rem;
+  margin: 0 5px;
+}
+
+/* For a smoother, more gradual bounce */
+@keyframes smoothBounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.15);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.smooth-bounce {
+  animation: smoothBounce 2s ease-in-out infinite;
+}
+
+/* Float animation for more gentle movement */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-8px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(-4px) rotate(-5deg);
+  }
+}
+
+.float-emoji {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse with bounce */
+@keyframes pulseBounce {
+  0%,
+  100% {
+    transform: scale(1) translateY(0);
+  }
+  25% {
+    transform: scale(1.1) translateY(-8px);
+  }
+  50% {
+    transform: scale(1) translateY(0);
+  }
+  75% {
+    transform: scale(1.05) translateY(-4px);
+  }
+}
+
+.pulse-bounce {
+  animation: pulseBounce 2.5s ease-in-out infinite;
+}
+
+/* For chapter headers - more prominent */
+.chapter-header .logo-emoji {
+  font-size: 2rem;
+  margin: 0 8px;
+  animation: smoothBounce 2.5s ease-in-out infinite;
+}
+
+/* Hover effects */
+.logo-emoji:hover {
+  animation-play-state: paused;
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+/* Slow bounce for subtle effect */
+@keyframes slowBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.slow-bounce {
+  animation: slowBounce 3s ease-in-out infinite;
+}
+
+/* Glowing bounce */
+@keyframes glowBounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    text-shadow: 0 0 5px rgba(0, 120, 255, 0.5);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.2);
+    text-shadow:
+      0 0 20px rgba(0, 120, 255, 0.8),
+      0 0 30px rgba(0, 120, 255, 0.4);
+  }
+}
+
+.glow-bounce {
+  animation: glowBounce 2s ease-in-out infinite;
+  color: #0078ff;
+}
+
+/* For use in your Chapter components */
+.react-logo {
+  display: inline-block;
+  animation: smoothBounce 2s ease-in-out infinite;
+  font-size: 1.8rem;
+  margin: 0 8px;
+  vertical-align: middle;
+}
+
+.react-logo-large {
+  font-size: 2.5rem;
+  animation: glowBounce 2.2s ease-in-out infinite;
+}
+
+.react-logo-small {
+  font-size: 1.2rem;
+  animation: slowBounce 3.5s ease-in-out infinite;
+}
+
+/* Code headers should remain white for contrast */
+.code-header {
+  color: white !important;
+}
+
+.code-header span {
+  color: white !important;
+}
+
+/* Syntax highlighting for better readability */
+.english-code .keyword,
+.css-code .keyword {
+  color: #ff6b6b !important;
+  font-weight: bold;
+}
+
+.english-code .string,
+.css-code .string {
+  color: #98c379 !important;
+}
+
+.english-code .comment,
+.css-code .comment {
+  color: #5c6370 !important;
+  font-style: italic;
+}
+
+.english-code .function,
+.css-code .function {
+  color: #61afef !important;
+}
+
+.english-code .tag,
+.css-code .tag {
+  color: #e06c75 !important;
+}
+
+.english-code .attr-name,
+.css-code .attr-name {
+  color: #d19a66 !important;
+}
+
+.english-code .attr-value,
+.css-code .attr-value {
+  color: #98c379 !important;
+}
+/* PersonalIntroSection.css */
+
+.personal-intro-section {
+  margin: 40px 0;
+  padding: 40px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .personal-intro-section {
+    padding: 30px 20px;
+    margin: 30px 15px;
+  }
+}
+
+@media (max-width: 430px) {
+  .personal-intro-section {
+    padding: 25px 15px;
+    margin: 20px 10px;
+  }
+}
+
+@media (max-width: 390px) {
+  .personal-intro-section {
+    padding: 20px 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .personal-intro-section {
+    padding: 18px 10px;
+  }
+}
+
+.personal-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 430px) {
+  .personal-intro-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+}
+
+/* Hide image and name on screens 430px and below */
+@media (max-width: 430px) {
+  .zohaib-image-container,
+  .zohaib-image,
+  .zohaib-name {
+    display: none !important;
+  }
+}
+
+.zohaib-image-container {
+  text-align: center;
+  display: block;
+}
+
+.zohaib-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+
+.zohaib-name {
+  margin-top: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Project Links Grid */
+.project-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .project-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 430px) {
+  .project-links-grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 10px;
+    padding: 0 10px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .project-links-grid {
+    gap: 8px;
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 375px) {
+  .project-links-grid {
+    gap: 6px;
+    padding: 0 5px;
+  }
+}
+
+/* Project Link Buttons */
+.project-link {
+  display: block;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.project-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .project-link {
+    font-size: 13px;
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 430px) {
+  .project-link {
+    font-size: 12px;
+    padding: 12px 15px;
+    word-spacing: 0.2rem;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  .project-link {
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .project-link {
+    font-size: 10px;
+    padding: 8px 10px;
+  }
+}
+/* Add to your CSS file */
+.chapter-header {
+  padding: 70px 0;
+  margin-bottom: 30px;
+}
+
+.chapter-header h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.1em;
+  word-spacing: 0.3rem;
+  line-height: 1.4;
+}
+
+.chapter-header p {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  opacity: 0.95;
+  max-width: 800px;
+  margin: 0 auto;
+  letter-spacing: 0.005em;
+  word-spacing: 0.4rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-weight: 400;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 430px) {
+  .chapter-header {
+    padding: 50px 0;
+  }
+
+  .chapter-header h1 {
+    font-size: 2.2rem !important;
+    word-spacing: 0.4rem !important;
+    letter-spacing: 0.08em !important;
+    padding: 0 15px !important;
+  }
+
+  .chapter-header p {
+    font-size: 1.1rem !important;
+    word-spacing: 0.3rem !important;
+    padding: 0 15px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .chapter-header h1 {
+    font-size: 2rem !important;
+    word-spacing: 0.3rem !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .chapter-header p {
+    font-size: 1rem !important;
+    word-spacing: 0.25rem !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .chapter-header h1 {
+    font-size: 1.8rem !important;
+    word-spacing: 0.25rem !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .chapter-header p {
+    font-size: 0.95rem !important;
+    word-spacing: 0.2rem !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .chapter-header h1 {
+    font-size: 1.5rem !important;
+    word-spacing: 0.2rem !important;
+  }
+
+  .chapter-header p {
+    font-size: 0.85rem !important;
+    word-spacing: 0.15rem !important;
+  }
+}
+/* Chapter 18 Header Styles - These will override the general styles */
+.chapter-18 .chapter-header,
+.chapter18 .chapter-header,
+.chapter-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 70px 0;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.chapter-header .section-title2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.1em;
+  word-spacing: 0.3rem;
+  line-height: 1.4;
+  color: white !important;
+}
+
+.chapter-header .chapter-subtitle2 {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  opacity: 0.95;
+  max-width: 800px;
+  margin: 0 auto;
+  letter-spacing: 0.005em;
+  word-spacing: 0.4rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-weight: 400;
+  color: white !important;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 430px) {
+  .chapter-header {
+    padding: 50px 0 !important;
+  }
+
+  .chapter-header .section-title2 {
+    font-size: 2.2rem !important;
+    word-spacing: 0.4rem !important;
+    letter-spacing: 0.08em !important;
+    padding: 0 15px !important;
+    line-height: 1.3 !important;
+  }
+
+  .chapter-header .chapter-subtitle2 {
+    font-size: 1.1rem !important;
+    word-spacing: 0.3rem !important;
+    padding: 0 15px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .chapter-header .section-title2 {
+    font-size: 2rem !important;
+    word-spacing: 0.3rem !important;
+    letter-spacing: 0.06em !important;
+    padding: 0 12px !important;
+  }
+
+  .chapter-header .chapter-subtitle2 {
+    font-size: 1rem !important;
+    word-spacing: 0.25rem !important;
+    padding: 0 12px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .chapter-header {
+    padding: 40px 0 !important;
+  }
+
+  .chapter-header .section-title2 {
+    font-size: 1.8rem !important;
+    word-spacing: 0.25rem !important;
+    letter-spacing: 0.05em !important;
+    padding: 0 10px !important;
+  }
+
+  .chapter-header .chapter-subtitle2 {
+    font-size: 0.95rem !important;
+    word-spacing: 0.2rem !important;
+    padding: 0 10px !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .chapter-header .section-title2 {
+    font-size: 1.5rem !important;
+    word-spacing: 0.2rem !important;
+    padding: 0 8px !important;
+  }
+
+  .chapter-header .chapter-subtitle2 {
+    font-size: 0.85rem !important;
+    word-spacing: 0.15rem !important;
+    padding: 0 8px !important;
+  }
+}
+
+/* Basic style for the trail dots */
+.trail {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(0, 255, 0, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: smoothTrail 1s ease-out forwards;
+}
+
+@keyframes smoothTrail {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+    background: rgba(0, 255, 0, 0.8);
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.6;
+    background: rgba(0, 200, 0, 0.6);
+  }
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+    background: rgba(0, 150, 0, 0.3);
+  }
+}
+
+/* Dark green variations for different trail dots */
+.trail:nth-child(odd) {
+  background: rgba(0, 255, 0, 0.6);
+}
+
+.trail:nth-child(2n) {
+  background: rgba(0, 200, 0, 0.6);
+}
+
+.trail:nth-child(3n) {
+  background: rgba(0, 180, 0, 0.6);
+}
+
+.trail:nth-child(4n) {
+  background: rgba(0, 150, 0, 0.6);
+}
+
+.trail:nth-child(5n) {
+  background: rgba(0, 130, 0, 0.6);
+}
+
+/* Media query for mobile devices */
+@media (max-width: 680px) {
+  .trail {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* Code block container styles for responsive scrolling */
+.code-block-wrapper2 {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  margin: 10px 0;
+  text-align: left !important;
+  direction: ltr!important;
+  border-radius: 8px;
+  background-color: #f6f8fa;
+}
+
+/* Code block styles */
+.code-block-wrapper2 pre {
+  min-width: min(65%, 250px); /* Ensures content doesn't shrink below viewport */
+  padding: 15px;
+
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre; /* Keeps formatting intact */
+  tab-size: 2;
+}
+
+/* Responsive breakpoints */
+@media screen and (max-width: 768px) {
+  .code-block-wrapper2 pre {
+    font-size: 13px;
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .code-block-wrapper2 pre {
+    font-size: 12px;
+    padding: 10px;
+    min-width: 400px; /* Forces horizontal scroll on very small screens */
+  }
+}
+
+/* Scrollbar styling (optional but looks nice) */
+.code-block-wrapper2::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-block-wrapper2::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.code-block-wrapper2::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.code-block-wrapper2::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Parent container for each code section */
+.code-section2 {
+  width: 100%;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* Ensure the scroll notice is properly positioned */
+.code-scroll-notice-parent2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.code-scroll-notice2 {
+  color: #666;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* For mobile screens */
+@media screen and (max-width: 480px) {
+  .code-scroll-notice-parent2 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .code-scroll-notice2 {
+    font-size: 12px;
+  }
+}
+

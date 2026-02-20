@@ -1,4 +1,3 @@
-// CssShadcn.jsx
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import zohaibImage from "../assets/zohaibImage.png";
@@ -108,7 +107,7 @@ const CssShadcn = () => {
         style={{
           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
           color: 'white',
-          padding: '60px 0',
+          padding: '70px 0',
           textAlign: 'center',
           marginBottom: '30px'
         }}
@@ -119,12 +118,60 @@ const CssShadcn = () => {
             initial={{ scale: 0.5 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", stiffness: 100 }}
+            style={{
+              fontSize: '3.5rem',
+              fontWeight: 'bold',
+              marginBottom: '20px',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+              letterSpacing: '0.15em',
+              wordSpacing: '0.8rem',
+              lineHeight: '1.4',
+              '@media (max-width: 430px)': {
+                fontSize: '2.2rem',
+                wordSpacing: '0.4rem',
+                letterSpacing: '0.08em',
+                padding: '0 15px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '2rem',
+                wordSpacing: '0.3rem',
+                letterSpacing: '0.06em'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '1.8rem',
+                wordSpacing: '0.25rem',
+                letterSpacing: '0.05em'
+              }
+            }}
           >
-           Chapter 28 —  Complete Guide to shadcn/ui
+            Chapter 28 — Complete Guide to shadcn/ui
           </motion.h1>
           <motion.p 
             className="chapter-subtitle2"
             variants={itemVariants}
+            style={{
+              fontSize: '1.4rem',
+              opacity: 0.95,
+              maxWidth: '800px',
+              margin: '0 auto',
+              letterSpacing: '0.01em',
+              wordSpacing: '0.6rem',
+              lineHeight: '1.6',
+              fontWeight: '400',
+              '@media (max-width: 430px)': {
+                fontSize: '1.1rem',
+                wordSpacing: '0.3rem',
+                padding: '0 15px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '1rem',
+                wordSpacing: '0.25rem'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '0.95rem',
+                wordSpacing: '0.2rem'
+              }
+            }}
           >
             Build beautiful, accessible React components with complete control
           </motion.p>
@@ -140,6 +187,24 @@ const CssShadcn = () => {
           <motion.h2 
             className="urdu-heading"
             variants={itemVariants}
+            style={{
+              wordSpacing: '0.6rem',
+              letterSpacing: '0.05em',
+              '@media (max-width: 430px)': {
+                fontSize: '1.5rem',
+                wordSpacing: '0.3rem',
+                letterSpacing: '0.03em',
+                padding: '0 10px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '1.4rem',
+                wordSpacing: '0.25rem'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '1.3rem',
+                wordSpacing: '0.2rem'
+              }
+            }}
           >
             shadcn/ui کا مکمل تعارف
           </motion.h2>
@@ -148,6 +213,26 @@ const CssShadcn = () => {
               <motion.p 
                 className="urdu-text"
                 variants={itemVariants}
+                style={{
+                  wordSpacing: '0.5rem',
+                  letterSpacing: '0.03em',
+                  lineHeight: '2',
+                  '@media (max-width: 430px)': {
+                    wordSpacing: '0.25rem',
+                    letterSpacing: '0.02em',
+                    lineHeight: '1.8',
+                    fontSize: '0.95rem',
+                    padding: '0 10px'
+                  },
+                  '@media (max-width: 390px)': {
+                    wordSpacing: '0.2rem',
+                    fontSize: '0.9rem'
+                  },
+                  '@media (max-width: 375px)': {
+                    wordSpacing: '0.15rem',
+                    fontSize: '0.85rem'
+                  }
+                }}
               >
                 <strong>shadcn/ui</strong> ایک عام UI لائبریری نہیں ہے۔ یہ درحقیقت <em>ری اِیسبل کمپوننٹس کا ایک سیٹ</em> ہے جسے آپ اپنے پراجیکٹ میں <em>کاپی اور پیسٹ</em> کر سکتے ہیں۔ یہ <strong>Radix UI</strong> جیسے accessibility-focused پرائمٹیوز اور <strong>Tailwind CSS</strong> کے سٹائلنگ فریم ورک پر بنایا گیا ہے۔
               </motion.p>
@@ -155,6 +240,21 @@ const CssShadcn = () => {
               <motion.div 
                 className="english-quote"
                 variants={itemVariants}
+                style={{
+                  '@media (max-width: 430px)': {
+                    fontSize: '0.9rem',
+                    padding: '12px',
+                    margin: '10px'
+                  },
+                  '@media (max-width: 390px)': {
+                    fontSize: '0.85rem',
+                    padding: '10px'
+                  },
+                  '@media (max-width: 375px)': {
+                    fontSize: '0.8rem',
+                    padding: '8px'
+                  }
+                }}
               >
                 "shadcn/ui is not a traditional UI library. It's actually a collection of reusable components that you can copy and paste into your project. Built on accessibility-focused primitives like Radix UI and Tailwind CSS styling framework."
               </motion.div>
@@ -163,161 +263,124 @@ const CssShadcn = () => {
         </div>
       </motion.section>
 
-      {/* Personal Introduction Section with Image */}
-      <motion.section 
-        className="personal-intro-section card"
-        variants={cardVariants}
-        style={{
-          margin: '40px 0',
-          padding: '40px',
-          background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-          color: 'white',
-          borderRadius: '20px'
+      {/* Personal Introduction Section with Image - DISPLAY PICTURE HIDDEN ON MOBILE */}
+    <motion.section
+  className="personal-intro-section card"
+  variants={cardVariants}
+>
+  <div className="container">
+    <div className="personal-intro-grid">
+      {/* Image Section - Hidden on screens <= 430px via CSS */}
+      <motion.div
+        initial={{ scale: 0, rotate: -180 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          delay: 0.5,
         }}
+        className="zohaib-image-container"
       >
-        <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 2fr',
-            gap: '40px',
-            alignItems: 'center'
-          }}>
-            {/* Image Section */}
-            <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 100,
-                delay: 0.5 
+        <motion.img
+          src={zohaibImage}
+          alt="Zohaib Farooq"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="zohaib-image"
+        />
+        <motion.h3
+          className="zohaib-name"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+        >
+          زوہیب فرق
+        </motion.h3>
+      </motion.div>
+
+      {/* Urdu Text and Project Links Container */}
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.7 }}
+        className="urdu-content-container"
+      >
+        {/* Urdu Heading */}
+        <motion.h2 className="urdu-heading">
+          میری مہارتیں
+        </motion.h2>
+        
+        {/* Urdu Paragraphs */}
+        <motion.p 
+          className="urdu-paragraph"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.9 }}
+        >
+          میں <strong>ایچ ٹی ایم ایل</strong>، <strong>سی ایس ایس</strong>، <strong>جاوا اسکرپٹ</strong> اور <strong>مرن اسٹیک</strong> میں مہارت رکھتا ہوں۔
+        </motion.p>
+
+        <motion.p 
+          className="urdu-paragraph"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1 }}
+        >
+          میری <strong>ویب اینیمیشنز</strong> میں مہارت اس بات کا منہ بولتہ ثبوت ہے میرے بنائے پراجیکٹس کی مثالیں پیش خدمت ہیں۔
+        </motion.p>
+
+        {/* Project Links - Arranged in one column below 430px via CSS */}
+        <motion.div
+          className="project-links-grid"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 1.3 }}
+        >
+          {[
+            {
+              name: "cssanimations01.web.app",
+              url: "https://cssanimations01.web.app/",
+            },
+            {
+              name: "amazing-clone01.web.app",
+              url: "https://amazing-clone01.web.app/",
+            },
+            {
+              name: "githuburdu.netlify.app",
+              url: "https://githuburdu.netlify.app/",
+            },
+            {
+              name: "mypolice.netlify.app",
+              url: "https://mypolice.netlify.app/",
+            },
+            {
+              name: "mzohaib13d.github.io/cssurdu",
+              url: "https://mzohaib13d.github.io/cssurdu/",
+            },
+            {
+              name: "foodiesbootstrap.web.app",
+              url: "https://foodiesbootstrap.web.app/",
+            },
+          ].map((project, index) => (
+            <motion.a
+              key={index}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{
+                scale: 1.05,
               }}
-              style={{
-                textAlign: 'center'
-              }}
+              whileTap={{ scale: 0.95 }}
+              className="project-link"
             >
-              <motion.img 
-                src={zohaibImage} 
-                alt="Zohaib"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{
-                  width: '200px',
-                  height: '200px',
-                  borderRadius: '50%',
-                  border: '4px solid white',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
-                  objectFit: 'cover'
-                }}
-              />
-              <motion.h3 
-                style={{ 
-                  marginTop: '15px',
-                  color: 'white',
-                  fontSize: '20px'
-                }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
-              >
-                زوہیب
-              </motion.h3>
-            </motion.div>
-
-            {/* Urdu Praise Text */}
-            <motion.div
-              initial={{ x: 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.7 }}
-            >
-              <motion.h2 
-                className="urdu-heading"
-                style={{ color: 'white', textAlign: 'right', marginBottom: '20px' }}
-              >
-                میری مہارتیں
-              </motion.h2>
-              
-              <motion.p 
-                className="urdu-text"
-                style={{
-                  color: 'white',
-                  fontSize: '18px',
-                  lineHeight: '2',
-                  textAlign: 'right',
-                  marginBottom: '15px'
-                }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.9 }}
-              >
-                میں <strong>ایچ ٹی ایم ایل</strong>، <strong>سی ایس ایس</strong>، <strong>جاوا اسکرپٹ</strong> اور <strong>مرن اسٹیک</strong> میں مہارت رکھتا ہوں۔
-              </motion.p>
-
-              <motion.p 
-                className="urdu-text"
-                style={{
-                  color: 'white',
-                  fontSize: '18px',
-                  lineHeight: '2',
-                  textAlign: 'right',
-                  marginBottom: '25px'
-                }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.1 }}
-              >
-                میری <strong>ویب اینیمیشنز</strong> میں مہارت اس بات کا منہ بولتہ ثبوت ہے میرے بنائے پراجیکٹس کی مثالیں پیش خدمت ہیں۔
-              </motion.p>
-
-              {/* Project Links */}
-              <motion.div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(2, 1fr)',
-                  gap: '15px',
-                  marginTop: '20px'
-                }}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 1.3 }}
-              >
-                {[
-                  { name: 'https://cssanimations01.web.app', url: 'https://cssanimations01.web.app/' },
-                  { name: 'https://amazing-clone01.web.app', url: 'https://amazing-clone01.web.app/' },
-                  { name: 'https://githuburdu.netlify.app', url: 'https://githuburdu.netlify.app/' },
-                  { name: 'https://mypolice.netlify.app', url: 'https://mypolice.netlify.app/' },
-                  { name: 'https://mzohaib13d.github.io/cssurdu', url: 'https://mzohaib13d.github.io/cssurdu/' },
-                  { name: 'https://foodiesbootstrap.web.app', url: 'https://foodiesbootstrap.web.app/' }
-                ].map((project, index) => (
-                  <motion.a
-                    key={index}
-                    href={project.url}
-                    whileHover={{ 
-                      scale: 1.05,
-                      backgroundColor: 'rgba(255,255,255,0.2)'
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    style={{
-                      display: 'block',
-                      padding: '12px 20px',
-                      background: 'rgba(255,255,255,0.1)',
-                      borderRadius: '10px',
-                      textAlign: 'center',
-                      color: 'white',
-                      textDecoration: 'none',
-                      backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(255,255,255,0.2)',
-                      fontSize: '14px',
-                      fontWeight: '600'
-                    }}
-                  >
-                    {project.name}
-                  </motion.a>
-                ))}
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
+              {project.name}
+            </motion.a>
+          ))}
+        </motion.div>
+      </motion.div>
+    </div>
+  </div>
+</motion.section>
 
       {/* Comparison Table Section */}
       <motion.section 
@@ -328,12 +391,50 @@ const CssShadcn = () => {
           <motion.h2 
             className="section-title urdu-heading"
             variants={itemVariants}
+            style={{
+              wordSpacing: '0.6rem',
+              letterSpacing: '0.05em',
+              '@media (max-width: 430px)': {
+                fontSize: '1.5rem',
+                wordSpacing: '0.3rem',
+                letterSpacing: '0.03em',
+                padding: '0 10px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '1.4rem',
+                wordSpacing: '0.25rem'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '1.3rem',
+                wordSpacing: '0.2rem'
+              }
+            }}
           >
             دیگر UI لائبریریز کے مقابلے میں shadcn/ui کے فوائد
           </motion.h2>
           <motion.p 
             className="urdu-text" 
-            style={{textAlign: 'center', marginBottom: '20px'}}
+            style={{
+              textAlign: 'center', 
+              marginBottom: '20px',
+              wordSpacing: '0.5rem',
+              letterSpacing: '0.03em',
+              lineHeight: '2',
+              '@media (max-width: 430px)': {
+                fontSize: '0.95rem',
+                wordSpacing: '0.25rem',
+                lineHeight: '1.8',
+                padding: '0 10px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '0.9rem',
+                wordSpacing: '0.2rem'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '0.85rem',
+                wordSpacing: '0.15rem'
+              }
+            }}
             variants={itemVariants}
           >
             ذیل کے جدول میں shadcn/ui کے Ant Design اور Material UI (MUI) کے مقابلے میں اہم فوائد دیکھ سکتے ہیں۔
@@ -396,6 +497,24 @@ const CssShadcn = () => {
           <motion.h2 
             className="section-title urdu-heading"
             variants={itemVariants}
+            style={{
+              wordSpacing: '0.6rem',
+              letterSpacing: '0.05em',
+              '@media (max-width: 430px)': {
+                fontSize: '1.5rem',
+                wordSpacing: '0.3rem',
+                letterSpacing: '0.03em',
+                padding: '0 10px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '1.4rem',
+                wordSpacing: '0.25rem'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '1.3rem',
+                wordSpacing: '0.2rem'
+              }
+            }}
           >
             سر علی آفتاب شیخ کا بتایا ہوا طریقہ
           </motion.h2>
@@ -404,12 +523,44 @@ const CssShadcn = () => {
             <motion.div 
               className="step-card"
               variants={itemVariants}
+              style={{
+                '@media (max-width: 430px)': {
+                  padding: '15px',
+                  margin: '10px'
+                },
+                '@media (max-width: 390px)': {
+                  padding: '12px',
+                  margin: '8px'
+                },
+                '@media (max-width: 375px)': {
+                  padding: '10px',
+                  margin: '6px'
+                }
+              }}
             >
               <div className="step-number">1</div>
               <div className="step-content">
                 <motion.h3 
                   className="urdu-text-left"
                   variants={itemVariants}
+                  style={{
+                    wordSpacing: '0.5rem',
+                    letterSpacing: '0.03em',
+                    lineHeight: '2',
+                    '@media (max-width: 430px)': {
+                      fontSize: '1.2rem',
+                      wordSpacing: '0.25rem',
+                      lineHeight: '1.8'
+                    },
+                    '@media (max-width: 390px)': {
+                      fontSize: '1.1rem',
+                      wordSpacing: '0.2rem'
+                    },
+                    '@media (max-width: 375px)': {
+                      fontSize: '1rem',
+                      wordSpacing: '0.15rem'
+                    }
+                  }}
                 >
                   jsconfig.json بنائیں
                 </motion.h3>
@@ -433,12 +584,32 @@ const CssShadcn = () => {
                       variants={buttonVariants}
                       whileHover="hover"
                       whileTap="tap"
+                      style={{
+                        '@media (max-width: 430px)': {
+                          padding: '6px 10px',
+                          fontSize: '11px'
+                        },
+                        '@media (max-width: 390px)': {
+                          padding: '5px 8px',
+                          fontSize: '10px'
+                        }
+                      }}
                     >
                       Copy Code
                     </motion.button>
                   </div>
                   <div className="code-block-wrapper">
-                    <pre className="english-code">
+                    <pre className="english-code" style={{
+                      '@media (max-width: 430px)': {
+                        fontSize: '11px'
+                      },
+                      '@media (max-width: 390px)': {
+                        fontSize: '10px'
+                      },
+                      '@media (max-width: 375px)': {
+                        fontSize: '9px'
+                      }
+                    }}>
 {`{
   "compilerOptions": {
     "baseUrl": ".",
@@ -450,7 +621,11 @@ const CssShadcn = () => {
                     </pre>
                   </div>
                   <div className="code-scroll-notice-parent">
-                    <div className="code-scroll-notice">
+                    <div className="code-scroll-notice" style={{
+                      '@media (max-width: 430px)': {
+                        fontSize: '10px'
+                      }
+                    }}>
                       ← → Scroll to view complete code
                     </div>
                   </div>
@@ -461,12 +636,44 @@ const CssShadcn = () => {
             <motion.div 
               className="step-card"
               variants={itemVariants}
+              style={{
+                '@media (max-width: 430px)': {
+                  padding: '15px',
+                  margin: '10px'
+                },
+                '@media (max-width: 390px)': {
+                  padding: '12px',
+                  margin: '8px'
+                },
+                '@media (max-width: 375px)': {
+                  padding: '10px',
+                  margin: '6px'
+                }
+              }}
             >
               <div className="step-number">2</div>
               <div className="step-content">
                 <motion.h3 
                   className="urdu-text-left"
                   variants={itemVariants}
+                  style={{
+                    wordSpacing: '0.5rem',
+                    letterSpacing: '0.03em',
+                    lineHeight: '2',
+                    '@media (max-width: 430px)': {
+                      fontSize: '1.2rem',
+                      wordSpacing: '0.25rem',
+                      lineHeight: '1.8'
+                    },
+                    '@media (max-width: 390px)': {
+                      fontSize: '1.1rem',
+                      wordSpacing: '0.2rem'
+                    },
+                    '@media (max-width: 375px)': {
+                      fontSize: '1rem',
+                      wordSpacing: '0.15rem'
+                    }
+                  }}
                 >
                   vite.config.js میں path alias شامل کریں
                 </motion.h3>
@@ -494,12 +701,32 @@ export default defineConfig({
                       variants={buttonVariants}
                       whileHover="hover"
                       whileTap="tap"
+                      style={{
+                        '@media (max-width: 430px)': {
+                          padding: '6px 10px',
+                          fontSize: '11px'
+                        },
+                        '@media (max-width: 390px)': {
+                          padding: '5px 8px',
+                          fontSize: '10px'
+                        }
+                      }}
                     >
                       Copy Code
                     </motion.button>
                   </div>
                   <div className="code-block-wrapper">
-                    <pre className="english-code">
+                    <pre className="english-code" style={{
+                      '@media (max-width: 430px)': {
+                        fontSize: '11px'
+                      },
+                      '@media (max-width: 390px)': {
+                        fontSize: '10px'
+                      },
+                      '@media (max-width: 375px)': {
+                        fontSize: '9px'
+                      }
+                    }}>
 {`import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
@@ -515,7 +742,11 @@ export default defineConfig({
                     </pre>
                   </div>
                   <div className="code-scroll-notice-parent">
-                    <div className="code-scroll-notice">
+                    <div className="code-scroll-notice" style={{
+                      '@media (max-width: 430px)': {
+                        fontSize: '10px'
+                      }
+                    }}>
                       ← → Scroll to view complete code
                     </div>
                   </div>
@@ -526,12 +757,44 @@ export default defineConfig({
             <motion.div 
               className="step-card"
               variants={itemVariants}
+              style={{
+                '@media (max-width: 430px)': {
+                  padding: '15px',
+                  margin: '10px'
+                },
+                '@media (max-width: 390px)': {
+                  padding: '12px',
+                  margin: '8px'
+                },
+                '@media (max-width: 375px)': {
+                  padding: '10px',
+                  margin: '6px'
+                }
+              }}
             >
               <div className="step-number">3</div>
               <div className="step-content">
                 <motion.h3 
                   className="urdu-text-left"
                   variants={itemVariants}
+                  style={{
+                    wordSpacing: '0.5rem',
+                    letterSpacing: '0.03em',
+                    lineHeight: '2',
+                    '@media (max-width: 430px)': {
+                      fontSize: '1.2rem',
+                      wordSpacing: '0.25rem',
+                      lineHeight: '1.8'
+                    },
+                    '@media (max-width: 390px)': {
+                      fontSize: '1.1rem',
+                      wordSpacing: '0.2rem'
+                    },
+                    '@media (max-width: 375px)': {
+                      fontSize: '1rem',
+                      wordSpacing: '0.15rem'
+                    }
+                  }}
                 >
                   shadcn/ui initialization
                 </motion.h3>
@@ -547,12 +810,32 @@ export default defineConfig({
                       variants={buttonVariants}
                       whileHover="hover"
                       whileTap="tap"
+                      style={{
+                        '@media (max-width: 430px)': {
+                          padding: '6px 10px',
+                          fontSize: '11px'
+                        },
+                        '@media (max-width: 390px)': {
+                          padding: '5px 8px',
+                          fontSize: '10px'
+                        }
+                      }}
                     >
                       Copy Code
                     </motion.button>
                   </div>
                   <div className="code-block-wrapper">
-                    <pre className="english-code">
+                    <pre className="english-code" style={{
+                      '@media (max-width: 430px)': {
+                        fontSize: '11px'
+                      },
+                      '@media (max-width: 390px)': {
+                        fontSize: '10px'
+                      },
+                      '@media (max-width: 375px)': {
+                        fontSize: '9px'
+                      }
+                    }}>
 {`npx shadcn@latest init`}
                     </pre>
                   </div>
@@ -560,6 +843,26 @@ export default defineConfig({
                 <motion.div 
                   className="info-box urdu-text-left success-box"
                   variants={itemVariants}
+                  style={{
+                    wordSpacing: '0.5rem',
+                    letterSpacing: '0.03em',
+                    lineHeight: '2',
+                    '@media (max-width: 430px)': {
+                      fontSize: '0.85rem',
+                      padding: '12px',
+                      wordSpacing: '0.25rem'
+                    },
+                    '@media (max-width: 390px)': {
+                      fontSize: '0.8rem',
+                      padding: '10px',
+                      wordSpacing: '0.2rem'
+                    },
+                    '@media (max-width: 375px)': {
+                      fontSize: '0.75rem',
+                      padding: '8px',
+                      wordSpacing: '0.15rem'
+                    }
+                  }}
                 >
                   <strong>انتخابات:</strong><br/>
                   - Would you like to use TypeScript? » No<br/>
@@ -587,12 +890,50 @@ export default defineConfig({
           <motion.h2 
             className="section-title urdu-heading"
             variants={itemVariants}
+            style={{
+              wordSpacing: '0.6rem',
+              letterSpacing: '0.05em',
+              '@media (max-width: 430px)': {
+                fontSize: '1.5rem',
+                wordSpacing: '0.3rem',
+                letterSpacing: '0.03em',
+                padding: '0 10px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '1.4rem',
+                wordSpacing: '0.25rem'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '1.3rem',
+                wordSpacing: '0.2rem'
+              }
+            }}
           >
             مکمل فائل ڈھانچہ
           </motion.h2>
           <motion.p 
             className="urdu-text" 
-            style={{textAlign: 'center', marginBottom: '20px'}}
+            style={{
+              textAlign: 'center', 
+              marginBottom: '20px',
+              wordSpacing: '0.5rem',
+              letterSpacing: '0.03em',
+              lineHeight: '2',
+              '@media (max-width: 430px)': {
+                fontSize: '0.95rem',
+                wordSpacing: '0.25rem',
+                lineHeight: '1.8',
+                padding: '0 10px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '0.9rem',
+                wordSpacing: '0.2rem'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '0.85rem',
+                wordSpacing: '0.15rem'
+              }
+            }}
             variants={itemVariants}
           >
             آپ کا پروجیکٹ اس طرح دکھائی دینا چاہیے:
@@ -624,12 +965,35 @@ export default defineConfig({
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
+                style={{
+                  '@media (max-width: 430px)': {
+                    padding: '6px 10px',
+                    fontSize: '11px'
+                  },
+                  '@media (max-width: 390px)': {
+                    padding: '5px 8px',
+                    fontSize: '10px'
+                  }
+                }}
               >
                 Copy Structure
               </motion.button>
             </div>
             <div className="code-block-wrapper">
-              <pre className="english-code" style={{fontFamily: 'monospace', fontSize: '14px', lineHeight: '1.4'}}>
+              <pre className="english-code" style={{
+                fontFamily: 'monospace', 
+                fontSize: '14px', 
+                lineHeight: '1.4',
+                '@media (max-width: 430px)': {
+                  fontSize: '11px'
+                },
+                '@media (max-width: 390px)': {
+                  fontSize: '10px'
+                },
+                '@media (max-width: 375px)': {
+                  fontSize: '9px'
+                }
+              }}>
 {`my-shadcn-app/
 ├── node_modules/
 ├── src/
@@ -647,7 +1011,11 @@ export default defineConfig({
               </pre>
             </div>
             <div className="code-scroll-notice-parent">
-              <div className="code-scroll-notice">
+              <div className="code-scroll-notice" style={{
+                '@media (max-width: 430px)': {
+                  fontSize: '10px'
+                }
+              }}>
                 ← → Scroll to view complete structure
               </div>
             </div>
@@ -660,7 +1028,25 @@ export default defineConfig({
           >
             <motion.h3 
               className="urdu-text" 
-              style={{textAlign: 'center', marginBottom: '15px'}}
+              style={{
+                textAlign: 'center', 
+                marginBottom: '15px',
+                wordSpacing: '0.5rem',
+                letterSpacing: '0.03em',
+                lineHeight: '2',
+                '@media (max-width: 430px)': {
+                  fontSize: '1.2rem',
+                  wordSpacing: '0.25rem'
+                },
+                '@media (max-width: 390px)': {
+                  fontSize: '1.1rem',
+                  wordSpacing: '0.2rem'
+                },
+                '@media (max-width: 375px)': {
+                  fontSize: '1rem',
+                  wordSpacing: '0.15rem'
+                }
+              }}
               variants={itemVariants}
             >
               فائل کی تفصیلات
@@ -670,7 +1056,11 @@ export default defineConfig({
               variants={itemVariants}
             >
               <div className="code-scroll-notice-parent">
-                <div className="code-scroll-notice">
+                <div className="code-scroll-notice" style={{
+                  '@media (max-width: 430px)': {
+                    fontSize: '10px'
+                  }
+                }}>
                   ← → Scroll horizontally to view complete table
                 </div>
               </div>
@@ -754,6 +1144,24 @@ export default defineConfig({
           <motion.h2 
             className="section-title urdu-heading"
             variants={itemVariants}
+            style={{
+              wordSpacing: '0.6rem',
+              letterSpacing: '0.05em',
+              '@media (max-width: 430px)': {
+                fontSize: '1.5rem',
+                wordSpacing: '0.3rem',
+                letterSpacing: '0.03em',
+                padding: '0 10px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '1.4rem',
+                wordSpacing: '0.25rem'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '1.3rem',
+                wordSpacing: '0.2rem'
+              }
+            }}
           >
             مکمل انسٹالیشن گائیڈ
           </motion.h2>
@@ -761,12 +1169,44 @@ export default defineConfig({
           <motion.div 
             className="step-card"
             variants={itemVariants}
+            style={{
+              '@media (max-width: 430px)': {
+                padding: '15px',
+                margin: '10px'
+              },
+              '@media (max-width: 390px)': {
+                padding: '12px',
+                margin: '8px'
+              },
+              '@media (max-width: 375px)': {
+                padding: '10px',
+                margin: '6px'
+              }
+            }}
           >
             <div className="step-number">1</div>
             <div className="step-content">
               <motion.h3 
                 className="urdu-text-left"
                 variants={itemVariants}
+                style={{
+                  wordSpacing: '0.5rem',
+                  letterSpacing: '0.03em',
+                  lineHeight: '2',
+                  '@media (max-width: 430px)': {
+                    fontSize: '1.2rem',
+                    wordSpacing: '0.25rem',
+                    lineHeight: '1.8'
+                  },
+                  '@media (max-width: 390px)': {
+                    fontSize: '1.1rem',
+                    wordSpacing: '0.2rem'
+                  },
+                  '@media (max-width: 375px)': {
+                    fontSize: '1rem',
+                    wordSpacing: '0.15rem'
+                  }
+                }}
               >
                 نیا Vite پراجیکٹ بنائیں
               </motion.h3>
@@ -785,19 +1225,43 @@ npm install`, 'step1')}
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
+                    style={{
+                      '@media (max-width: 430px)': {
+                        padding: '6px 10px',
+                        fontSize: '11px'
+                      },
+                      '@media (max-width: 390px)': {
+                        padding: '5px 8px',
+                        fontSize: '10px'
+                      }
+                    }}
                     >
                     Copy Code
                   </motion.button>
                 </div>
                 <div className="code-block-wrapper">
-                  <pre className="english-code">
+                  <pre className="english-code" style={{
+                    '@media (max-width: 430px)': {
+                      fontSize: '11px'
+                    },
+                    '@media (max-width: 390px)': {
+                      fontSize: '10px'
+                    },
+                    '@media (max-width: 375px)': {
+                      fontSize: '9px'
+                    }
+                  }}>
 {`npm create vite@latest my-shadcn-app -- --template react
 cd my-shadcn-app
 npm install`}
                   </pre>
                 </div>
                 <div className="code-scroll-notice-parent">
-                  <div className="code-scroll-notice">
+                  <div className="code-scroll-notice" style={{
+                    '@media (max-width: 430px)': {
+                      fontSize: '10px'
+                    }
+                  }}>
                     ← → Scroll to view complete code
                   </div>
                 </div>
@@ -808,12 +1272,44 @@ npm install`}
           <motion.div 
             className="step-card"
             variants={itemVariants}
+            style={{
+              '@media (max-width: 430px)': {
+                padding: '15px',
+                margin: '10px'
+              },
+              '@media (max-width: 390px)': {
+                padding: '12px',
+                margin: '8px'
+              },
+              '@media (max-width: 375px)': {
+                padding: '10px',
+                margin: '6px'
+              }
+            }}
           >
             <div className="step-number">2</div>
             <div className="step-content">
               <motion.h3 
                 className="urdu-text-left"
                 variants={itemVariants}
+                style={{
+                  wordSpacing: '0.5rem',
+                  letterSpacing: '0.03em',
+                  lineHeight: '2',
+                  '@media (max-width: 430px)': {
+                    fontSize: '1.2rem',
+                    wordSpacing: '0.25rem',
+                    lineHeight: '1.8'
+                  },
+                  '@media (max-width: 390px)': {
+                    fontSize: '1.1rem',
+                    wordSpacing: '0.2rem'
+                  },
+                  '@media (max-width: 375px)': {
+                    fontSize: '1rem',
+                    wordSpacing: '0.15rem'
+                  }
+                }}
               >
                 Tailwind CSS انسٹال اور کنفیگر کریں
               </motion.h3>
@@ -831,18 +1327,42 @@ npx tailwindcss init -p`, 'step2')}
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
+                    style={{
+                      '@media (max-width: 430px)': {
+                        padding: '6px 10px',
+                        fontSize: '11px'
+                      },
+                      '@media (max-width: 390px)': {
+                        padding: '5px 8px',
+                        fontSize: '10px'
+                      }
+                    }}
                     >
                     Copy Code
                   </motion.button>
                 </div>
                 <div className="code-block-wrapper">
-                  <pre className="english-code">
+                  <pre className="english-code" style={{
+                    '@media (max-width: 430px)': {
+                      fontSize: '11px'
+                    },
+                    '@media (max-width: 390px)': {
+                      fontSize: '10px'
+                    },
+                    '@media (max-width: 375px)': {
+                      fontSize: '9px'
+                    }
+                  }}>
 {`npm install -D tailwindcss postcss autoprefixer @tailwindcss/vite
 npx tailwindcss init -p`}
                   </pre>
                 </div>
                 <div className="code-scroll-notice-parent">
-                  <div className="code-scroll-notice">
+                  <div className="code-scroll-notice" style={{
+                    '@media (max-width: 430px)': {
+                      fontSize: '10px'
+                    }
+                  }}>
                     ← → Scroll to view complete code
                   </div>
                 </div>
@@ -855,6 +1375,19 @@ npx tailwindcss init -p`}
                 <motion.h4 
                   className="urdu-text-left"
                   variants={itemVariants}
+                  style={{
+                    wordSpacing: '0.5rem',
+                    letterSpacing: '0.03em',
+                    lineHeight: '2',
+                    '@media (max-width: 430px)': {
+                      fontSize: '1rem',
+                      wordSpacing: '0.25rem'
+                    },
+                    '@media (max-width: 390px)': {
+                      fontSize: '0.95rem',
+                      wordSpacing: '0.2rem'
+                    }
+                  }}
                 >
                   tailwind.config.js Configuration
                 </motion.h4>
@@ -881,12 +1414,32 @@ export default {
                       variants={buttonVariants}
                       whileHover="hover"
                       whileTap="tap"
+                      style={{
+                        '@media (max-width: 430px)': {
+                          padding: '6px 10px',
+                          fontSize: '11px'
+                        },
+                        '@media (max-width: 390px)': {
+                          padding: '5px 8px',
+                          fontSize: '10px'
+                        }
+                      }}
                     >
                       Copy Code
                     </motion.button>
                   </div>
                   <div className="code-block-wrapper">
-                    <pre className="english-code">
+                    <pre className="english-code" style={{
+                      '@media (max-width: 430px)': {
+                        fontSize: '11px'
+                      },
+                      '@media (max-width: 390px)': {
+                        fontSize: '10px'
+                      },
+                      '@media (max-width: 375px)': {
+                        fontSize: '9px'
+                      }
+                    }}>
 {`/** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -901,7 +1454,11 @@ export default {
                     </pre>
                   </div>
                   <div className="code-scroll-notice-parent">
-                    <div className="code-scroll-notice">
+                    <div className="code-scroll-notice" style={{
+                      '@media (max-width: 430px)': {
+                        fontSize: '10px'
+                      }
+                    }}>
                       ← → Scroll to view complete code
                     </div>
                   </div>
@@ -913,12 +1470,44 @@ export default {
           <motion.div 
             className="step-card"
             variants={itemVariants}
+            style={{
+              '@media (max-width: 430px)': {
+                padding: '15px',
+                margin: '10px'
+              },
+              '@media (max-width: 390px)': {
+                padding: '12px',
+                margin: '8px'
+              },
+              '@media (max-width: 375px)': {
+                padding: '10px',
+                margin: '6px'
+              }
+            }}
           >
             <div className="step-number">3</div>
             <div className="step-content">
               <motion.h3 
                 className="urdu-text-left"
                 variants={itemVariants}
+                style={{
+                  wordSpacing: '0.5rem',
+                  letterSpacing: '0.03em',
+                  lineHeight: '2',
+                  '@media (max-width: 430px)': {
+                    fontSize: '1.2rem',
+                    wordSpacing: '0.25rem',
+                    lineHeight: '1.8'
+                  },
+                  '@media (max-width: 390px)': {
+                    fontSize: '1.1rem',
+                    wordSpacing: '0.2rem'
+                  },
+                  '@media (max-width: 375px)': {
+                    fontSize: '1rem',
+                    wordSpacing: '0.15rem'
+                  }
+                }}
               >
                 index.css فائل اپ ڈیٹ کریں
               </motion.h3>
@@ -935,12 +1524,32 @@ export default {
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
+                    style={{
+                      '@media (max-width: 430px)': {
+                        padding: '6px 10px',
+                        fontSize: '11px'
+                      },
+                      '@media (max-width: 390px)': {
+                        padding: '5px 8px',
+                        fontSize: '10px'
+                      }
+                    }}
                   >
                     Copy Code
                   </motion.button>
                 </div>
                 <div className="code-block-wrapper">
-                  <pre className="english-code">
+                  <pre className="english-code" style={{
+                    '@media (max-width: 430px)': {
+                      fontSize: '11px'
+                    },
+                    '@media (max-width: 390px)': {
+                      fontSize: '10px'
+                    },
+                    '@media (max-width: 375px)': {
+                      fontSize: '9px'
+                    }
+                  }}>
 {`@import "tailwindcss";`}
                   </pre>
                 </div>
@@ -960,6 +1569,24 @@ export default {
           <motion.h2 
             className="section-title urdu-heading"
             variants={itemVariants}
+            style={{
+              wordSpacing: '0.6rem',
+              letterSpacing: '0.05em',
+              '@media (max-width: 430px)': {
+                fontSize: '1.5rem',
+                wordSpacing: '0.3rem',
+                letterSpacing: '0.03em',
+                padding: '0 10px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '1.4rem',
+                wordSpacing: '0.25rem'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '1.3rem',
+                wordSpacing: '0.2rem'
+              }
+            }}
           >
             استعمال کی مثالیں
           </motion.h2>
@@ -967,12 +1594,44 @@ export default {
           <motion.div 
             className="step-card"
             variants={itemVariants}
+            style={{
+              '@media (max-width: 430px)': {
+                padding: '15px',
+                margin: '10px'
+              },
+              '@media (max-width: 390px)': {
+                padding: '12px',
+                margin: '8px'
+              },
+              '@media (max-width: 375px)': {
+                padding: '10px',
+                margin: '6px'
+              }
+            }}
           >
             <div className="step-number">1</div>
             <div className="step-content">
               <motion.h3 
                 className="urdu-text-left"
                 variants={itemVariants}
+                style={{
+                  wordSpacing: '0.5rem',
+                  letterSpacing: '0.03em',
+                  lineHeight: '2',
+                  '@media (max-width: 430px)': {
+                    fontSize: '1.2rem',
+                    wordSpacing: '0.25rem',
+                    lineHeight: '1.8'
+                  },
+                  '@media (max-width: 390px)': {
+                    fontSize: '1.1rem',
+                    wordSpacing: '0.2rem'
+                  },
+                  '@media (max-width: 375px)': {
+                    fontSize: '1rem',
+                    wordSpacing: '0.15rem'
+                  }
+                }}
               >
                 بٹن (Button) کمپوننٹ شامل کریں
               </motion.h3>
@@ -988,12 +1647,32 @@ export default {
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
+                    style={{
+                      '@media (max-width: 430px)': {
+                        padding: '6px 10px',
+                        fontSize: '11px'
+                      },
+                      '@media (max-width: 390px)': {
+                        padding: '5px 8px',
+                        fontSize: '10px'
+                      }
+                    }}
                   >
                     Copy Code
                   </motion.button>
                 </div>
                 <div className="code-block-wrapper">
-                  <pre className="english-code">
+                  <pre className="english-code" style={{
+                    '@media (max-width: 430px)': {
+                      fontSize: '11px'
+                    },
+                    '@media (max-width: 390px)': {
+                      fontSize: '10px'
+                    },
+                    '@media (max-width: 375px)': {
+                      fontSize: '9px'
+                    }
+                  }}>
 {`npx shadcn@latest add button`}
                   </pre>
                 </div>
@@ -1023,12 +1702,32 @@ export default App;`, 'button-usage')}
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
+                    style={{
+                      '@media (max-width: 430px)': {
+                        padding: '6px 10px',
+                        fontSize: '11px'
+                      },
+                      '@media (max-width: 390px)': {
+                        padding: '5px 8px',
+                        fontSize: '10px'
+                      }
+                    }}
                   >
                     Copy Code
                   </motion.button>
                 </div>
                 <div className="code-block-wrapper">
-                  <pre className="english-code">
+                  <pre className="english-code" style={{
+                    '@media (max-width: 430px)': {
+                      fontSize: '11px'
+                    },
+                    '@media (max-width: 390px)': {
+                      fontSize: '10px'
+                    },
+                    '@media (max-width: 375px)': {
+                      fontSize: '9px'
+                    }
+                  }}>
 {`import { Button } from '@/components/ui/button';
 
 function App() {
@@ -1044,7 +1743,11 @@ export default App;`}
                   </pre>
                 </div>
                 <div className="code-scroll-notice-parent">
-                  <div className="code-scroll-notice">
+                  <div className="code-scroll-notice" style={{
+                    '@media (max-width: 430px)': {
+                      fontSize: '10px'
+                    }
+                  }}>
                     ← → Scroll to view complete code
                   </div>
                 </div>
@@ -1055,12 +1758,44 @@ export default App;`}
           <motion.div 
             className="step-card"
             variants={itemVariants}
+            style={{
+              '@media (max-width: 430px)': {
+                padding: '15px',
+                margin: '10px'
+              },
+              '@media (max-width: 390px)': {
+                padding: '12px',
+                margin: '8px'
+              },
+              '@media (max-width: 375px)': {
+                padding: '10px',
+                margin: '6px'
+              }
+            }}
           >
             <div className="step-number">2</div>
             <div className="step-content">
               <motion.h3 
                 className="urdu-text-left"
                 variants={itemVariants}
+                style={{
+                  wordSpacing: '0.5rem',
+                  letterSpacing: '0.03em',
+                  lineHeight: '2',
+                  '@media (max-width: 430px)': {
+                    fontSize: '1.2rem',
+                    wordSpacing: '0.25rem',
+                    lineHeight: '1.8'
+                  },
+                  '@media (max-width: 390px)': {
+                    fontSize: '1.1rem',
+                    wordSpacing: '0.2rem'
+                  },
+                  '@media (max-width: 375px)': {
+                    fontSize: '1rem',
+                    wordSpacing: '0.15rem'
+                  }
+                }}
               >
                 Navigation Menu شامل کریں
               </motion.h3>
@@ -1076,12 +1811,32 @@ export default App;`}
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
+                    style={{
+                      '@media (max-width: 430px)': {
+                        padding: '6px 10px',
+                        fontSize: '11px'
+                      },
+                      '@media (max-width: 390px)': {
+                        padding: '5px 8px',
+                        fontSize: '10px'
+                      }
+                    }}
                   >
                     Copy Code
                   </motion.button>
                 </div>
                 <div className="code-block-wrapper">
-                  <pre className="english-code">
+                  <pre className="english-code" style={{
+                    '@media (max-width: 430px)': {
+                      fontSize: '11px'
+                    },
+                    '@media (max-width: 390px)': {
+                      fontSize: '10px'
+                    },
+                    '@media (max-width: 375px)': {
+                      fontSize: '9px'
+                    }
+                  }}>
 {`npx shadcn@latest add navigation-menu`}
                   </pre>
                 </div>
@@ -1102,6 +1857,24 @@ export default App;`}
           <motion.h2 
             className="section-title urdu-heading"
             variants={itemVariants}
+            style={{
+              wordSpacing: '0.6rem',
+              letterSpacing: '0.05em',
+              '@media (max-width: 430px)': {
+                fontSize: '1.5rem',
+                wordSpacing: '0.3rem',
+                letterSpacing: '0.03em',
+                padding: '0 10px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '1.4rem',
+                wordSpacing: '0.25rem'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '1.3rem',
+                wordSpacing: '0.2rem'
+              }
+            }}
           >
             This is live demo of Shadcn example
           </motion.h2>
@@ -1125,7 +1898,19 @@ export default App;`}
                 fontFamily: 'sans-serif',
                 fontWeight: '600',
                 boxShadow: '0 4px 12px rgba(0, 120, 255, 0.3)',
-                margin: '20px 0'
+                margin: '20px 0',
+                '@media (max-width: 430px)': {
+                  padding: '12px 20px',
+                  fontSize: '16px'
+                },
+                '@media (max-width: 390px)': {
+                  padding: '10px 18px',
+                  fontSize: '15px'
+                },
+                '@media (max-width: 375px)': {
+                  padding: '8px 15px',
+                  fontSize: '14px'
+                }
               }}
             >
               {showPortfolio ? '❌ Close Portfolio' : '🚀 Live Example - View Portfolio'}
@@ -1146,11 +1931,33 @@ export default App;`}
                   padding: '40px',
                   borderRadius: '15px',
                   marginTop: '20px',
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  '@media (max-width: 430px)': {
+                    padding: '25px 15px'
+                  },
+                  '@media (max-width: 390px)': {
+                    padding: '20px 12px'
+                  },
+                  '@media (max-width: 375px)': {
+                    padding: '15px 10px'
+                  }
                 }}
               >
                 <motion.h3 
-                  style={{color: 'white', marginBottom: '20px', fontSize: '24px'}}
+                  style={{
+                    color: 'white', 
+                    marginBottom: '20px', 
+                    fontSize: '24px',
+                    '@media (max-width: 430px)': {
+                      fontSize: '20px'
+                    },
+                    '@media (max-width: 390px)': {
+                      fontSize: '18px'
+                    },
+                    '@media (max-width: 375px)': {
+                      fontSize: '16px'
+                    }
+                  }}
                   variants={itemVariants}
                 >
                   🎨 My Portfolio - Built with shadcn/ui
@@ -1160,7 +1967,11 @@ export default App;`}
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
                   gap: '20px',
-                  marginBottom: '30px'
+                  marginBottom: '30px',
+                  '@media (max-width: 430px)': {
+                    gridTemplateColumns: '1fr',
+                    gap: '15px'
+                  }
                 }}>
                   <motion.div 
                     whileHover={{ scale: 1.05 }}
@@ -1168,11 +1979,14 @@ export default App;`}
                       background: 'rgba(255,255,255,0.1)',
                       padding: '20px',
                       borderRadius: '10px',
-                      backdropFilter: 'blur(10px)'
+                      backdropFilter: 'blur(10px)',
+                      '@media (max-width: 430px)': {
+                        padding: '15px'
+                      }
                     }}
                   >
-                    <h4 style={{color: '#ffd700', marginBottom: '10px'}}>✨ Beautiful Buttons</h4>
-                    <p>shadcn/ui کے خوبصورت بٹنز</p>
+                    <h4 style={{color: '#ffd700', marginBottom: '10px', fontSize: 'clamp(16px, 4vw, 18px)'}}>✨ Beautiful Buttons</h4>
+                    <p style={{fontSize: 'clamp(13px, 3vw, 14px)'}}>shadcn/ui کے خوبصورت بٹنز</p>
                   </motion.div>
                   
                   <motion.div 
@@ -1181,11 +1995,14 @@ export default App;`}
                       background: 'rgba(255,255,255,0.1)',
                       padding: '20px',
                       borderRadius: '10px',
-                      backdropFilter: 'blur(10px)'
+                      backdropFilter: 'blur(10px)',
+                      '@media (max-width: 430px)': {
+                        padding: '15px'
+                      }
                     }}
                   >
-                    <h4 style={{color: '#ffd700', marginBottom: '10px'}}>🎯 Responsive Design</h4>
-                    <p>ہر سکرین سائز پر کامل ڈسپلے</p>
+                    <h4 style={{color: '#ffd700', marginBottom: '10px', fontSize: 'clamp(16px, 4vw, 18px)'}}>🎯 Responsive Design</h4>
+                    <p style={{fontSize: 'clamp(13px, 3vw, 14px)'}}>ہر سکرین سائز پر کامل ڈسپلے</p>
                   </motion.div>
                   
                   <motion.div 
@@ -1194,11 +2011,14 @@ export default App;`}
                       background: 'rgba(255,255,255,0.1)',
                       padding: '20px',
                       borderRadius: '10px',
-                      backdropFilter: 'blur(10px)'
+                      backdropFilter: 'blur(10px)',
+                      '@media (max-width: 430px)': {
+                        padding: '15px'
+                      }
                     }}
                   >
-                    <h4 style={{color: '#ffd700', marginBottom: '10px'}}>⚡ Fast Performance</h4>
-                    <p>تیز رفتار اور optimized</p>
+                    <h4 style={{color: '#ffd700', marginBottom: '10px', fontSize: 'clamp(16px, 4vw, 18px)'}}>⚡ Fast Performance</h4>
+                    <p style={{fontSize: 'clamp(13px, 3vw, 14px)'}}>تیز رفتار اور optimized</p>
                   </motion.div>
                 </div>
 
@@ -1207,13 +2027,16 @@ export default App;`}
                     background: 'rgba(255,255,255,0.2)',
                     padding: '25px',
                     borderRadius: '10px',
-                    marginTop: '20px'
+                    marginTop: '20px',
+                    '@media (max-width: 430px)': {
+                      padding: '20px 15px'
+                    }
                   }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                 >
-                  <h4 style={{color: '#ffd700', marginBottom: '15px'}}>🚀 shadcn/ui Features Used</h4>
+                  <h4 style={{color: '#ffd700', marginBottom: '15px', fontSize: 'clamp(16px, 4vw, 18px)'}}>🚀 shadcn/ui Features Used</h4>
                   <div style={{
                     display: 'flex',
                     flexWrap: 'wrap',
@@ -1228,7 +2051,11 @@ export default App;`}
                           background: 'rgba(255,255,255,0.3)',
                           padding: '8px 15px',
                           borderRadius: '20px',
-                          fontSize: '14px'
+                          fontSize: 'clamp(12px, 2.5vw, 14px)',
+                          '@media (max-width: 430px)': {
+                            padding: '6px 12px',
+                            fontSize: '11px'
+                          }
                         }}
                       >
                         {feature}
@@ -1240,9 +2067,17 @@ export default App;`}
                 <motion.p 
                   style={{
                     marginTop: '20px',
-                    fontSize: '16px',
-                    lineHeight: '1.6',
-                    opacity: '0.9'
+                    fontSize: 'clamp(14px, 3vw, 16px)',
+                    lineHeight: '2.2',
+                    opacity: '0.9',
+                    wordSpacing: '0.5rem',
+                    letterSpacing: '0.03em',
+                    padding: '0 10px',
+                    '@media (max-width: 430px)': {
+                      fontSize: '13px',
+                      lineHeight: '1.8',
+                      wordSpacing: '0.25rem'
+                    }
                   }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -1265,20 +2100,62 @@ export default App;`}
           <motion.h2 
             className="section-title urdu-heading"
             variants={itemVariants}
+            style={{
+              wordSpacing: '0.6rem',
+              letterSpacing: '0.05em',
+              '@media (max-width: 430px)': {
+                fontSize: '1.5rem',
+                wordSpacing: '0.3rem',
+                letterSpacing: '0.03em',
+                padding: '0 10px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '1.4rem',
+                wordSpacing: '0.25rem'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '1.3rem',
+                wordSpacing: '0.2rem'
+              }
+            }}
           >
             خلاصہ
           </motion.h2>
           <div className="summary-content2">
             <motion.p 
               className="urdu-text" 
-              style={{color: '#fefefe', fontSize: '16px', lineHeight: '1.8'}}
+              style={{
+                color: '#fefefe', 
+                fontSize: 'clamp(14px, 3vw, 16px)',
+                lineHeight: '2.2',
+                wordSpacing: '0.5rem',
+                letterSpacing: '0.03em',
+                padding: '0 10px',
+                '@media (max-width: 430px)': {
+                  fontSize: '13px',
+                  lineHeight: '1.8',
+                  wordSpacing: '0.25rem'
+                }
+              }}
               variants={itemVariants}
             >
               <strong>shadcn/ui</strong> ایک جدید اور طاقتور UI حل ہے جو آپ کو مکمل کنٹرول دیتا ہے۔ یہ Ant Design اور Material UI جیسی لائبریریوں کے مقابلے میں زیادہ لچکدار اور کارکردگی والا حل پیش کرتا ہے۔
             </motion.p>
             <motion.p 
               className="urdu-text" 
-              style={{color: '#fefefe', fontSize: '16px', lineHeight: '1.6'}}
+              style={{
+                color: '#fefefe', 
+                fontSize: 'clamp(14px, 3vw, 16px)',
+                lineHeight: '2.2',
+                wordSpacing: '0.5rem',
+                letterSpacing: '0.03em',
+                padding: '0 10px',
+                '@media (max-width: 430px)': {
+                  fontSize: '13px',
+                  lineHeight: '1.8',
+                  wordSpacing: '0.25rem'
+                }
+              }}
               variants={itemVariants}
             >
               اس گائیڈ میں آپ نے سیکھا کہ کس طرح React Vite ایپ میں shadcn/ui کو انسٹال کریں، کنفیگر کریں، اور استعمال کریں۔ اب آپ اپنی مرضی کے مطابق خوبصورت UI کمپوننٹس بنا سکتے ہیں۔
@@ -1295,12 +2172,38 @@ export default App;`}
           color: 'white',
           padding: '40px 0',
           textAlign: 'center',
-          marginTop: '50px'
+          marginTop: '50px',
+          '@media (max-width: 768px)': {
+            padding: '35px 0',
+            marginTop: '40px'
+          },
+          '@media (max-width: 430px)': {
+            padding: '30px 15px',
+            marginTop: '30px'
+          },
+          '@media (max-width: 390px)': {
+            padding: '25px 12px'
+          },
+          '@media (max-width: 375px)': {
+            padding: '20px 10px'
+          }
         }}
       >
         <div className="container">
           <motion.p 
-            style={{ marginBottom: '15px', fontSize: '16px' }}
+            style={{ 
+              marginBottom: '15px', 
+              fontSize: 'clamp(13px, 3vw, 16px)',
+              '@media (max-width: 430px)': {
+                fontSize: '14px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '13px'
+              },
+              '@media (max-width: 375px)': {
+                fontSize: '12px'
+              }
+            }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
@@ -1308,7 +2211,16 @@ export default App;`}
             ✨ Built with React & shadcn/ui
           </motion.p>
           <motion.p 
-            style={{ fontSize: '14px', opacity: '0.8' }}
+            style={{ 
+              fontSize: 'clamp(11px, 2.5vw, 14px)', 
+              opacity: '0.8',
+              '@media (max-width: 430px)': {
+                fontSize: '12px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '11px'
+              }
+            }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
@@ -1326,6 +2238,22 @@ export default App;`}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
+            style={{
+              fontSize: 'clamp(11px, 2.5vw, 13px)',
+              padding: 'clamp(6px, 2vw, 8px) clamp(10px, 3vw, 15px)',
+              bottom: 'clamp(5px, 2vw, 10px)',
+              right: 'clamp(5px, 2vw, 10px)',
+              '@media (max-width: 430px)': {
+                fontSize: '12px',
+                padding: '8px 15px',
+                bottom: '10px',
+                right: '10px'
+              },
+              '@media (max-width: 390px)': {
+                fontSize: '11px',
+                padding: '6px 12px'
+              }
+            }}
           >
             ✓ {copiedCode}  کاپی ہو گیا ہے!
           </motion.div>
