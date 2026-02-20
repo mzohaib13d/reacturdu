@@ -1480,7 +1480,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="benefits-section">
+                    <div className="benefits-section">
             <h4>🌟 دونوں کو ایک ہی چیپٹر میں کیوں؟</h4>
             <p>دونوں topics — Custom Hooks اور useReducer Hook — آپس میں قریب المعانی ہیں، کیونکہ دونوں کا تعلق state کو سمجھداری سے منیج کرنے سے ہے۔</p>
             <div className="highlight-text">
