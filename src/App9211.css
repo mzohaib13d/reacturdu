@@ -32,7 +32,7 @@
   color: white;
 }
 
-/* Comparison Table */
+/* Comparison Table two */
 .comparison-section {
   margin: 2rem 0;
 }
@@ -138,6 +138,22 @@
   right: 0;
 }
 
+/* Benefits Section two */
+.benefits-section {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.benefits-section h4 {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.benefits-section p {
+  color: white;
+  margin-bottom: 1rem;
+}
 
 .highlight-text {
   background: rgba(255,255,255,0.2);
@@ -174,4 +190,446 @@
   background: rgba(0,0,0,0.2);
   padding: 2px 6px;
   border-radius: 4px;
+}
+
+/* Concepts Section Styles */
+.concepts-section {
+  margin: 2rem 0;
+}
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 1.5rem;
+}
+
+.concept-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.concept-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-color: #0078ff;
+}
+
+.concept-card h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  text-align: center;
+  border-bottom: 2px solid #0078ff;
+  padding-bottom: 8px;
+}
+
+.concept-card p {
+  color: #555;
+  line-height: 1.7;
+  text-align: right;
+}
+
+/* Restaurant Demo Styles */
+.restaurant-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+}
+
+.menu-section h4,
+.order-section h4 {
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #0078ff;
+  padding-bottom: 8px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.menu-item {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.menu-item:hover {
+  transform: translateY(-3px);
+}
+
+.menu-item h5 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.menu-item p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.item-price {
+  color: #0078ff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.add-to-order-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.add-to-order-btn:hover {
+  background: #218838;
+}
+
+.order-section {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  height: fit-content;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.clear-order-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.empty-order {
+  text-align: center;
+  color: #666;
+  padding: 30px 15px;
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 10px;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.item-info h6 {
+  margin: 0 0 3px 0;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.item-info p {
+  margin: 0;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity-controls button {
+  background: #0078ff;
+  color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.item-total {
+  font-weight: bold;
+  color: #0078ff;
+  font-size: 0.9rem;
+}
+
+.remove-item-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.order-summary {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #dee2e6;
+}
+
+.discount-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.discount-section button {
+  background: #ffc107;
+  color: #212529;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.3s ease;
+}
+
+.discount-section button:hover {
+  background: #e0a800;
+}
+
+.total-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-section h5 {
+  margin: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.checkout-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Timer Styles */
+.timer-display {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  color: white;
+  margin: 20px 0;
+}
+
+.timer-display h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.timer-controls button {
+  background: #0078ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.timer-controls button:hover {
+  background: #005fcc;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design for Intro Section */
+@media (max-width: 768px) {
+  .intro-card {
+    padding: 1.5rem;
+  }
+  
+  .intro-title {
+    font-size: 1.5rem;
+  }
+  
+  .comparison-table {
+    display: block;
+  }
+  
+  .table-row {
+    display: block;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .table-cell {
+    display: block;
+    padding: 8px;
+    border-bottom: none;
+  }
+  
+  .table-row.header {
+    display: none;
+  }
+  
+  .table-cell:first-child {
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 5px;
+  }
+  
+  .parts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .restaurant-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .concept-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .order-item {
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+  
+  .quantity-controls {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 430px) {
+  .intro-card {
+    padding: 1rem;
+  }
+  
+  .intro-title {
+    font-size: 1.3rem;
+  }
+  
+  .timer-display h1 {
+    font-size: 2rem;
+  }
+  
+  .timer-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .timer-controls button {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .discount-section {
+    justify-content: center;
+  }
+  
+  .total-section {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 390px) {
+  .intro-card {
+    padding: 0.8rem;
+  }
+  
+  .intro-title {
+    font-size: 1.1rem;
+  }
+  
+  .timer-display h1 {
+    font-size: 1.8rem;
+  }
+  
+  .timer-controls button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .intro-card {
+    padding: 0.6rem;
+  }
+  
+  .intro-title {
+    font-size: 1rem;
+  }
+  
+  .timer-display h1 {
+    font-size: 1.6rem;
+  }
+  
+  .timer-controls button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .discount-section button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .total-section button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
 }
