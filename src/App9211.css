@@ -138,22 +138,6 @@
   right: 0;
 }
 
-/* Benefits Section */
-.benefits-section {
-  margin: 2rem 0;
-  text-align: center;
-}
-
-.benefits-section h4 {
-  color: white;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-}
-
-.benefits-section p {
-  color: white;
-  margin-bottom: 1rem;
-}
 
 .highlight-text {
   background: rgba(255,255,255,0.2);
