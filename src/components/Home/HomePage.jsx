@@ -267,7 +267,7 @@ const HomePage = () => {
             <div className="benefit-card">
               <div className="benefit-icon">💻</div>
               <h3 className="benefit-title">عملی پروجیکٹس</h3>
-              <p className="benefit-desc" style={ color: #1A2A8E }}>
+              <p className="benefit-desc">
                 18+ حقیقی پروجیکٹس جو آپ کو انڈسٹری کے لیے تیار کریں گے۔
               </p>
             </div>
