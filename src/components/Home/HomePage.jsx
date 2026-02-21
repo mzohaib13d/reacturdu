@@ -260,7 +260,7 @@ const HomePage = () => {
             <div className="benefit-card">
               <div className="benefit-icon">🗣️</div>
               <h3 className="benefit-title">مکمل اردو میں</h3>
-              <p className="benefit-desc" style={ color: #1A2A8E }}>
+              <p className="benefit-desc">
                 ہر چیز سادہ اردو میں وضاحت کے ساتھ۔ انگریزی کی ضرورت نہیں۔
               </p>
             </div>
@@ -274,14 +274,14 @@ const HomePage = () => {
             <div className="benefit-card">
               <div className="benefit-icon">📱</div>
               <h3 className="benefit-title">مفت اور ہمیشہ کے لیے</h3>
-              <p className="benefit-desc" style={ color: #1A2A8E }}>
+              <p className="benefit-desc">
                 مکمل طور پر مفت، کوئی چھپے ہوئے اخراجات نہیں۔
               </p>
             </div>
             <div className="benefit-card">
               <div className="benefit-icon">🔄</div>
               <h3 className="benefit-title">ہمیشہ اپ ڈیٹ</h3>
-              <p className="benefit-desc" style={ color: #1A2A8E }}>
+              <p className="benefit-desc">
                 نئے React features اور best practices کے ساتھ اپ ڈیٹ رہتا ہے۔
               </p>
             </div>
