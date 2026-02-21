@@ -1443,7 +1443,7 @@ export default function App() {
   return (
     <div className="chapter-container urdu-text">
       <div className="chapter-header">
-        <h1 className="chapter-title2 text-break">
+        <h1 className="chapter-title text-break">
           📚 چيپٹر نمبر 13 – Advanced Hooks: useReducer & Custom Hooks
         </h1>
         <p className="chapter-subtitle2 text-break">
@@ -1480,7 +1480,7 @@ export default function App() {
             </div>
           </div>
 
-                    <div className="benefits-section">
+                    <div className="benefits-section" style={ {backgroundColor: "#705CBB" }}>
             <h4>🌟 دونوں کو ایک ہی چیپٹر میں کیوں؟</h4>
             <p>دونوں topics — Custom Hooks اور useReducer Hook — آپس میں قریب المعانی ہیں، کیونکہ دونوں کا تعلق state کو سمجھداری سے منیج کرنے سے ہے۔</p>
             <div className="highlight-text">
